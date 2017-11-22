@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="/Users/apple/Documents/GitHub/REAndroidSDK/REAndroidSDK/build/intermediates/bundles/default/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.0"
+        sha1="a694a81a9e69f84242550841831263b742932b1e">
+        <dex dex="/Users/apple/Documents/GitHub/REAndroidSDK/app/build/intermediates/pre-dexed/debug/classes_99aad7024a7b4552200e3abe60ef52e3dfa5aa9d.jar" />
+    </item>
+
+</items>

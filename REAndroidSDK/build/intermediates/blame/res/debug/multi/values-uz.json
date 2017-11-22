@@ -1,0 +1,786 @@
+[
+    {
+        "outputFile": "/Users/apple/Documents/GitHub/REAndroidSDK/REAndroidSDK/build/intermediates/incremental/mergeDebugResources/merged.dir/values-uz/values-uz.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 105,
+                    "endColumn": 104,
+                    "endOffset": 205
+                },
+                "from": {
+                    "file": "/Users/apple/.android/build-cache/6596182529c8b7bc6e61e8817f7d2a4cfb188127/output/res/values-uz/values-uz.xml",
+                    "position": {
+                        "startLine": 2,
+                        "startColumn": 4,
+                        "startOffset": 55,
+                        "endColumn": 104,
+                        "endOffset": 155
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 3,
+                    "startColumn": 4,
+                    "startOffset": 210,
+                    "endColumn": 107,
+                    "endOffset": 313
+                },
+                "from": {
+                    "file": "/Users/apple/.android/build-cache/6596182529c8b7bc6e61e8817f7d2a4cfb188127/output/res/values-uz/values-uz.xml",
+                    "position": {
+                        "startLine": 3,
+                        "startColumn": 4,
+                        "startOffset": 160,
+                        "endColumn": 107,
+                        "endOffset": 263
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 4,
+                    "startColumn": 4,
+                    "startOffset": 318,
+                    "endColumn": 122,
+                    "endOffset": 436
+                },
+                "from": {
+                    "file": "/Users/apple/.android/build-cache/6596182529c8b7bc6e61e8817f7d2a4cfb188127/output/res/values-uz/values-uz.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 4,
+                        "startOffset": 268,
+                        "endColumn": 122,
+                        "endOffset": 386
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 5,
+                    "startColumn": 4,
+                    "startOffset": 441,
+                    "endColumn": 103,
+                    "endOffset": 540
+                },
+                "from": {
+                    "file": "/Users/apple/.android/build-cache/6596182529c8b7bc6e61e8817f7d2a4cfb188127/output/res/values-uz/values-uz.xml",
+                    "position": {
+                        "startLine": 5,
+                        "startColumn": 4,
+                        "startOffset": 391,
+                        "endColumn": 103,
+                        "endOffset": 490
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 6,
+                    "startColumn": 4,
+                    "startOffset": 545,
+                    "endColumn": 113,
+                    "endOffset": 654
+                },
+                "from": {
+                    "file": "/Users/apple/.android/build-cache/6596182529c8b7bc6e61e8817f7d2a4cfb188127/output/res/values-uz/values-uz.xml",
+                    "position": {
+                        "startLine": 6,
+                        "startColumn": 4,
+                        "startOffset": 495,
+                        "endColumn": 113,
+                        "endOffset": 604
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 7,
+                    "startColumn": 4,
+                    "startOffset": 659,
+                    "endColumn": 85,
+                    "endOffset": 740
+                },
+                "from": {
+                    "file": "/Users/apple/.android/build-cache/6596182529c8b7bc6e61e8817f7d2a4cfb188127/output/res/values-uz/values-uz.xml",
+                    "position": {
+                        "startLine": 7,
+                        "startColumn": 4,
+                        "startOffset": 609,
+                        "endColumn": 85,
+                        "endOffset": 690
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 8,
+                    "startColumn": 4,
+                    "startOffset": 745,
+                    "endColumn": 110,
+                    "endOffset": 851
+                },
+                "from": {
+                    "file": "/Users/apple/.android/build-cache/6596182529c8b7bc6e61e8817f7d2a4cfb188127/output/res/values-uz/values-uz.xml",
+                    "position": {
+                        "startLine": 8,
+                        "startColumn": 4,
+                        "startOffset": 695,
+                        "endColumn": 110,
+                        "endOffset": 801
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 9,
+                    "startColumn": 4,
+                    "startOffset": 856,
+                    "endColumn": 115,
+                    "endOffset": 967
+                },
+                "from": {
+                    "file": "/Users/apple/.android/build-cache/6596182529c8b7bc6e61e8817f7d2a4cfb188127/output/res/values-uz/values-uz.xml",
+                    "position": {
+                        "startLine": 9,
+                        "startColumn": 4,
+                        "startOffset": 806,
+                        "endColumn": 115,
+                        "endOffset": 917
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 10,
+                    "startColumn": 4,
+                    "startOffset": 972,
+                    "endColumn": 79,
+                    "endOffset": 1047
+                },
+                "from": {
+                    "file": "/Users/apple/.android/build-cache/6596182529c8b7bc6e61e8817f7d2a4cfb188127/output/res/values-uz/values-uz.xml",
+                    "position": {
+                        "startLine": 10,
+                        "startColumn": 4,
+                        "startOffset": 922,
+                        "endColumn": 79,
+                        "endOffset": 997
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 11,
+                    "startColumn": 4,
+                    "startOffset": 1052,
+                    "endColumn": 78,
+                    "endOffset": 1126
+                },
+                "from": {
+                    "file": "/Users/apple/.android/build-cache/6596182529c8b7bc6e61e8817f7d2a4cfb188127/output/res/values-uz/values-uz.xml",
+                    "position": {
+                        "startLine": 11,
+                        "startColumn": 4,
+                        "startOffset": 1002,
+                        "endColumn": 78,
+                        "endOffset": 1076
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 12,
+                    "startColumn": 4,
+                    "startOffset": 1131,
+                    "endColumn": 83,
+                    "endOffset": 1210
+                },
+                "from": {
+                    "file": "/Users/apple/.android/build-cache/6596182529c8b7bc6e61e8817f7d2a4cfb188127/output/res/values-uz/values-uz.xml",
+                    "position": {
+                        "startLine": 12,
+                        "startColumn": 4,
+                        "startOffset": 1081,
+                        "endColumn": 83,
+                        "endOffset": 1160
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 13,
+                    "startColumn": 4,
+                    "startOffset": 1215,
+                    "endColumn": 108,
+                    "endOffset": 1319
+                },
+                "from": {
+                    "file": "/Users/apple/.android/build-cache/6596182529c8b7bc6e61e8817f7d2a4cfb188127/output/res/values-uz/values-uz.xml",
+                    "position": {
+                        "startLine": 13,
+                        "startColumn": 4,
+                        "startOffset": 1165,
+                        "endColumn": 108,
+                        "endOffset": 1269
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 14,
+                    "startColumn": 4,
+                    "startOffset": 1324,
+                    "endColumn": 106,
+                    "endOffset": 1426
+                },
+                "from": {
+                    "file": "/Users/apple/.android/build-cache/6596182529c8b7bc6e61e8817f7d2a4cfb188127/output/res/values-uz/values-uz.xml",
+                    "position": {
+                        "startLine": 14,
+                        "startColumn": 4,
+                        "startOffset": 1274,
+                        "endColumn": 106,
+                        "endOffset": 1376
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 15,
+                    "startColumn": 4,
+                    "startOffset": 1431,
+                    "endColumn": 100,
+                    "endOffset": 1527
+                },
+                "from": {
+                    "file": "/Users/apple/.android/build-cache/6596182529c8b7bc6e61e8817f7d2a4cfb188127/output/res/values-uz/values-uz.xml",
+                    "position": {
+                        "startLine": 15,
+                        "startColumn": 4,
+                        "startOffset": 1381,
+                        "endColumn": 100,
+                        "endOffset": 1477
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 16,
+                    "startColumn": 4,
+                    "startOffset": 1532,
+                    "endColumn": 107,
+                    "endOffset": 1635
+                },
+                "from": {
+                    "file": "/Users/apple/.android/build-cache/6596182529c8b7bc6e61e8817f7d2a4cfb188127/output/res/values-uz/values-uz.xml",
+                    "position": {
+                        "startLine": 16,
+                        "startColumn": 4,
+                        "startOffset": 1482,
+                        "endColumn": 107,
+                        "endOffset": 1585
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 17,
+                    "startColumn": 4,
+                    "startOffset": 1640,
+                    "endColumn": 104,
+                    "endOffset": 1740
+                },
+                "from": {
+                    "file": "/Users/apple/.android/build-cache/6596182529c8b7bc6e61e8817f7d2a4cfb188127/output/res/values-uz/values-uz.xml",
+                    "position": {
+                        "startLine": 17,
+                        "startColumn": 4,
+                        "startOffset": 1590,
+                        "endColumn": 104,
+                        "endOffset": 1690
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 18,
+                    "startColumn": 4,
+                    "startOffset": 1745,
+                    "endColumn": 106,
+                    "endOffset": 1847
+                },
+                "from": {
+                    "file": "/Users/apple/.android/build-cache/6596182529c8b7bc6e61e8817f7d2a4cfb188127/output/res/values-uz/values-uz.xml",
+                    "position": {
+                        "startLine": 18,
+                        "startColumn": 4,
+                        "startOffset": 1695,
+                        "endColumn": 106,
+                        "endOffset": 1797
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 19,
+                    "startColumn": 4,
+                    "startOffset": 1852,
+                    "endColumn": 123,
+                    "endOffset": 1971
+                },
+                "from": {
+                    "file": "/Users/apple/.android/build-cache/6596182529c8b7bc6e61e8817f7d2a4cfb188127/output/res/values-uz/values-uz.xml",
+                    "position": {
+                        "startLine": 19,
+                        "startColumn": 4,
+                        "startOffset": 1802,
+                        "endColumn": 123,
+                        "endOffset": 1921
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 20,
+                    "startColumn": 4,
+                    "startOffset": 1976,
+                    "endColumn": 98,
+                    "endOffset": 2070
+                },
+                "from": {
+                    "file": "/Users/apple/.android/build-cache/6596182529c8b7bc6e61e8817f7d2a4cfb188127/output/res/values-uz/values-uz.xml",
+                    "position": {
+                        "startLine": 20,
+                        "startColumn": 4,
+                        "startOffset": 1926,
+                        "endColumn": 98,
+                        "endOffset": 2020
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 21,
+                    "startColumn": 4,
+                    "startOffset": 2075,
+                    "endColumn": 106,
+                    "endOffset": 2177
+                },
+                "from": {
+                    "file": "/Users/apple/.android/build-cache/75f304d8974eb1a3f123d7b82c9b02846fdfa173/output/res/values-uz/values.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 4,
+                        "startOffset": 329,
+                        "endColumn": 106,
+                        "endOffset": 431
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 22,
+                    "startColumn": 4,
+                    "startOffset": 2182,
+                    "endColumn": 181,
+                    "endOffset": 2359
+                },
+                "from": {
+                    "file": "/Users/apple/.android/build-cache/75f304d8974eb1a3f123d7b82c9b02846fdfa173/output/res/values-uz/values.xml",
+                    "position": {
+                        "startLine": 5,
+                        "startColumn": 4,
+                        "startOffset": 436,
+                        "endColumn": 181,
+                        "endOffset": 613
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 23,
+                    "startColumn": 4,
+                    "startOffset": 2364,
+                    "endColumn": 130,
+                    "endOffset": 2490
+                },
+                "from": {
+                    "file": "/Users/apple/.android/build-cache/75f304d8974eb1a3f123d7b82c9b02846fdfa173/output/res/values-uz/values.xml",
+                    "position": {
+                        "startLine": 6,
+                        "startColumn": 4,
+                        "startOffset": 618,
+                        "endColumn": 130,
+                        "endOffset": 744
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 24,
+                    "startColumn": 4,
+                    "startOffset": 2495,
+                    "endColumn": 135,
+                    "endOffset": 2626
+                },
+                "from": {
+                    "file": "/Users/apple/.android/build-cache/75f304d8974eb1a3f123d7b82c9b02846fdfa173/output/res/values-uz/values.xml",
+                    "position": {
+                        "startLine": 7,
+                        "startColumn": 4,
+                        "startOffset": 749,
+                        "endColumn": 135,
+                        "endOffset": 880
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 25,
+                    "startColumn": 4,
+                    "startOffset": 2631,
+                    "endColumn": 210,
+                    "endOffset": 2837
+                },
+                "from": {
+                    "file": "/Users/apple/.android/build-cache/75f304d8974eb1a3f123d7b82c9b02846fdfa173/output/res/values-uz/values.xml",
+                    "position": {
+                        "startLine": 8,
+                        "startColumn": 4,
+                        "startOffset": 885,
+                        "endColumn": 210,
+                        "endOffset": 1091
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 26,
+                    "startColumn": 4,
+                    "startOffset": 2842,
+                    "endColumn": 212,
+                    "endOffset": 3050
+                },
+                "from": {
+                    "file": "/Users/apple/.android/build-cache/75f304d8974eb1a3f123d7b82c9b02846fdfa173/output/res/values-uz/values.xml",
+                    "position": {
+                        "startLine": 9,
+                        "startColumn": 4,
+                        "startOffset": 1096,
+                        "endColumn": 212,
+                        "endOffset": 1304
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 27,
+                    "startColumn": 4,
+                    "startOffset": 3055,
+                    "endColumn": 134,
+                    "endOffset": 3185
+                },
+                "from": {
+                    "file": "/Users/apple/.android/build-cache/75f304d8974eb1a3f123d7b82c9b02846fdfa173/output/res/values-uz/values.xml",
+                    "position": {
+                        "startLine": 10,
+                        "startColumn": 4,
+                        "startOffset": 1309,
+                        "endColumn": 134,
+                        "endOffset": 1439
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 28,
+                    "startColumn": 4,
+                    "startOffset": 3190,
+                    "endColumn": 134,
+                    "endOffset": 3320
+                },
+                "from": {
+                    "file": "/Users/apple/.android/build-cache/75f304d8974eb1a3f123d7b82c9b02846fdfa173/output/res/values-uz/values.xml",
+                    "position": {
+                        "startLine": 11,
+                        "startColumn": 4,
+                        "startOffset": 1444,
+                        "endColumn": 134,
+                        "endOffset": 1574
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 29,
+                    "startColumn": 4,
+                    "startOffset": 3325,
+                    "endColumn": 280,
+                    "endOffset": 3601
+                },
+                "from": {
+                    "file": "/Users/apple/.android/build-cache/02e108a4119f6b625041ce8b4fcccea3b3e3b4ae/output/res/values-uz/values.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 4,
+                        "startOffset": 331,
+                        "endColumn": 280,
+                        "endOffset": 607
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 30,
+                    "startColumn": 4,
+                    "startOffset": 3606,
+                    "endColumn": 300,
+                    "endOffset": 3902
+                },
+                "from": {
+                    "file": "/Users/apple/.android/build-cache/75f304d8974eb1a3f123d7b82c9b02846fdfa173/output/res/values-uz/values.xml",
+                    "position": {
+                        "startLine": 12,
+                        "startColumn": 4,
+                        "startOffset": 1579,
+                        "endColumn": 300,
+                        "endOffset": 1875
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 31,
+                    "startColumn": 4,
+                    "startOffset": 3907,
+                    "endColumn": 125,
+                    "endOffset": 4028
+                },
+                "from": {
+                    "file": "/Users/apple/.android/build-cache/75f304d8974eb1a3f123d7b82c9b02846fdfa173/output/res/values-uz/values.xml",
+                    "position": {
+                        "startLine": 13,
+                        "startColumn": 4,
+                        "startOffset": 1880,
+                        "endColumn": 125,
+                        "endOffset": 2001
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 32,
+                    "startColumn": 4,
+                    "startOffset": 4033,
+                    "endColumn": 109,
+                    "endOffset": 4138
+                },
+                "from": {
+                    "file": "/Users/apple/.android/build-cache/75f304d8974eb1a3f123d7b82c9b02846fdfa173/output/res/values-uz/values.xml",
+                    "position": {
+                        "startLine": 14,
+                        "startColumn": 4,
+                        "startOffset": 2006,
+                        "endColumn": 109,
+                        "endOffset": 2111
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 33,
+                    "startColumn": 4,
+                    "startOffset": 4143,
+                    "endColumn": 189,
+                    "endOffset": 4328
+                },
+                "from": {
+                    "file": "/Users/apple/.android/build-cache/75f304d8974eb1a3f123d7b82c9b02846fdfa173/output/res/values-uz/values.xml",
+                    "position": {
+                        "startLine": 15,
+                        "startColumn": 4,
+                        "startOffset": 2116,
+                        "endColumn": 189,
+                        "endOffset": 2301
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 34,
+                    "startColumn": 4,
+                    "startOffset": 4333,
+                    "endColumn": 133,
+                    "endOffset": 4462
+                },
+                "from": {
+                    "file": "/Users/apple/.android/build-cache/75f304d8974eb1a3f123d7b82c9b02846fdfa173/output/res/values-uz/values.xml",
+                    "position": {
+                        "startLine": 16,
+                        "startColumn": 4,
+                        "startOffset": 2306,
+                        "endColumn": 133,
+                        "endOffset": 2435
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 35,
+                    "startColumn": 4,
+                    "startOffset": 4467,
+                    "endColumn": 212,
+                    "endOffset": 4675
+                },
+                "from": {
+                    "file": "/Users/apple/.android/build-cache/75f304d8974eb1a3f123d7b82c9b02846fdfa173/output/res/values-uz/values.xml",
+                    "position": {
+                        "startLine": 17,
+                        "startColumn": 4,
+                        "startOffset": 2440,
+                        "endColumn": 212,
+                        "endOffset": 2648
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 36,
+                    "startColumn": 4,
+                    "startOffset": 4680,
+                    "endColumn": 137,
+                    "endOffset": 4813
+                },
+                "from": {
+                    "file": "/Users/apple/.android/build-cache/75f304d8974eb1a3f123d7b82c9b02846fdfa173/output/res/values-uz/values.xml",
+                    "position": {
+                        "startLine": 18,
+                        "startColumn": 4,
+                        "startOffset": 2653,
+                        "endColumn": 137,
+                        "endOffset": 2786
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 37,
+                    "startColumn": 4,
+                    "startOffset": 4818,
+                    "endColumn": 191,
+                    "endOffset": 5005
+                },
+                "from": {
+                    "file": "/Users/apple/.android/build-cache/75f304d8974eb1a3f123d7b82c9b02846fdfa173/output/res/values-uz/values.xml",
+                    "position": {
+                        "startLine": 19,
+                        "startColumn": 4,
+                        "startOffset": 2791,
+                        "endColumn": 191,
+                        "endOffset": 2978
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 38,
+                    "startColumn": 4,
+                    "startOffset": 5010,
+                    "endColumn": 95,
+                    "endOffset": 5101
+                },
+                "from": {
+                    "file": "/Users/apple/.android/build-cache/75f304d8974eb1a3f123d7b82c9b02846fdfa173/output/res/values-uz/values.xml",
+                    "position": {
+                        "startLine": 20,
+                        "startColumn": 4,
+                        "startOffset": 2983,
+                        "endColumn": 95,
+                        "endOffset": 3074
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 39,
+                    "startColumn": 4,
+                    "startOffset": 5106,
+                    "endColumn": 90,
+                    "endOffset": 5192
+                },
+                "from": {
+                    "file": "/Users/apple/.android/build-cache/75f304d8974eb1a3f123d7b82c9b02846fdfa173/output/res/values-uz/values.xml",
+                    "position": {
+                        "startLine": 21,
+                        "startColumn": 4,
+                        "startOffset": 3079,
+                        "endColumn": 90,
+                        "endOffset": 3165
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 40,
+                    "startColumn": 4,
+                    "startOffset": 5197,
+                    "endColumn": 108,
+                    "endOffset": 5301
+                },
+                "from": {
+                    "file": "/Users/apple/.android/build-cache/75f304d8974eb1a3f123d7b82c9b02846fdfa173/output/res/values-uz/values.xml",
+                    "position": {
+                        "startLine": 22,
+                        "startColumn": 4,
+                        "startOffset": 3170,
+                        "endColumn": 108,
+                        "endOffset": 3274
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 41,
+                    "startColumn": 4,
+                    "startOffset": 5306,
+                    "endColumn": 83,
+                    "endOffset": 5385
+                },
+                "from": {
+                    "file": "/Users/apple/.android/build-cache/6596182529c8b7bc6e61e8817f7d2a4cfb188127/output/res/values-uz/values-uz.xml",
+                    "position": {
+                        "startLine": 21,
+                        "startColumn": 4,
+                        "startOffset": 2025,
+                        "endColumn": 83,
+                        "endOffset": 2104
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 42,
+                    "startColumn": 4,
+                    "startOffset": 5390,
+                    "endColumn": 100,
+                    "endOffset": 5486
+                },
+                "from": {
+                    "file": "/Users/apple/.android/build-cache/6596182529c8b7bc6e61e8817f7d2a4cfb188127/output/res/values-uz/values-uz.xml",
+                    "position": {
+                        "startLine": 22,
+                        "startColumn": 4,
+                        "startOffset": 2109,
+                        "endColumn": 100,
+                        "endOffset": 2205
+                    }
+                }
+            }
+        ]
+    }
+]

@@ -1,0 +1,22 @@
+[
+    {
+        "merged": "/Users/apple/Documents/GitHub/REAndroidSDK/REAndroidSDK/build/intermediates/res/merged/release/drawable-ldpi-v4/common_ic_googleplayservices.png",
+        "source": "/Users/apple/.android/build-cache/75f304d8974eb1a3f123d7b82c9b02846fdfa173/output/res/drawable-ldpi-v4/common_ic_googleplayservices.png"
+    },
+    {
+        "merged": "/Users/apple/Documents/GitHub/REAndroidSDK/REAndroidSDK/build/intermediates/res/merged/release/drawable-ldpi-v4/ic_watch_later.png",
+        "source": "/Users/apple/Documents/GitHub/REAndroidSDK/REAndroidSDK/build/generated/res/pngs/release/drawable-ldpi/ic_watch_later.png"
+    },
+    {
+        "merged": "/Users/apple/Documents/GitHub/REAndroidSDK/REAndroidSDK/build/intermediates/res/merged/release/drawable-ldpi-v4/ic_close.png",
+        "source": "/Users/apple/Documents/GitHub/REAndroidSDK/REAndroidSDK/build/generated/res/pngs/release/drawable-ldpi/ic_close.png"
+    },
+    {
+        "merged": "/Users/apple/Documents/GitHub/REAndroidSDK/REAndroidSDK/build/intermediates/res/merged/release/drawable-ldpi-v4/ic_hourglass_empty.png",
+        "source": "/Users/apple/Documents/GitHub/REAndroidSDK/REAndroidSDK/build/generated/res/pngs/release/drawable-ldpi/ic_hourglass_empty.png"
+    },
+    {
+        "merged": "/Users/apple/Documents/GitHub/REAndroidSDK/REAndroidSDK/build/intermediates/res/merged/release/drawable-ldpi-v4/ic_touch_app.png",
+        "source": "/Users/apple/Documents/GitHub/REAndroidSDK/REAndroidSDK/build/generated/res/pngs/release/drawable-ldpi/ic_touch_app.png"
+    }
+]

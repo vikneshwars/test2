@@ -1,0 +1,5 @@
+[{
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target" : { "namespace": "android_app", "package_name": "com.interakt.visionbank",
+    "sha256_cert_fingerprints": ["6C:03:70:37:44:05:94:70:7C:F5:A2:C2:45:33:36:AC:C3:5B:56:CF:A4:24:1D:C5:46:B9:16:E5:4A:F5:3F:21"] }
+}]

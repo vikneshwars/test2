@@ -1,0 +1,61 @@
+<resources>
+    <string name="app_name">Resulticks</string>
+
+    <!--Shared Preference Keys-->
+
+    <string name="resulticksSharedUserId">sharedUserId</string>
+    <string name="resulticksSharedDatabaseDeviceId">sharedDatabaseDeviceId</string>
+    <string name="resulticksSharedReferral">QueryParameter</string>
+    <string name="resulticksSharedAPIKey">sharedAPIKey</string>
+    <string name="resulticksSharedDeviceId">sharedDeviceId</string>
+    <string name="resulticksSharedAdverId">advertId</string>
+
+
+    <!--Notifications Types -->
+
+    <string name="resulticksNotificationTypeRating">Rating</string>
+    <string name="resulticksNotificationTypeQuickSurvey">QuickSurvey</string>
+    <string name="resulticksNotificationTypeSplash">Splash</string>
+    <string name="resulticksSharedCampaignId">sharedCampaignId</string>
+
+    <!--SDK API KEY -->
+
+    <string name="resulticksManifestApiKey">interakt.resulticks</string>
+
+    <!--APP Notification ID  -->
+
+    <string name="resulticksAppNotificationId">notificationId</string>
+
+    <!--SDK Deep Link KEY -->
+
+    <string name="resulticksDeepLinkParamIsNewInstall">isNewInstall</string>
+    <string name="resulticksDeepLinkParamIsViaDeepLinkingLauncher">isViaDeepLinkingLauncher</string>
+    <string name="resulticksDeepLinkParamReferralId">_resulticks_link_unique_Id</string>
+
+    <!--SDK API Parameter KEY -->
+
+    <string name="resulticksApiParamId">id</string>
+    <string name="resulticksApiParamCategory">category</string>
+    <string name="resulticksApiParamsUserId">userId</string>
+    <string name="resulticksApiParamsDeviceId">deviceId</string>
+    <string name="resulticksApiParamNavigationScreen">navigationScreen</string>
+    <string name="resulticksApiParamTitle">title</string>
+    <string name="resulticksApiParamBody">body</string>
+    <string name="resulticksApiParamUrl">url</string>
+    <string name="resulticksApiParamIsNewUser">isNewUser</string>
+    <string name="resulticksApiParamStatus">status</string>
+    <string name="resulticksApiParamRating">rating</string>
+    <string name="resulticksApiParamComments">comments</string>
+    <string name="resulticksApiParamStartTime">startTime</string>
+    <string name="resulticksApiParamEndTime">endTime</string>
+    <string name="resulticksApiParamSubScreenName">subScreenName</string>
+    <string name="resulticksApiParamScreenName">screenName</string>
+    <string name="resulticksApiParamEvents">events</string>
+    <string name="resulticksApiParamCrashText">crashText</string>
+    <string name="resulticksApiParamTimeStamp">timeStamp</string>
+    <string name="resulticksApiParamAppCrash">appCrash</string>
+    <string name="resulticksApiParamEventName">eventName</string>
+    <string name="resulticksApiParamViewId">viewId</string>
+    <string name="resulticksApiParamData">data</string>
+
+</resources>
