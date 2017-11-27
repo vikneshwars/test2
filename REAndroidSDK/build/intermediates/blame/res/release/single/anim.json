@@ -1,7 +1,27 @@
 [
     {
+        "merged": "/Users/apple/Desktop/buvanesh/projects/VisionBank/code/VisionBank/REAndroidSDK/build/intermediates/res/merged/release/anim/abc_slide_out_top.xml",
+        "source": "/Users/apple/.android/build-cache/6596182529c8b7bc6e61e8817f7d2a4cfb188127/output/res/anim/abc_slide_out_top.xml"
+    },
+    {
+        "merged": "/Users/apple/Desktop/buvanesh/projects/VisionBank/code/VisionBank/REAndroidSDK/build/intermediates/res/merged/release/anim/abc_fade_out.xml",
+        "source": "/Users/apple/.android/build-cache/6596182529c8b7bc6e61e8817f7d2a4cfb188127/output/res/anim/abc_fade_out.xml"
+    },
+    {
+        "merged": "/Users/apple/Desktop/buvanesh/projects/VisionBank/code/VisionBank/REAndroidSDK/build/intermediates/res/merged/release/anim/abc_popup_exit.xml",
+        "source": "/Users/apple/.android/build-cache/6596182529c8b7bc6e61e8817f7d2a4cfb188127/output/res/anim/abc_popup_exit.xml"
+    },
+    {
+        "merged": "/Users/apple/Desktop/buvanesh/projects/VisionBank/code/VisionBank/REAndroidSDK/build/intermediates/res/merged/release/anim/abc_slide_in_bottom.xml",
+        "source": "/Users/apple/.android/build-cache/6596182529c8b7bc6e61e8817f7d2a4cfb188127/output/res/anim/abc_slide_in_bottom.xml"
+    },
+    {
         "merged": "/Users/apple/Documents/GitHub/REAndroidSDK/REAndroidSDK/build/intermediates/res/merged/release/anim/abc_slide_in_bottom.xml",
         "source": "/Users/apple/.android/build-cache/6596182529c8b7bc6e61e8817f7d2a4cfb188127/output/res/anim/abc_slide_in_bottom.xml"
+    },
+    {
+        "merged": "/Users/apple/Desktop/buvanesh/projects/VisionBank/code/VisionBank/REAndroidSDK/build/intermediates/res/merged/release/anim/abc_grow_fade_in_from_bottom.xml",
+        "source": "/Users/apple/.android/build-cache/6596182529c8b7bc6e61e8817f7d2a4cfb188127/output/res/anim/abc_grow_fade_in_from_bottom.xml"
     },
     {
         "merged": "/Users/apple/Documents/GitHub/REAndroidSDK/REAndroidSDK/build/intermediates/res/merged/release/anim/abc_popup_enter.xml",
@@ -16,6 +36,18 @@
         "source": "/Users/apple/.android/build-cache/6596182529c8b7bc6e61e8817f7d2a4cfb188127/output/res/anim/abc_fade_in.xml"
     },
     {
+        "merged": "/Users/apple/Desktop/buvanesh/projects/VisionBank/code/VisionBank/REAndroidSDK/build/intermediates/res/merged/release/anim/abc_slide_out_bottom.xml",
+        "source": "/Users/apple/.android/build-cache/6596182529c8b7bc6e61e8817f7d2a4cfb188127/output/res/anim/abc_slide_out_bottom.xml"
+    },
+    {
+        "merged": "/Users/apple/Desktop/buvanesh/projects/VisionBank/code/VisionBank/REAndroidSDK/build/intermediates/res/merged/release/anim/abc_fade_in.xml",
+        "source": "/Users/apple/.android/build-cache/6596182529c8b7bc6e61e8817f7d2a4cfb188127/output/res/anim/abc_fade_in.xml"
+    },
+    {
+        "merged": "/Users/apple/Desktop/buvanesh/projects/VisionBank/code/VisionBank/REAndroidSDK/build/intermediates/res/merged/release/anim/abc_shrink_fade_out_from_bottom.xml",
+        "source": "/Users/apple/.android/build-cache/6596182529c8b7bc6e61e8817f7d2a4cfb188127/output/res/anim/abc_shrink_fade_out_from_bottom.xml"
+    },
+    {
         "merged": "/Users/apple/Documents/GitHub/REAndroidSDK/REAndroidSDK/build/intermediates/res/merged/release/anim/abc_fade_out.xml",
         "source": "/Users/apple/.android/build-cache/6596182529c8b7bc6e61e8817f7d2a4cfb188127/output/res/anim/abc_fade_out.xml"
     },
@@ -24,8 +56,16 @@
         "source": "/Users/apple/.android/build-cache/6596182529c8b7bc6e61e8817f7d2a4cfb188127/output/res/anim/abc_popup_exit.xml"
     },
     {
+        "merged": "/Users/apple/Desktop/buvanesh/projects/VisionBank/code/VisionBank/REAndroidSDK/build/intermediates/res/merged/release/anim/abc_slide_in_top.xml",
+        "source": "/Users/apple/.android/build-cache/6596182529c8b7bc6e61e8817f7d2a4cfb188127/output/res/anim/abc_slide_in_top.xml"
+    },
+    {
         "merged": "/Users/apple/Documents/GitHub/REAndroidSDK/REAndroidSDK/build/intermediates/res/merged/release/anim/abc_grow_fade_in_from_bottom.xml",
         "source": "/Users/apple/.android/build-cache/6596182529c8b7bc6e61e8817f7d2a4cfb188127/output/res/anim/abc_grow_fade_in_from_bottom.xml"
+    },
+    {
+        "merged": "/Users/apple/Desktop/buvanesh/projects/VisionBank/code/VisionBank/REAndroidSDK/build/intermediates/res/merged/release/anim/abc_popup_enter.xml",
+        "source": "/Users/apple/.android/build-cache/6596182529c8b7bc6e61e8817f7d2a4cfb188127/output/res/anim/abc_popup_enter.xml"
     },
     {
         "merged": "/Users/apple/Documents/GitHub/REAndroidSDK/REAndroidSDK/build/intermediates/res/merged/release/anim/abc_slide_out_bottom.xml",

@@ -2,12 +2,14 @@ package io.mob.resu.reandroidsdk;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -17,6 +19,8 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.TimeZone;
 
 
@@ -31,11 +35,11 @@ class TrackerHelper {
     SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ");
     private Activity mActivity;
     private ArrayList<JSONObject> events;
+    private HashMap<String, String> EditTextMAP;
     private JSONObject referrerObject = new JSONObject();
     // The following are used for the shake detection
 
     public static TrackerHelper getInstance() {
-
         if (trackerHelper == null)
             return trackerHelper = new TrackerHelper();
         else
@@ -53,9 +57,26 @@ class TrackerHelper {
             }
 
         } catch (Exception e) {
-            e.printStackTrace();
+          Util.catchMessage(e);
             return false;
         }
+    }
+
+    private static ArrayList<MScreenTracker> getScreenTrackers() throws Exception {
+        try {
+            ArrayList<MScreenTracker> mScreenTrackers = new ArrayList<>();
+            ArrayList<MRecord> mRecords = new ArrayList<>();
+            mRecords.add(new MRecord("", "value", "input_email"));
+            mRecords.add(new MRecord("", "value", "input_name"));
+            mRecords.add(new MRecord("", "length", "input_password"));
+            MScreenTracker screenTracker = new MScreenTracker(mRecords, "SignUpActivity", "");
+            mScreenTrackers.add(screenTracker);
+            return mScreenTrackers;
+        } catch (Exception e) {
+            Util.catchMessage(e);
+
+        }
+        return null;
     }
 
     /**
@@ -66,18 +87,22 @@ class TrackerHelper {
 
     void InitTrack(Activity activity) {
 
-        //Campaign Notification
-        if (activity.getIntent().getExtras() != null && activity.getIntent().getExtras().containsKey(activity.getString(R.string.resulticksApiParamNavigationScreen))) {
-            Bundle bundle = activity.getIntent().getExtras();
-            // Show Notification
-            isNotificationLaunch(activity, bundle);
-            // App notification Dismiss
-            AppNotification.cancel(activity, bundle.getInt(activity.getString(R.string.resulticksAppNotificationId)));
+        try {
+            //Campaign Notification
+            if (activity.getIntent().getExtras() != null && activity.getIntent().getExtras().containsKey(activity.getString(R.string.resulticksApiParamNavigationScreen))) {
+                Bundle bundle = activity.getIntent().getExtras();
+                // Show Notification
+                isNotificationLaunch(activity, bundle);
+                // App notification Dismiss
+                AppNotification.cancel(activity, bundle.getInt(activity.getString(R.string.resulticksAppNotificationId)));
+            }
+            // Deep linking
+            isDeepLinkingLaunch(activity);
+            registerFragmentLifeCycle(activity);
+            addViewEventListener(activity);
+        } catch (Exception e) {
+            Util.catchMessage(e);
         }
-        // Deep linking
-        isDeepLinkingLaunch(activity);
-        registerFragmentLifeCycle(activity);
-        addViewEventListener(activity);
     }
 
     private void isNotificationLaunch(Activity context, Bundle bundle) {
@@ -96,7 +121,7 @@ class TrackerHelper {
             campaignTracker(context, bundle.getString(context.getString(R.string.resulticksApiParamId)));
 
         } catch (Exception e) {
-            e.printStackTrace();
+            Util.catchMessage(e);
         }
 
     }
@@ -130,7 +155,7 @@ class TrackerHelper {
             }
 
         } catch (Exception e) {
-            e.printStackTrace();
+            Util.catchMessage(e);
         }
 
     }
@@ -141,44 +166,73 @@ class TrackerHelper {
 
     private void registerFragmentLifeCycle(Activity mActivity) {
         // Fragment Screens
-        if (fragmentLifecycleCallbacks == null) {
-            if (mActivity instanceof AppCompatActivity) {
-                FragmentManager manager = ((AppCompatActivity) mActivity).getSupportFragmentManager();
-                manager.registerFragmentLifecycleCallbacks(new FragmentLifecycleCallbacks(), true);
+        try {
+            if (fragmentLifecycleCallbacks == null) {
+                if (mActivity instanceof AppCompatActivity) {
+                    FragmentManager manager = ((AppCompatActivity) mActivity).getSupportFragmentManager();
+                    manager.registerFragmentLifecycleCallbacks(new FragmentLifecycleCallbacks(), true);
+                }
             }
+        } catch (Exception e) {
+            Util.catchMessage(e);
         }
     }
 
     private void printFullTree(Activity activity) {
-        printTree(activity.getWindow().getDecorView().getRootView(), 0);
+        try {
+
+
+            // printTree(activity.getWindow().getDecorView().getRootView(), 0);
+            MScreenTracker mScreenTracker = GetScreenTracker(activity.getClass().getSimpleName());
+            if (mScreenTracker != null) {
+
+                View view = activity.getWindow().getDecorView().getRootView();
+                for (MRecord mRecord : mScreenTracker.getMRecord()) {
+
+                    String id = mRecord.getViewId();
+
+                    int resID = activity.getResources().getIdentifier(id, "id", activity.getPackageName());
+                    View view1 = view.findViewById(resID);
+
+
+                    if (view1 != null) {
+                        view1.setAccessibilityDelegate(new EventTrackingListener());
+                    }
+                }
+
+
+            }
+        } catch (Exception e) {
+            Util.catchMessage(e);
+        }
+
+
     }
 
     /*************************/
     private void printTree(View view, int indent) {
         try {
 
-            if (view.getId() > 10) {
-
-                //  if (view instanceof TextView || view instanceof Button || view instanceof ImageView) {
-                //Log.e("name", "" + view.getResources().getResourceName(view.getId()));
+            if (view.getId() > 0) {
+                /*MRecord mRecord=getTag(view);
+                if(mRecord!=null) {
+                    view.setTag(mRecord);*/
                 view.setAccessibilityDelegate(new EventTrackingListener());
                 //}
             }
 
-
             if (view instanceof ViewGroup) {
                 ViewGroup vg = (ViewGroup) view;
-                System.out.print("; children = " + vg.getChildCount() + "\n");
                 for (int i = 0; i < vg.getChildCount(); i++) {
                     printTree(vg.getChildAt(i), indent++);
                 }
-            } else
-                System.out.print("\n");
+            }
         } catch (Exception e) {
-            e.printStackTrace();
+            Util.catchMessage(e);
         }
 
     }
+
 
     /**
      * Request Making
@@ -206,6 +260,40 @@ class TrackerHelper {
             JSONArray eventsListArray = new JSONArray(events);
             screenObject.put(mActivity.getString(R.string.resulticksApiParamEvents), eventsListArray);
 
+            if (EditTextMAP != null) {
+                Log.e("EditText Record ", "" + EditTextMAP.size());
+
+                MScreenTracker mScreenTracker = GetScreenTracker(mActivity.getClass().getSimpleName());
+                ArrayList<JSONObject> jsonObjects = new ArrayList<>();
+
+                if (mScreenTracker != null) {
+
+                    for (MRecord mRecord : mScreenTracker.getMRecord()) {
+                        JSONObject jsonObject = new JSONObject();
+
+                        for (Map.Entry map : EditTextMAP.entrySet()) {
+
+                            if (map.getKey().toString().contains(mRecord.getViewId())) {
+                                if (mRecord.getCaptureType().equalsIgnoreCase("value"))
+                                    mRecord.setResult(" " + map.getValue());
+                                else if (mRecord.getCaptureType().equalsIgnoreCase("length"))
+                                    mRecord.setResult("" + map.getValue().toString().length());
+                            }
+                            System.out.println(map.getKey() + " " + map.getValue());
+
+
+                        }
+
+                        jsonObject.put("viewID", mRecord.getViewId());
+                        jsonObject.put("captureType", mRecord.getCaptureType());
+                        jsonObject.put("result", mRecord.getResult());
+                        jsonObjects.add(jsonObject);
+                    }
+                    screenObject.put("filedCapture", new JSONArray(jsonObjects));
+
+                }
+            }
+
             // App Crash
             if (appCrashValue != null) {
                 JSONObject appCrash = new JSONObject();
@@ -215,10 +303,24 @@ class TrackerHelper {
             }
             dataBaseScreenTrackingAddEntry(mActivity, screenObject);
         } catch (Exception e) {
-            e.printStackTrace();
+            Util.catchMessage(e);
         }
 
 
+    }
+
+    private MScreenTracker GetScreenTracker(String ScreenName) throws Exception {
+        try {
+            ReAndroidSDK.mScreenTrackers = getScreenTrackers();
+
+            for (MScreenTracker screenTracker : ReAndroidSDK.mScreenTrackers) {
+                if (screenTracker.getScreen().contains(ScreenName))
+                    return screenTracker;
+            }
+        } catch (Exception e) {
+            Util.catchMessage(e);
+        }
+        return null;
     }
 
     /**
@@ -227,7 +329,7 @@ class TrackerHelper {
      * @param start
      * @param end
      */
-    private void showScreenSession(Calendar start, Calendar end) {
+    private void showScreenSession(Calendar start, Calendar end) throws Exception {
         long difference = start.getTime().getTime() - end.getTime().getTime();
         long differenceSeconds = difference / 1000 % 60;
         long differenceMinutes = difference / (60 * 1000) % 60;
@@ -239,8 +341,8 @@ class TrackerHelper {
         System.out.println(differenceSeconds + " seconds.");
     }
 
-    void screenTrackingUpdateToServer(Activity mActivity) {
-        if(mActivity.getCallingActivity()!=null) {
+    void screenTrackingUpdateToServer(Activity mActivity) throws Exception {
+        if (mActivity.getCallingActivity() != null) {
             DataNetworkHandler.getInstance().onMakeTrackingRequest(mActivity);
         }
         printFullTree(mActivity);
@@ -249,18 +351,32 @@ class TrackerHelper {
     /**
      * Screen wise Database entry
      */
-    private void dataBaseScreenTrackingAddEntry(Context context, final JSONObject jsonObject) {
+    private void dataBaseScreenTrackingAddEntry(Context context, final JSONObject jsonObject) throws Exception {
         try {
             new DataBase(context).insertData(jsonObject.toString(), DataBase.Table.SCREENS_TABLE);
         } catch (Exception e) {
-            e.printStackTrace();
+            Util.catchMessage(e);
         }
     }
 
-    private String getCurrentUTC() {
+    private String getCurrentUTC() throws Exception {
         simpleDateFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
         return simpleDateFormat.format(Calendar.getInstance().getTime());
     }
+
+    public void EditTextTracking(View host)  {
+
+        try {
+            if (EditTextMAP == null)
+                EditTextMAP = new HashMap<String, String>();
+
+            EditTextMAP.put(host.getResources().getResourceName(host.getId()), ((EditText) host).getText().toString());
+        } catch (Resources.NotFoundException e) {
+            Util.catchMessage(e);
+        }
+
+    }
+
 
     public void autoEventTracking(View host) {
 
@@ -276,12 +392,12 @@ class TrackerHelper {
             eventObject.put(mContext.getString(R.string.resulticksApiParamTimeStamp), timeStamp);
             events.add(eventObject);
         } catch (Exception e) {
-            e.printStackTrace();
+            Util.catchMessage(e);
         }
 
     }
 
-    public void userEventTracking(Context context, JSONObject data, String eventName) {
+    public void userEventTracking(Context context, JSONObject data, String eventName) throws Exception {
 
         try {
             if (events == null)
@@ -294,7 +410,7 @@ class TrackerHelper {
             eventObject.put(context.getString(R.string.resulticksApiParamTimeStamp), timeStamp);
             events.add(eventObject);
         } catch (Exception e) {
-            e.printStackTrace();
+            Util.catchMessage(e);
         }
 
     }
@@ -311,7 +427,7 @@ class TrackerHelper {
             events.add(eventObject);
 
         } catch (Exception e) {
-            e.printStackTrace();
+            Util.catchMessage(e);
         }
 
     }

@@ -53,7 +53,7 @@ public class NotificationActionReceiver extends BroadcastReceiver {
             DataNetworkHandler.getInstance().campaignHandler(context, bundles.getString(context.getString(R.string.resulticksApiParamId)), "3", false, null, null);
             AppNotification.cancel(context, bundles.getInt(context.getString(R.string.resulticksAppNotificationId)));
         } catch (Exception e) {
-            e.printStackTrace();
+            Util.catchMessage(e);
         }
 
 

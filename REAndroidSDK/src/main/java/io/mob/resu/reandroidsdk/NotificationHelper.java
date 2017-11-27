@@ -38,7 +38,7 @@ import java.util.Random;
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
             return intent;
         } catch (Exception e) {
-            e.printStackTrace();
+            Util.catchMessage(e);
         }
         return intent;
 
@@ -63,7 +63,7 @@ import java.util.Random;
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
             return intent;
         } catch (Exception e) {
-            e.printStackTrace();
+            Util.catchMessage(e);
         }
         return intent;
 
@@ -91,7 +91,7 @@ import java.util.Random;
 
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            Util.catchMessage(e);
         }
 
     }
@@ -119,7 +119,7 @@ import java.util.Random;
 
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            Util.catchMessage(e);
         }
 
     }
@@ -133,29 +133,37 @@ import java.util.Random;
             jsonObject.put("title", title);
             new DataBase(appContext).insertData(jsonObject.toString(), DataBase.Table.NOTIFICATION_TABLE);
         } catch (JSONException e) {
-            e.printStackTrace();
+            Util.catchMessage(e);
         }
     }
 
     private void ratingNotification(Intent intent, String title, String body, String category, String url) {
-        if (Util.isAppIsInBackground(appContext))
-            new PictureStyleNotification(appContext, title, body, url, category, intent);
-        else {
-            if (ActivityLifecycleCallbacks.mActivity != null)
-                new AppWidgets().showRatingDialog(ActivityLifecycleCallbacks.mActivity, title, body, intent);
-            else
+        try {
+            if (Util.isAppIsInBackground(appContext))
                 new PictureStyleNotification(appContext, title, body, url, category, intent);
+            else {
+                if (ActivityLifecycleCallbacks.mActivity != null)
+                    new AppWidgets().showRatingDialog(ActivityLifecycleCallbacks.mActivity, title, body, intent);
+                else
+                    new PictureStyleNotification(appContext, title, body, url, category, intent);
+            }
+        } catch (Exception e) {
+            Util.catchMessage(e);
         }
     }
 
     private void bannerNotification(Intent intent, String title, String body, String category, String url) {
-        if (Util.isAppIsInBackground(appContext))
-            new PictureStyleNotification(appContext, title, body, url, category, intent);
-        else {
-            if (ActivityLifecycleCallbacks.mActivity != null)
-                new AppWidgets().showBannerDialog(ActivityLifecycleCallbacks.mActivity, title, body, intent, url);
-            else
+        try {
+            if (Util.isAppIsInBackground(appContext))
                 new PictureStyleNotification(appContext, title, body, url, category, intent);
+            else {
+                if (ActivityLifecycleCallbacks.mActivity != null)
+                    new AppWidgets().showBannerDialog(ActivityLifecycleCallbacks.mActivity, title, body, intent, url);
+                else
+                    new PictureStyleNotification(appContext, title, body, url, category, intent);
+            }
+        } catch (Exception e) {
+            Util.catchMessage(e);
         }
     }
 

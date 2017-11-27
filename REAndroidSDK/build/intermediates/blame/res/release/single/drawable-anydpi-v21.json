@@ -1,5 +1,17 @@
 [
     {
+        "merged": "/Users/apple/Desktop/buvanesh/projects/VisionBank/code/VisionBank/REAndroidSDK/build/intermediates/res/merged/release/drawable-anydpi-v21/ic_close.xml",
+        "source": "/Users/apple/Desktop/buvanesh/projects/VisionBank/code/VisionBank/REAndroidSDK/build/generated/res/pngs/release/drawable-anydpi-v21/ic_close.xml"
+    },
+    {
+        "merged": "/Users/apple/Desktop/buvanesh/projects/VisionBank/code/VisionBank/REAndroidSDK/build/intermediates/res/merged/release/drawable-anydpi-v21/ic_watch_later.xml",
+        "source": "/Users/apple/Desktop/buvanesh/projects/VisionBank/code/VisionBank/REAndroidSDK/build/generated/res/pngs/release/drawable-anydpi-v21/ic_watch_later.xml"
+    },
+    {
+        "merged": "/Users/apple/Desktop/buvanesh/projects/VisionBank/code/VisionBank/REAndroidSDK/build/intermediates/res/merged/release/drawable-anydpi-v21/ic_touch_app.xml",
+        "source": "/Users/apple/Desktop/buvanesh/projects/VisionBank/code/VisionBank/REAndroidSDK/build/generated/res/pngs/release/drawable-anydpi-v21/ic_touch_app.xml"
+    },
+    {
         "merged": "/Users/apple/Documents/GitHub/REAndroidSDK/REAndroidSDK/build/intermediates/res/merged/release/drawable-anydpi-v21/ic_watch_later.xml",
         "source": "/Users/apple/Documents/GitHub/REAndroidSDK/REAndroidSDK/build/generated/res/pngs/release/drawable-anydpi-v21/ic_watch_later.xml"
     },
@@ -10,6 +22,10 @@
     {
         "merged": "/Users/apple/Documents/GitHub/REAndroidSDK/REAndroidSDK/build/intermediates/res/merged/release/drawable-anydpi-v21/ic_close.xml",
         "source": "/Users/apple/Documents/GitHub/REAndroidSDK/REAndroidSDK/build/generated/res/pngs/release/drawable-anydpi-v21/ic_close.xml"
+    },
+    {
+        "merged": "/Users/apple/Desktop/buvanesh/projects/VisionBank/code/VisionBank/REAndroidSDK/build/intermediates/res/merged/release/drawable-anydpi-v21/ic_hourglass_empty.xml",
+        "source": "/Users/apple/Desktop/buvanesh/projects/VisionBank/code/VisionBank/REAndroidSDK/build/generated/res/pngs/release/drawable-anydpi-v21/ic_hourglass_empty.xml"
     },
     {
         "merged": "/Users/apple/Documents/GitHub/REAndroidSDK/REAndroidSDK/build/intermediates/res/merged/release/drawable-anydpi-v21/ic_hourglass_empty.xml",

@@ -51,7 +51,7 @@ import java.net.URL;
                 Bitmap theBitmap = BitmapFactory.decodeStream(input);
                 return theBitmap;
             } catch (IOException e) {
-                e.printStackTrace();
+                Util.catchMessage(e);
                 return null;
             }
 
@@ -67,7 +67,7 @@ import java.net.URL;
                     new AppNotification().showNotification(mContext, title, message, actionName, intent, null);
 
             } catch (Exception e) {
-                e.printStackTrace();
+                Util.catchMessage(e);
             }
         }
     }

@@ -31,7 +31,7 @@ class ActivityLifecycleCallbacks implements Application.ActivityLifecycleCallbac
     private Sensor mAccelerometer;
 
     /**
-     * Every Activity before Launcher
+     *  Activity onCreate
      *
      * @param activity
      * @param bundle
@@ -39,30 +39,45 @@ class ActivityLifecycleCallbacks implements Application.ActivityLifecycleCallbac
 
     @Override
     public void onActivityCreated(final Activity activity, Bundle bundle) {
-        mActivity = activity;
-        if (!TrackerHelper.itHasFragment(activity))
-            AppWidgets.DialogHandler(true);
-        TrackerHelper.getInstance().InitTrack(activity);
+        try {
+            mActivity = activity;
+            if (!TrackerHelper.itHasFragment(activity)) {
+                AppWidgets.DialogHandler(true);
+                TrackerHelper.getInstance().InitTrack(activity);
+            }
+        } catch (Exception e) {
+            Util.catchMessage(e);
+        }
+
     }
 
     /**
-     * Session Start Record
+     * Activity  onStart
      *
      * @param activity
      */
     @Override
     public void onActivityStarted(final Activity activity) {
-        snakeEvent(activity);
-        mActivity = activity;
-        newActivityName = activity.getClass().getSimpleName();
-        oldCalendar = sCalendar;
-        sCalendar = Calendar.getInstance();
-        if (!TrackerHelper.itHasFragment(activity)) {
-            AppWidgets.DialogHandler(false);
-            TrackerHelper.getInstance().screenTrackingUpdateToServer(activity);
+        try {
+            snakeEvent(activity);
+            mActivity = activity;
+            newActivityName = activity.getClass().getSimpleName();
+            oldCalendar = sCalendar;
+            sCalendar = Calendar.getInstance();
+            if (!TrackerHelper.itHasFragment(activity)) {
+                AppWidgets.DialogHandler(false);
+                TrackerHelper.getInstance().screenTrackingUpdateToServer(activity);
+            }
+        } catch (Exception e) {
+            Util.catchMessage(e);
         }
     }
 
+    /**
+     *  Activity onResume
+     *
+     * @param activity
+     */
     @Override
     public void onActivityResumed(Activity activity) {
         try {
@@ -72,10 +87,16 @@ class ActivityLifecycleCallbacks implements Application.ActivityLifecycleCallbac
                         SensorManager.SENSOR_DELAY_UI);
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            Util.catchMessage(e);
         }
 
     }
+
+    /**
+     *  Activity onPaused
+     *
+     * @param activity
+     */
 
     @Override
     public void onActivityPaused(Activity activity) {
@@ -84,24 +105,27 @@ class ActivityLifecycleCallbacks implements Application.ActivityLifecycleCallbac
                 mSensorManager.unregisterListener(mShakeDetector);
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            Util.catchMessage(e);
         }
     }
 
     /**
-     * Activity Session End Record
+     * Activity onStop
      *
      * @param activity
      */
 
     @Override
     public void onActivityStopped(final Activity activity) {
-        oldActivityName = activity.getClass().getSimpleName();
-        if (!TrackerHelper.itHasFragment(activity))
-            TrackerHelper.getInstance().screenTracking(activity, oldCalendar, Calendar.getInstance(), activity.getClass().getSimpleName(), null, null);
+        try {
+            oldActivityName = activity.getClass().getSimpleName();
+            if (!TrackerHelper.itHasFragment(activity))
+                TrackerHelper.getInstance().screenTracking(activity, oldCalendar, Calendar.getInstance(), activity.getClass().getSimpleName(), null, null);
+        } catch (Exception e) {
+            Util.catchMessage(e);
+        }
     }
 
-    /*************************/
 
     @Override
     public void onActivitySaveInstanceState(Activity activity, Bundle bundle) {
@@ -110,17 +134,22 @@ class ActivityLifecycleCallbacks implements Application.ActivityLifecycleCallbac
 
     @Override
     public void onActivityDestroyed(Activity activity) {
-        if (activity.getClass().getSimpleName().equalsIgnoreCase(newActivityName)) {
-            deepLinkDataReset(activity);
-            Log.e(TAG, "App Terminated");
-        } else {
-            Log.e(TAG, "App Continue");
+        try {
+            if (activity.getClass().getSimpleName().equalsIgnoreCase(newActivityName)) {
+                deepLinkDataReset(activity);
+                Log.e(TAG, "App Terminated");
+            } else {
+                Log.e(TAG, "App Continue");
+            }
+        } catch (Exception e) {
+            Util.catchMessage(e);
         }
 
 
     }
 
-    private void deepLinkDataReset(Activity activity) {
+
+    private void deepLinkDataReset(Activity activity)throws Exception {
         try {
             JSONObject referrerObject = new JSONObject();
             referrerObject.put(activity.getString(R.string.resulticksDeepLinkParamIsNewInstall), false);
@@ -129,7 +158,7 @@ class ActivityLifecycleCallbacks implements Application.ActivityLifecycleCallbac
             SharedPref.getInstance().setSharedValue(activity, activity.getString(R.string.resulticksSharedCampaignId), "");
 
         } catch (Exception e) {
-            e.printStackTrace();
+            Util.catchMessage(e);
         }
     }
 
@@ -138,17 +167,13 @@ class ActivityLifecycleCallbacks implements Application.ActivityLifecycleCallbac
      *
      * @param appCrash
      */
-    public void saveData(String appCrash) {
+    public void saveData(String appCrash) throws Exception{
         deepLinkDataReset(mActivity);
         String subScreenName = null;
-        /*if (itHasFragment(mActivity) && !TextUtils.isEmpty(TrackerHelper.fragmentLifecycleCallbacks.newScreenName))
-            subScreenName = TrackerHelper.fragmentLifecycleCallbacks.newScreenName;
-
-*/
         TrackerHelper.getInstance().screenTracking(mActivity, oldCalendar, Calendar.getInstance(), mActivity.getClass().getSimpleName(), subScreenName, appCrash);
     }
 
-    private void snakeEvent(final Context context) {
+    private void snakeEvent(final Context context) throws Exception {
         // ShakeDetector initialization
         mShakeDetector = new ShakeDetector();
         mSensorManager = (SensorManager) context.getSystemService(Context.SENSOR_SERVICE);
@@ -166,7 +191,6 @@ class ActivityLifecycleCallbacks implements Application.ActivityLifecycleCallbac
 
                 if (count > 1) {
                     if (EventTrackingListener.isDebugMode) {
-
                         EventTrackingListener.isDebugMode = false;
                         Toast.makeText(context, "Device Debug Mode Disabled " + count, Toast.LENGTH_SHORT).show();
 

@@ -35,6 +35,8 @@ class Util {
     Context appContext;
     Util Util;
 
+    ArrayList<String> mException;
+
     Util(Context context) {
         this.appContext = context;
     }
@@ -175,17 +177,26 @@ class Util {
         return "";
     }
 
+    public static void catchMessage(Exception e) {
+        Log.e("Utility", "error");
+        e.printStackTrace();
+    }
+
     public boolean hasNetworkConnection() {
-        ConnectivityManager cm = (ConnectivityManager) appContext.getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
-        if (activeNetwork != null) { // connected to the internet
-            if (activeNetwork.getType() == ConnectivityManager.TYPE_WIFI) {
-                // connected to wifi
-                return true;
-            } else if (activeNetwork.getType() == ConnectivityManager.TYPE_MOBILE) {
-                // connected to the ic_mobile provider's data plan
-                return true;
+        try {
+            ConnectivityManager cm = (ConnectivityManager) appContext.getSystemService(Context.CONNECTIVITY_SERVICE);
+            NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
+            if (activeNetwork != null) { // connected to the internet
+                if (activeNetwork.getType() == ConnectivityManager.TYPE_WIFI) {
+                    // connected to wifi
+                    return true;
+                } else if (activeNetwork.getType() == ConnectivityManager.TYPE_MOBILE) {
+                    // connected to the ic_mobile provider's data plan
+                    return true;
+                }
             }
+        } catch (Exception e) {
+            Util.catchMessage(e);
         }
         return false;
     }

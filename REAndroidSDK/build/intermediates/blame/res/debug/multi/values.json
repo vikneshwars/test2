@@ -1,6 +1,6 @@
 [
     {
-        "outputFile": "/Users/apple/Documents/GitHub/REAndroidSDK/REAndroidSDK/build/intermediates/incremental/mergeDebugResources/merged.dir/values/values.xml",
+        "outputFile": "/Users/apple/Desktop/buvanesh/projects/VisionBank/code/VisionBank/REAndroidSDK/build/intermediates/incremental/mergeDebugResources/merged.dir/values/values.xml",
         "map": [
             {
                 "to": {
@@ -182,7 +182,7 @@
                     "endOffset": 654
                 },
                 "from": {
-                    "file": "/Users/apple/Documents/GitHub/REAndroidSDK/REAndroidSDK/src/main/res/values/colors.xml",
+                    "file": "/Users/apple/Desktop/buvanesh/projects/VisionBank/code/VisionBank/REAndroidSDK/src/main/res/values/colors.xml",
                     "position": {
                         "startLine": 22,
                         "startColumn": 4,
@@ -201,7 +201,7 @@
                     "endOffset": 701
                 },
                 "from": {
-                    "file": "/Users/apple/Documents/GitHub/REAndroidSDK/REAndroidSDK/src/main/res/values/colors.xml",
+                    "file": "/Users/apple/Desktop/buvanesh/projects/VisionBank/code/VisionBank/REAndroidSDK/src/main/res/values/colors.xml",
                     "position": {
                         "startLine": 20,
                         "startColumn": 4,
@@ -220,7 +220,7 @@
                     "endOffset": 752
                 },
                 "from": {
-                    "file": "/Users/apple/Documents/GitHub/REAndroidSDK/REAndroidSDK/src/main/res/values/colors.xml",
+                    "file": "/Users/apple/Desktop/buvanesh/projects/VisionBank/code/VisionBank/REAndroidSDK/src/main/res/values/colors.xml",
                     "position": {
                         "startLine": 21,
                         "startColumn": 4,
@@ -353,7 +353,7 @@
                     "endOffset": 1245
                 },
                 "from": {
-                    "file": "/Users/apple/Documents/GitHub/REAndroidSDK/REAndroidSDK/src/main/res/values/colors.xml",
+                    "file": "/Users/apple/Desktop/buvanesh/projects/VisionBank/code/VisionBank/REAndroidSDK/src/main/res/values/colors.xml",
                     "position": {
                         "startLine": 23,
                         "startColumn": 4,
@@ -448,7 +448,7 @@
                     "endOffset": 1614
                 },
                 "from": {
-                    "file": "/Users/apple/Documents/GitHub/REAndroidSDK/REAndroidSDK/src/main/res/values/colors.xml",
+                    "file": "/Users/apple/Desktop/buvanesh/projects/VisionBank/code/VisionBank/REAndroidSDK/src/main/res/values/colors.xml",
                     "position": {
                         "startLine": 27,
                         "startColumn": 4,
@@ -467,7 +467,7 @@
                     "endOffset": 1657
                 },
                 "from": {
-                    "file": "/Users/apple/Documents/GitHub/REAndroidSDK/REAndroidSDK/src/main/res/values/colors.xml",
+                    "file": "/Users/apple/Desktop/buvanesh/projects/VisionBank/code/VisionBank/REAndroidSDK/src/main/res/values/colors.xml",
                     "position": {
                         "startLine": 7,
                         "startColumn": 4,
@@ -486,7 +486,7 @@
                     "endOffset": 1699
                 },
                 "from": {
-                    "file": "/Users/apple/Documents/GitHub/REAndroidSDK/REAndroidSDK/src/main/res/values/colors.xml",
+                    "file": "/Users/apple/Desktop/buvanesh/projects/VisionBank/code/VisionBank/REAndroidSDK/src/main/res/values/colors.xml",
                     "position": {
                         "startLine": 9,
                         "startColumn": 4,
@@ -505,7 +505,7 @@
                     "endOffset": 1745
                 },
                 "from": {
-                    "file": "/Users/apple/Documents/GitHub/REAndroidSDK/REAndroidSDK/src/main/res/values/colors.xml",
+                    "file": "/Users/apple/Desktop/buvanesh/projects/VisionBank/code/VisionBank/REAndroidSDK/src/main/res/values/colors.xml",
                     "position": {
                         "startLine": 8,
                         "startColumn": 4,
@@ -524,7 +524,7 @@
                     "endOffset": 1784
                 },
                 "from": {
-                    "file": "/Users/apple/Documents/GitHub/REAndroidSDK/REAndroidSDK/src/main/res/values/colors.xml",
+                    "file": "/Users/apple/Desktop/buvanesh/projects/VisionBank/code/VisionBank/REAndroidSDK/src/main/res/values/colors.xml",
                     "position": {
                         "startLine": 26,
                         "startColumn": 4,
@@ -657,7 +657,7 @@
                     "endOffset": 2354
                 },
                 "from": {
-                    "file": "/Users/apple/Documents/GitHub/REAndroidSDK/REAndroidSDK/src/main/res/values/colors.xml",
+                    "file": "/Users/apple/Desktop/buvanesh/projects/VisionBank/code/VisionBank/REAndroidSDK/src/main/res/values/colors.xml",
                     "position": {
                         "startLine": 16,
                         "startColumn": 4,
@@ -676,7 +676,7 @@
                     "endOffset": 2401
                 },
                 "from": {
-                    "file": "/Users/apple/Documents/GitHub/REAndroidSDK/REAndroidSDK/src/main/res/values/colors.xml",
+                    "file": "/Users/apple/Desktop/buvanesh/projects/VisionBank/code/VisionBank/REAndroidSDK/src/main/res/values/colors.xml",
                     "position": {
                         "startLine": 17,
                         "startColumn": 4,
@@ -695,7 +695,7 @@
                     "endOffset": 2448
                 },
                 "from": {
-                    "file": "/Users/apple/Documents/GitHub/REAndroidSDK/REAndroidSDK/src/main/res/values/colors.xml",
+                    "file": "/Users/apple/Desktop/buvanesh/projects/VisionBank/code/VisionBank/REAndroidSDK/src/main/res/values/colors.xml",
                     "position": {
                         "startLine": 19,
                         "startColumn": 4,
@@ -752,7 +752,7 @@
                     "endOffset": 2614
                 },
                 "from": {
-                    "file": "/Users/apple/Documents/GitHub/REAndroidSDK/REAndroidSDK/src/main/res/values/colors.xml",
+                    "file": "/Users/apple/Desktop/buvanesh/projects/VisionBank/code/VisionBank/REAndroidSDK/src/main/res/values/colors.xml",
                     "position": {
                         "startLine": 25,
                         "startColumn": 4,
@@ -847,7 +847,7 @@
                     "endOffset": 2909
                 },
                 "from": {
-                    "file": "/Users/apple/Documents/GitHub/REAndroidSDK/REAndroidSDK/src/main/res/values/colors.xml",
+                    "file": "/Users/apple/Desktop/buvanesh/projects/VisionBank/code/VisionBank/REAndroidSDK/src/main/res/values/colors.xml",
                     "position": {
                         "startLine": 4,
                         "startColumn": 4,
@@ -866,7 +866,7 @@
                     "endOffset": 2959
                 },
                 "from": {
-                    "file": "/Users/apple/Documents/GitHub/REAndroidSDK/REAndroidSDK/src/main/res/values/colors.xml",
+                    "file": "/Users/apple/Desktop/buvanesh/projects/VisionBank/code/VisionBank/REAndroidSDK/src/main/res/values/colors.xml",
                     "position": {
                         "startLine": 6,
                         "startColumn": 4,
@@ -885,7 +885,7 @@
                     "endOffset": 3006
                 },
                 "from": {
-                    "file": "/Users/apple/Documents/GitHub/REAndroidSDK/REAndroidSDK/src/main/res/values/colors.xml",
+                    "file": "/Users/apple/Desktop/buvanesh/projects/VisionBank/code/VisionBank/REAndroidSDK/src/main/res/values/colors.xml",
                     "position": {
                         "startLine": 30,
                         "startColumn": 4,
@@ -904,7 +904,7 @@
                     "endOffset": 3050
                 },
                 "from": {
-                    "file": "/Users/apple/Documents/GitHub/REAndroidSDK/REAndroidSDK/src/main/res/values/colors.xml",
+                    "file": "/Users/apple/Desktop/buvanesh/projects/VisionBank/code/VisionBank/REAndroidSDK/src/main/res/values/colors.xml",
                     "position": {
                         "startLine": 29,
                         "startColumn": 4,
@@ -923,7 +923,7 @@
                     "endOffset": 3097
                 },
                 "from": {
-                    "file": "/Users/apple/Documents/GitHub/REAndroidSDK/REAndroidSDK/src/main/res/values/colors.xml",
+                    "file": "/Users/apple/Desktop/buvanesh/projects/VisionBank/code/VisionBank/REAndroidSDK/src/main/res/values/colors.xml",
                     "position": {
                         "startLine": 2,
                         "startColumn": 4,
@@ -942,7 +942,7 @@
                     "endOffset": 3148
                 },
                 "from": {
-                    "file": "/Users/apple/Documents/GitHub/REAndroidSDK/REAndroidSDK/src/main/res/values/colors.xml",
+                    "file": "/Users/apple/Desktop/buvanesh/projects/VisionBank/code/VisionBank/REAndroidSDK/src/main/res/values/colors.xml",
                     "position": {
                         "startLine": 3,
                         "startColumn": 4,
@@ -961,7 +961,7 @@
                     "endOffset": 3193
                 },
                 "from": {
-                    "file": "/Users/apple/Documents/GitHub/REAndroidSDK/REAndroidSDK/src/main/res/values/colors.xml",
+                    "file": "/Users/apple/Desktop/buvanesh/projects/VisionBank/code/VisionBank/REAndroidSDK/src/main/res/values/colors.xml",
                     "position": {
                         "startLine": 5,
                         "startColumn": 4,
@@ -1436,7 +1436,7 @@
                     "endOffset": 5125
                 },
                 "from": {
-                    "file": "/Users/apple/Documents/GitHub/REAndroidSDK/REAndroidSDK/src/main/res/values/colors.xml",
+                    "file": "/Users/apple/Desktop/buvanesh/projects/VisionBank/code/VisionBank/REAndroidSDK/src/main/res/values/colors.xml",
                     "position": {
                         "startLine": 11,
                         "startColumn": 4,
@@ -1455,7 +1455,7 @@
                     "endOffset": 5176
                 },
                 "from": {
-                    "file": "/Users/apple/Documents/GitHub/REAndroidSDK/REAndroidSDK/src/main/res/values/colors.xml",
+                    "file": "/Users/apple/Desktop/buvanesh/projects/VisionBank/code/VisionBank/REAndroidSDK/src/main/res/values/colors.xml",
                     "position": {
                         "startLine": 12,
                         "startColumn": 4,
@@ -1474,7 +1474,7 @@
                     "endOffset": 5225
                 },
                 "from": {
-                    "file": "/Users/apple/Documents/GitHub/REAndroidSDK/REAndroidSDK/src/main/res/values/colors.xml",
+                    "file": "/Users/apple/Desktop/buvanesh/projects/VisionBank/code/VisionBank/REAndroidSDK/src/main/res/values/colors.xml",
                     "position": {
                         "startLine": 13,
                         "startColumn": 4,
@@ -1493,7 +1493,7 @@
                     "endOffset": 5277
                 },
                 "from": {
-                    "file": "/Users/apple/Documents/GitHub/REAndroidSDK/REAndroidSDK/src/main/res/values/colors.xml",
+                    "file": "/Users/apple/Desktop/buvanesh/projects/VisionBank/code/VisionBank/REAndroidSDK/src/main/res/values/colors.xml",
                     "position": {
                         "startLine": 14,
                         "startColumn": 4,
@@ -1512,7 +1512,7 @@
                     "endOffset": 5331
                 },
                 "from": {
-                    "file": "/Users/apple/Documents/GitHub/REAndroidSDK/REAndroidSDK/src/main/res/values/colors.xml",
+                    "file": "/Users/apple/Desktop/buvanesh/projects/VisionBank/code/VisionBank/REAndroidSDK/src/main/res/values/colors.xml",
                     "position": {
                         "startLine": 15,
                         "startColumn": 4,
@@ -1531,7 +1531,7 @@
                     "endOffset": 5374
                 },
                 "from": {
-                    "file": "/Users/apple/Documents/GitHub/REAndroidSDK/REAndroidSDK/src/main/res/values/colors.xml",
+                    "file": "/Users/apple/Desktop/buvanesh/projects/VisionBank/code/VisionBank/REAndroidSDK/src/main/res/values/colors.xml",
                     "position": {
                         "startLine": 18,
                         "startColumn": 4,
@@ -1778,7 +1778,7 @@
                     "endOffset": 6103
                 },
                 "from": {
-                    "file": "/Users/apple/Documents/GitHub/REAndroidSDK/REAndroidSDK/src/main/res/values/colors.xml",
+                    "file": "/Users/apple/Desktop/buvanesh/projects/VisionBank/code/VisionBank/REAndroidSDK/src/main/res/values/colors.xml",
                     "position": {
                         "startLine": 32,
                         "startColumn": 4,
@@ -2196,7 +2196,7 @@
                     "endOffset": 7653
                 },
                 "from": {
-                    "file": "/Users/apple/Documents/GitHub/REAndroidSDK/REAndroidSDK/src/main/res/values/colors.xml",
+                    "file": "/Users/apple/Desktop/buvanesh/projects/VisionBank/code/VisionBank/REAndroidSDK/src/main/res/values/colors.xml",
                     "position": {
                         "startLine": 24,
                         "startColumn": 4,
@@ -2215,7 +2215,7 @@
                     "endOffset": 7695
                 },
                 "from": {
-                    "file": "/Users/apple/Documents/GitHub/REAndroidSDK/REAndroidSDK/src/main/res/values/colors.xml",
+                    "file": "/Users/apple/Desktop/buvanesh/projects/VisionBank/code/VisionBank/REAndroidSDK/src/main/res/values/colors.xml",
                     "position": {
                         "startLine": 28,
                         "startColumn": 4,
@@ -2234,7 +2234,7 @@
                     "endOffset": 7735
                 },
                 "from": {
-                    "file": "/Users/apple/Documents/GitHub/REAndroidSDK/REAndroidSDK/src/main/res/values/colors.xml",
+                    "file": "/Users/apple/Desktop/buvanesh/projects/VisionBank/code/VisionBank/REAndroidSDK/src/main/res/values/colors.xml",
                     "position": {
                         "startLine": 10,
                         "startColumn": 4,
@@ -2253,7 +2253,7 @@
                     "endOffset": 7781
                 },
                 "from": {
-                    "file": "/Users/apple/Documents/GitHub/REAndroidSDK/REAndroidSDK/src/main/res/values/colors.xml",
+                    "file": "/Users/apple/Desktop/buvanesh/projects/VisionBank/code/VisionBank/REAndroidSDK/src/main/res/values/colors.xml",
                     "position": {
                         "startLine": 31,
                         "startColumn": 4,
@@ -5103,7 +5103,7 @@
                     "endOffset": 39517
                 },
                 "from": {
-                    "file": "/Users/apple/Documents/GitHub/REAndroidSDK/REAndroidSDK/src/main/res/values/strings.xml",
+                    "file": "/Users/apple/Desktop/buvanesh/projects/VisionBank/code/VisionBank/REAndroidSDK/src/main/res/values/strings.xml",
                     "position": {
                         "startLine": 1,
                         "startColumn": 4,
@@ -5559,7 +5559,7 @@
                     "endOffset": 42551
                 },
                 "from": {
-                    "file": "/Users/apple/Documents/GitHub/REAndroidSDK/REAndroidSDK/src/main/res/values/strings.xml",
+                    "file": "/Users/apple/Desktop/buvanesh/projects/VisionBank/code/VisionBank/REAndroidSDK/src/main/res/values/strings.xml",
                     "position": {
                         "startLine": 55,
                         "startColumn": 4,
@@ -5578,7 +5578,7 @@
                     "endOffset": 42607
                 },
                 "from": {
-                    "file": "/Users/apple/Documents/GitHub/REAndroidSDK/REAndroidSDK/src/main/res/values/strings.xml",
+                    "file": "/Users/apple/Desktop/buvanesh/projects/VisionBank/code/VisionBank/REAndroidSDK/src/main/res/values/strings.xml",
                     "position": {
                         "startLine": 42,
                         "startColumn": 4,
@@ -5597,7 +5597,7 @@
                     "endOffset": 42671
                 },
                 "from": {
-                    "file": "/Users/apple/Documents/GitHub/REAndroidSDK/REAndroidSDK/src/main/res/values/strings.xml",
+                    "file": "/Users/apple/Desktop/buvanesh/projects/VisionBank/code/VisionBank/REAndroidSDK/src/main/res/values/strings.xml",
                     "position": {
                         "startLine": 37,
                         "startColumn": 4,
@@ -5616,7 +5616,7 @@
                     "endOffset": 42735
                 },
                 "from": {
-                    "file": "/Users/apple/Documents/GitHub/REAndroidSDK/REAndroidSDK/src/main/res/values/strings.xml",
+                    "file": "/Users/apple/Desktop/buvanesh/projects/VisionBank/code/VisionBank/REAndroidSDK/src/main/res/values/strings.xml",
                     "position": {
                         "startLine": 47,
                         "startColumn": 4,
@@ -5635,7 +5635,7 @@
                     "endOffset": 42801
                 },
                 "from": {
-                    "file": "/Users/apple/Documents/GitHub/REAndroidSDK/REAndroidSDK/src/main/res/values/strings.xml",
+                    "file": "/Users/apple/Desktop/buvanesh/projects/VisionBank/code/VisionBank/REAndroidSDK/src/main/res/values/strings.xml",
                     "position": {
                         "startLine": 53,
                         "startColumn": 4,
@@ -5654,7 +5654,7 @@
                     "endOffset": 42857
                 },
                 "from": {
-                    "file": "/Users/apple/Documents/GitHub/REAndroidSDK/REAndroidSDK/src/main/res/values/strings.xml",
+                    "file": "/Users/apple/Desktop/buvanesh/projects/VisionBank/code/VisionBank/REAndroidSDK/src/main/res/values/strings.xml",
                     "position": {
                         "startLine": 58,
                         "startColumn": 4,
@@ -5673,7 +5673,7 @@
                     "endOffset": 42919
                 },
                 "from": {
-                    "file": "/Users/apple/Documents/GitHub/REAndroidSDK/REAndroidSDK/src/main/res/values/strings.xml",
+                    "file": "/Users/apple/Desktop/buvanesh/projects/VisionBank/code/VisionBank/REAndroidSDK/src/main/res/values/strings.xml",
                     "position": {
                         "startLine": 49,
                         "startColumn": 4,
@@ -5692,7 +5692,7 @@
                     "endOffset": 42985
                 },
                 "from": {
-                    "file": "/Users/apple/Documents/GitHub/REAndroidSDK/REAndroidSDK/src/main/res/values/strings.xml",
+                    "file": "/Users/apple/Desktop/buvanesh/projects/VisionBank/code/VisionBank/REAndroidSDK/src/main/res/values/strings.xml",
                     "position": {
                         "startLine": 56,
                         "startColumn": 4,
@@ -5711,7 +5711,7 @@
                     "endOffset": 43045
                 },
                 "from": {
-                    "file": "/Users/apple/Documents/GitHub/REAndroidSDK/REAndroidSDK/src/main/res/values/strings.xml",
+                    "file": "/Users/apple/Desktop/buvanesh/projects/VisionBank/code/VisionBank/REAndroidSDK/src/main/res/values/strings.xml",
                     "position": {
                         "startLine": 52,
                         "startColumn": 4,
@@ -5730,7 +5730,7 @@
                     "endOffset": 43097
                 },
                 "from": {
-                    "file": "/Users/apple/Documents/GitHub/REAndroidSDK/REAndroidSDK/src/main/res/values/strings.xml",
+                    "file": "/Users/apple/Desktop/buvanesh/projects/VisionBank/code/VisionBank/REAndroidSDK/src/main/res/values/strings.xml",
                     "position": {
                         "startLine": 36,
                         "startColumn": 4,
@@ -5749,7 +5749,7 @@
                     "endOffset": 43163
                 },
                 "from": {
-                    "file": "/Users/apple/Documents/GitHub/REAndroidSDK/REAndroidSDK/src/main/res/values/strings.xml",
+                    "file": "/Users/apple/Desktop/buvanesh/projects/VisionBank/code/VisionBank/REAndroidSDK/src/main/res/values/strings.xml",
                     "position": {
                         "startLine": 44,
                         "startColumn": 4,
@@ -5768,7 +5768,7 @@
                     "endOffset": 43243
                 },
                 "from": {
-                    "file": "/Users/apple/Documents/GitHub/REAndroidSDK/REAndroidSDK/src/main/res/values/strings.xml",
+                    "file": "/Users/apple/Desktop/buvanesh/projects/VisionBank/code/VisionBank/REAndroidSDK/src/main/res/values/strings.xml",
                     "position": {
                         "startLine": 40,
                         "startColumn": 4,
@@ -5787,7 +5787,7 @@
                     "endOffset": 43303
                 },
                 "from": {
-                    "file": "/Users/apple/Documents/GitHub/REAndroidSDK/REAndroidSDK/src/main/res/values/strings.xml",
+                    "file": "/Users/apple/Desktop/buvanesh/projects/VisionBank/code/VisionBank/REAndroidSDK/src/main/res/values/strings.xml",
                     "position": {
                         "startLine": 46,
                         "startColumn": 4,
@@ -5806,7 +5806,7 @@
                     "endOffset": 43371
                 },
                 "from": {
-                    "file": "/Users/apple/Documents/GitHub/REAndroidSDK/REAndroidSDK/src/main/res/values/strings.xml",
+                    "file": "/Users/apple/Desktop/buvanesh/projects/VisionBank/code/VisionBank/REAndroidSDK/src/main/res/values/strings.xml",
                     "position": {
                         "startLine": 51,
                         "startColumn": 4,
@@ -5825,7 +5825,7 @@
                     "endOffset": 43437
                 },
                 "from": {
-                    "file": "/Users/apple/Documents/GitHub/REAndroidSDK/REAndroidSDK/src/main/res/values/strings.xml",
+                    "file": "/Users/apple/Desktop/buvanesh/projects/VisionBank/code/VisionBank/REAndroidSDK/src/main/res/values/strings.xml",
                     "position": {
                         "startLine": 48,
                         "startColumn": 4,
@@ -5844,7 +5844,7 @@
                     "endOffset": 43497
                 },
                 "from": {
-                    "file": "/Users/apple/Documents/GitHub/REAndroidSDK/REAndroidSDK/src/main/res/values/strings.xml",
+                    "file": "/Users/apple/Desktop/buvanesh/projects/VisionBank/code/VisionBank/REAndroidSDK/src/main/res/values/strings.xml",
                     "position": {
                         "startLine": 45,
                         "startColumn": 4,
@@ -5863,7 +5863,7 @@
                     "endOffset": 43571
                 },
                 "from": {
-                    "file": "/Users/apple/Documents/GitHub/REAndroidSDK/REAndroidSDK/src/main/res/values/strings.xml",
+                    "file": "/Users/apple/Desktop/buvanesh/projects/VisionBank/code/VisionBank/REAndroidSDK/src/main/res/values/strings.xml",
                     "position": {
                         "startLine": 50,
                         "startColumn": 4,
@@ -5882,7 +5882,7 @@
                     "endOffset": 43637
                 },
                 "from": {
-                    "file": "/Users/apple/Documents/GitHub/REAndroidSDK/REAndroidSDK/src/main/res/values/strings.xml",
+                    "file": "/Users/apple/Desktop/buvanesh/projects/VisionBank/code/VisionBank/REAndroidSDK/src/main/res/values/strings.xml",
                     "position": {
                         "startLine": 54,
                         "startColumn": 4,
@@ -5901,7 +5901,7 @@
                     "endOffset": 43695
                 },
                 "from": {
-                    "file": "/Users/apple/Documents/GitHub/REAndroidSDK/REAndroidSDK/src/main/res/values/strings.xml",
+                    "file": "/Users/apple/Desktop/buvanesh/projects/VisionBank/code/VisionBank/REAndroidSDK/src/main/res/values/strings.xml",
                     "position": {
                         "startLine": 41,
                         "startColumn": 4,
@@ -5920,7 +5920,7 @@
                     "endOffset": 43749
                 },
                 "from": {
-                    "file": "/Users/apple/Documents/GitHub/REAndroidSDK/REAndroidSDK/src/main/res/values/strings.xml",
+                    "file": "/Users/apple/Desktop/buvanesh/projects/VisionBank/code/VisionBank/REAndroidSDK/src/main/res/values/strings.xml",
                     "position": {
                         "startLine": 43,
                         "startColumn": 4,
@@ -5939,7 +5939,7 @@
                     "endOffset": 43809
                 },
                 "from": {
-                    "file": "/Users/apple/Documents/GitHub/REAndroidSDK/REAndroidSDK/src/main/res/values/strings.xml",
+                    "file": "/Users/apple/Desktop/buvanesh/projects/VisionBank/code/VisionBank/REAndroidSDK/src/main/res/values/strings.xml",
                     "position": {
                         "startLine": 57,
                         "startColumn": 4,
@@ -5958,7 +5958,7 @@
                     "endOffset": 43874
                 },
                 "from": {
-                    "file": "/Users/apple/Documents/GitHub/REAndroidSDK/REAndroidSDK/src/main/res/values/strings.xml",
+                    "file": "/Users/apple/Desktop/buvanesh/projects/VisionBank/code/VisionBank/REAndroidSDK/src/main/res/values/strings.xml",
                     "position": {
                         "startLine": 39,
                         "startColumn": 4,
@@ -5977,7 +5977,7 @@
                     "endOffset": 43935
                 },
                 "from": {
-                    "file": "/Users/apple/Documents/GitHub/REAndroidSDK/REAndroidSDK/src/main/res/values/strings.xml",
+                    "file": "/Users/apple/Desktop/buvanesh/projects/VisionBank/code/VisionBank/REAndroidSDK/src/main/res/values/strings.xml",
                     "position": {
                         "startLine": 38,
                         "startColumn": 4,
@@ -5996,7 +5996,7 @@
                     "endOffset": 44006
                 },
                 "from": {
-                    "file": "/Users/apple/Documents/GitHub/REAndroidSDK/REAndroidSDK/src/main/res/values/strings.xml",
+                    "file": "/Users/apple/Desktop/buvanesh/projects/VisionBank/code/VisionBank/REAndroidSDK/src/main/res/values/strings.xml",
                     "position": {
                         "startLine": 26,
                         "startColumn": 4,
@@ -6015,7 +6015,7 @@
                     "endOffset": 44083
                 },
                 "from": {
-                    "file": "/Users/apple/Documents/GitHub/REAndroidSDK/REAndroidSDK/src/main/res/values/strings.xml",
+                    "file": "/Users/apple/Desktop/buvanesh/projects/VisionBank/code/VisionBank/REAndroidSDK/src/main/res/values/strings.xml",
                     "position": {
                         "startLine": 30,
                         "startColumn": 4,
@@ -6034,7 +6034,7 @@
                     "endOffset": 44184
                 },
                 "from": {
-                    "file": "/Users/apple/Documents/GitHub/REAndroidSDK/REAndroidSDK/src/main/res/values/strings.xml",
+                    "file": "/Users/apple/Desktop/buvanesh/projects/VisionBank/code/VisionBank/REAndroidSDK/src/main/res/values/strings.xml",
                     "position": {
                         "startLine": 31,
                         "startColumn": 4,
@@ -6053,7 +6053,7 @@
                     "endOffset": 44273
                 },
                 "from": {
-                    "file": "/Users/apple/Documents/GitHub/REAndroidSDK/REAndroidSDK/src/main/res/values/strings.xml",
+                    "file": "/Users/apple/Desktop/buvanesh/projects/VisionBank/code/VisionBank/REAndroidSDK/src/main/res/values/strings.xml",
                     "position": {
                         "startLine": 32,
                         "startColumn": 4,
@@ -6072,7 +6072,7 @@
                     "endOffset": 44346
                 },
                 "from": {
-                    "file": "/Users/apple/Documents/GitHub/REAndroidSDK/REAndroidSDK/src/main/res/values/strings.xml",
+                    "file": "/Users/apple/Desktop/buvanesh/projects/VisionBank/code/VisionBank/REAndroidSDK/src/main/res/values/strings.xml",
                     "position": {
                         "startLine": 22,
                         "startColumn": 4,
@@ -6091,7 +6091,7 @@
                     "endOffset": 44424
                 },
                 "from": {
-                    "file": "/Users/apple/Documents/GitHub/REAndroidSDK/REAndroidSDK/src/main/res/values/strings.xml",
+                    "file": "/Users/apple/Desktop/buvanesh/projects/VisionBank/code/VisionBank/REAndroidSDK/src/main/res/values/strings.xml",
                     "position": {
                         "startLine": 16,
                         "startColumn": 4,
@@ -6110,7 +6110,7 @@
                     "endOffset": 44492
                 },
                 "from": {
-                    "file": "/Users/apple/Documents/GitHub/REAndroidSDK/REAndroidSDK/src/main/res/values/strings.xml",
+                    "file": "/Users/apple/Desktop/buvanesh/projects/VisionBank/code/VisionBank/REAndroidSDK/src/main/res/values/strings.xml",
                     "position": {
                         "startLine": 15,
                         "startColumn": 4,
@@ -6129,7 +6129,7 @@
                     "endOffset": 44560
                 },
                 "from": {
-                    "file": "/Users/apple/Documents/GitHub/REAndroidSDK/REAndroidSDK/src/main/res/values/strings.xml",
+                    "file": "/Users/apple/Desktop/buvanesh/projects/VisionBank/code/VisionBank/REAndroidSDK/src/main/res/values/strings.xml",
                     "position": {
                         "startLine": 17,
                         "startColumn": 4,
@@ -6148,7 +6148,7 @@
                     "endOffset": 44624
                 },
                 "from": {
-                    "file": "/Users/apple/Documents/GitHub/REAndroidSDK/REAndroidSDK/src/main/res/values/strings.xml",
+                    "file": "/Users/apple/Desktop/buvanesh/projects/VisionBank/code/VisionBank/REAndroidSDK/src/main/res/values/strings.xml",
                     "position": {
                         "startLine": 8,
                         "startColumn": 4,
@@ -6167,7 +6167,7 @@
                     "endOffset": 44685
                 },
                 "from": {
-                    "file": "/Users/apple/Documents/GitHub/REAndroidSDK/REAndroidSDK/src/main/res/values/strings.xml",
+                    "file": "/Users/apple/Desktop/buvanesh/projects/VisionBank/code/VisionBank/REAndroidSDK/src/main/res/values/strings.xml",
                     "position": {
                         "startLine": 10,
                         "startColumn": 4,
@@ -6186,7 +6186,7 @@
                     "endOffset": 44757
                 },
                 "from": {
-                    "file": "/Users/apple/Documents/GitHub/REAndroidSDK/REAndroidSDK/src/main/res/values/strings.xml",
+                    "file": "/Users/apple/Desktop/buvanesh/projects/VisionBank/code/VisionBank/REAndroidSDK/src/main/res/values/strings.xml",
                     "position": {
                         "startLine": 18,
                         "startColumn": 4,
@@ -6205,7 +6205,7 @@
                     "endOffset": 44841
                 },
                 "from": {
-                    "file": "/Users/apple/Documents/GitHub/REAndroidSDK/REAndroidSDK/src/main/res/values/strings.xml",
+                    "file": "/Users/apple/Desktop/buvanesh/projects/VisionBank/code/VisionBank/REAndroidSDK/src/main/res/values/strings.xml",
                     "position": {
                         "startLine": 6,
                         "startColumn": 4,
@@ -6224,7 +6224,7 @@
                     "endOffset": 44909
                 },
                 "from": {
-                    "file": "/Users/apple/Documents/GitHub/REAndroidSDK/REAndroidSDK/src/main/res/values/strings.xml",
+                    "file": "/Users/apple/Desktop/buvanesh/projects/VisionBank/code/VisionBank/REAndroidSDK/src/main/res/values/strings.xml",
                     "position": {
                         "startLine": 9,
                         "startColumn": 4,
@@ -6243,7 +6243,7 @@
                     "endOffset": 44977
                 },
                 "from": {
-                    "file": "/Users/apple/Documents/GitHub/REAndroidSDK/REAndroidSDK/src/main/res/values/strings.xml",
+                    "file": "/Users/apple/Desktop/buvanesh/projects/VisionBank/code/VisionBank/REAndroidSDK/src/main/res/values/strings.xml",
                     "position": {
                         "startLine": 7,
                         "startColumn": 4,
@@ -6262,7 +6262,7 @@
                     "endOffset": 45041
                 },
                 "from": {
-                    "file": "/Users/apple/Documents/GitHub/REAndroidSDK/REAndroidSDK/src/main/res/values/strings.xml",
+                    "file": "/Users/apple/Desktop/buvanesh/projects/VisionBank/code/VisionBank/REAndroidSDK/src/main/res/values/strings.xml",
                     "position": {
                         "startLine": 5,
                         "startColumn": 4,
@@ -6434,7 +6434,7 @@
                     "endOffset": 46042
                 },
                 "from": {
-                    "file": "/Users/apple/Documents/GitHub/REAndroidSDK/REAndroidSDK/src/main/res/values/styles.xml",
+                    "file": "/Users/apple/Desktop/buvanesh/projects/VisionBank/code/VisionBank/REAndroidSDK/src/main/res/values/styles.xml",
                     "position": {
                         "startLine": 3,
                         "startColumn": 4,
@@ -6454,7 +6454,7 @@
                     "endOffset": 46132
                 },
                 "from": {
-                    "file": "/Users/apple/Documents/GitHub/REAndroidSDK/REAndroidSDK/src/main/res/values/styles.xml",
+                    "file": "/Users/apple/Desktop/buvanesh/projects/VisionBank/code/VisionBank/REAndroidSDK/src/main/res/values/styles.xml",
                     "position": {
                         "startLine": 16,
                         "startColumn": 4,
@@ -6474,7 +6474,7 @@
                     "endOffset": 46282
                 },
                 "from": {
-                    "file": "/Users/apple/Documents/GitHub/REAndroidSDK/REAndroidSDK/src/main/res/values/styles.xml",
+                    "file": "/Users/apple/Desktop/buvanesh/projects/VisionBank/code/VisionBank/REAndroidSDK/src/main/res/values/styles.xml",
                     "position": {
                         "startLine": 11,
                         "startColumn": 4,
@@ -6494,7 +6494,7 @@
                     "endOffset": 46362
                 },
                 "from": {
-                    "file": "/Users/apple/Documents/GitHub/REAndroidSDK/REAndroidSDK/src/main/res/values/styles.xml",
+                    "file": "/Users/apple/Desktop/buvanesh/projects/VisionBank/code/VisionBank/REAndroidSDK/src/main/res/values/styles.xml",
                     "position": {
                         "startLine": 18,
                         "startColumn": 4,

@@ -48,31 +48,35 @@ public class DataExchanger extends AsyncTask<String, String, String> {
     protected void onPostExecute(String result) {
         super.onPostExecute(result);
 
-        if (modelResponseData != null) {
-            switch (modelResponseData.getResponseCode()) {
-                case 200:
-                    listener.onSuccess(modelResponseData.getResponse(), requestCode);
-                    break;
-                case 201:
-                    listener.showDialog(modelResponseData.getResponse(), requestCode);
-                    break;
-                case 400:
-                    //if (response.errorBody() != null) {
-                    listener.showErrorDialog("", requestCode);
-                    //}
-                    break;
-                case 401:
-                    listener.logOut(requestCode);
-                    break;
-                case 500:
-                    listener.showInternalServerErrorDialog(modelResponseData.getResponse(), requestCode);
-                    break;
-                default:
-                    listener.logOut(requestCode);
-                    break;
+        try {
+            if (modelResponseData != null) {
+                switch (modelResponseData.getResponseCode()) {
+                    case 200:
+                        listener.onSuccess(modelResponseData.getResponse(), requestCode);
+                        break;
+                    case 201:
+                        listener.showDialog(modelResponseData.getResponse(), requestCode);
+                        break;
+                    case 400:
+                        //if (response.errorBody() != null) {
+                        listener.showErrorDialog("", requestCode);
+                        //}
+                        break;
+                    case 401:
+                        listener.logOut(requestCode);
+                        break;
+                    case 500:
+                        listener.showInternalServerErrorDialog(modelResponseData.getResponse(), requestCode);
+                        break;
+                    default:
+                        listener.logOut(requestCode);
+                        break;
+                }
+            } else {
+                listener.onFailure(new Throwable(), requestCode);
             }
-        } else {
-            listener.onFailure(new Throwable(), requestCode);
+        } catch (Exception e) {
+            Util.catchMessage(e);
         }
 
     }
@@ -83,11 +87,18 @@ public class DataExchanger extends AsyncTask<String, String, String> {
         String USER_AGENT = "android";
 
         String result = "";
+
         String baseUrl = "http://resulticks.biz:81/Home/";
+
         ModelResponseData modelResponseData = null;
         try {
+            String url;
+            if(_url.contains("http"))
+                url = _url;
+            else
+                url = baseUrl+_url;
 
-            String url = baseUrl+_url;
+
             URL obj = new URL(url);
             HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 
@@ -123,15 +134,15 @@ public class DataExchanger extends AsyncTask<String, String, String> {
             System.out.println("Response : " + result);
 
         } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
+           Util.catchMessage(e);
         } catch (MalformedURLException e) {
-            e.printStackTrace();
+            Util.catchMessage(e);
         } catch (ProtocolException e) {
-            e.printStackTrace();
+            Util.catchMessage(e);
         } catch (IOException e) {
-            e.printStackTrace();
+            Util.catchMessage(e);
         } catch (Exception e) {
-            e.printStackTrace();
+            Util.catchMessage(e);
         } finally {
 
             return modelResponseData;

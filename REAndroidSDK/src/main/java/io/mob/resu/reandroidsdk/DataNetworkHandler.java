@@ -54,15 +54,14 @@ class DataNetworkHandler implements IResponseListener {
                         jsonObject.put("userId", SharedPref.getInstance().getStringValue(context, context.getString(R.string.resulticksSharedUserId)));
                         jsonObject.put("deviceId", SharedPref.getInstance().getStringValue(context, context.getString(R.string.resulticksSharedDatabaseDeviceId)));
                         jsonObject.put("screen", new JSONArray(screenArrayList));
-
                         apiCallScreenTracking(jsonObject.toString());
                     } catch (Exception e) {
-
+                        Util.catchMessage(e);
                     }
                 }
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            Util.catchMessage(e);
         }
 
     }
@@ -81,12 +80,13 @@ class DataNetworkHandler implements IResponseListener {
             // get From Local DataBase
             // campaignTracking = getCampaignDataFromLocalDataBase(context);
             String campaignTracking = getCampaignFromLocalDataBase(context);
-            if (Util.getInstance(context).hasNetworkConnection())
-                apiCallCampaignTracking(campaignTracking);
+            if (Util.getInstance(context).hasNetworkConnection()) {
+                apiCallCampaignTracking(campaignTracking,id);
+            }
 
 
         } catch (Exception e) {
-            e.printStackTrace();
+            Util.catchMessage(e);
         }
     }
 
@@ -99,8 +99,13 @@ class DataNetworkHandler implements IResponseListener {
 
     }
 
-    private void apiCallCampaignTracking(String campaignTracking) {
+    private void apiCallCampaignTracking(String campaignTracking, String id) {
+
+        new DataExchanger("https://b.resu.io/GCM/GetSmartCodeDetail?smartCode="+id, "", this, AppConstants.SDK_CAMPAIGN_DETAILS).execute();
+
         new DataExchanger("campaignTracking", campaignTracking, this, AppConstants.SDK_NOTIFICATION_VIEWED).execute();
+
+
     }
 
 
@@ -151,7 +156,7 @@ class DataNetworkHandler implements IResponseListener {
         try {
             new DataBase(context).insertData(jsonObject.toString(), DataBase.Table.CAMPAIGN_TABLE);
         } catch (Exception e) {
-            e.printStackTrace();
+            Util.catchMessage(e);
         }
 
     }
@@ -201,7 +206,7 @@ class DataNetworkHandler implements IResponseListener {
                     try {
                         new DataBase(context).deleteData(dbCampaign, DataBase.Table.CAMPAIGN_TABLE);
                     } catch (Exception e) {
-                        e.printStackTrace();
+                        Util.catchMessage(e);
                     }
 
                     break;
@@ -212,13 +217,18 @@ class DataNetworkHandler implements IResponseListener {
                     try {
                         new DataBase(context).deleteData(dbScreen, DataBase.Table.SCREENS_TABLE);
                     } catch (Exception e) {
-                        e.printStackTrace();
+                        Util.catchMessage(e);
                     }
+                    break;
+
+
+                case AppConstants.SDK_CAMPAIGN_DETAILS:
+                    SharedPref.getInstance().setSharedValue(context, context.getString(R.string.resulticksSharedReferral), response);
                     break;
 
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            Util.catchMessage(e);
         }
     }
 }

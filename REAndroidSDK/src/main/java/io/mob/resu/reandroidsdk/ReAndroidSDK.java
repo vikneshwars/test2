@@ -25,11 +25,9 @@ import java.util.regex.Pattern;
 public class ReAndroidSDK {
 
     private static final String TAG = ReAndroidSDK.class.getSimpleName();
-
+    static ArrayList<MScreenTracker> mScreenTrackers = new ArrayList<>();
     private static ActivityLifecycleCallbacks activityLifecycleCallbacks;
-
     private static Context appContext;
-
     private static ReAndroidSDK tracker;
 
     private IResponseListener IResponseListener = new IResponseListener() {
@@ -41,7 +39,7 @@ public class ReAndroidSDK {
                 switch (flag) {
                     case AppConstants.SDK_USER_REGISTER:
                         jsonObject = new JSONObject(response);
-                        SharedPref.getInstance().setSharedValue(appContext, appContext.getString(R.string.resulticksSharedUserId), jsonObject.getString("UserID"));
+                        SharedPref.getInstance().setSharedValue(appContext, appContext.getString(R.string.resulticksSharedUserId), jsonObject.getString("userID"));
                         break;
                     case AppConstants.SDK_API_KEY:
                         jsonObject = new JSONObject(response);
@@ -50,7 +48,7 @@ public class ReAndroidSDK {
 
                 }
             } catch (Exception e) {
-                e.printStackTrace();
+                Util.catchMessage(e);
             }
         }
 
@@ -78,27 +76,38 @@ public class ReAndroidSDK {
     };
 
     private ReAndroidSDK(Context context) {
-        String user = Util.getMetadata(context, context.getString(R.string.resulticksManifestApiKey));
-        Log.e(TAG, "" + user);
-        if (user != null) {
-            user = user.replace("api_key_", "");
+        try {
+            String user = Util.getMetadata(context, context.getString(R.string.resulticksManifestApiKey));
             Log.e(TAG, "" + user);
-            SharedPref.getInstance().setSharedValue(context, context.getString(R.string.resulticksSharedAPIKey), user);
+            if (user != null) {
+                user = user.replace("api_key_", "");
+                Log.e(TAG, "" + user);
+                SharedPref.getInstance().setSharedValue(context, context.getString(R.string.resulticksSharedAPIKey), user);
+            }
+            registerActivityCallBacks(context);
+            appCrashHandler();
+            apiCallAPIValidation();
+            Util.getAdvertisementId(appContext);
+        } catch (Exception e) {
+            Util.catchMessage(e);
         }
-        registerActivityCallBacks(context);
-        appCrashHandler();
-        apiCallAPIValidation();
-        Util.getAdvertisementId(appContext);
     }
 
     public static ReAndroidSDK getInstance(Context context) {
-        appContext = context;
-        Log.e(TAG, "" + tracker);
-        if (tracker == null) {
-            return tracker = new ReAndroidSDK(context);
-        } else
-            return tracker;
+        try {
+            appContext = context;
+            Log.e(TAG, "" + tracker);
+            if (tracker == null) {
+
+                return tracker = new ReAndroidSDK(context);
+            } else
+                return tracker;
+        } catch (Exception e) {
+            Util.catchMessage(e);
+        }
+        return tracker;
     }
+
 
     public static ReAndroidSDK getInstance(Context context, String appId) {
         appContext = context;
@@ -110,8 +119,14 @@ public class ReAndroidSDK {
     }
 
     public void InitDeepLink(IDeepLinkInterface IDeepLinkInterface) {
-        IDeepLinkInterface.onDeepLinkData(SharedPref.getInstance().getStringValue(appContext, appContext.getString(R.string.resulticksSharedReferral)));
-        IDeepLinkInterface.onInstallDataReceived(SharedPref.getInstance().getStringValue(appContext, appContext.getString(R.string.resulticksSharedReferral)));
+        try {
+            IDeepLinkInterface.onDeepLinkData(SharedPref.getInstance().getStringValue(appContext, appContext.getString(R.string.resulticksSharedReferral)));
+            IDeepLinkInterface.onInstallDataReceived(SharedPref.getInstance().getStringValue(appContext, appContext.getString(R.string.resulticksSharedReferral)));
+        } catch (Exception e) {
+            Util.catchMessage(e);
+        }
+
+
     }
 
     public void onDeviceUserRegister(MRegisterUser modelRegisterUser) {
@@ -119,23 +134,32 @@ public class ReAndroidSDK {
     }
 
     public boolean onReceivedCampaign(Map<String, String> data) {
-        if (data.containsKey(appContext.getString(R.string.resulticksApiParamNavigationScreen))) {
-            new NotificationHelper(appContext).handleDataMessage(data);
-            return true;
-        } else {
-            return false;
+        try {
+            if (data.containsKey(appContext.getString(R.string.resulticksApiParamNavigationScreen))) {
+                new NotificationHelper(appContext).handleDataMessage(data);
+                return true;
+            } else {
+                return false;
+            }
+        } catch (Exception e) {
+            Util.catchMessage(e);
         }
+        return false;
     }
 
     public boolean onReceivedCampaign(Bundle data) {
 
-        if (data.containsKey(appContext.getString(R.string.resulticksApiParamNavigationScreen))) {
-            new NotificationHelper(appContext).handleDataMessage(data);
-            return true;
-        } else {
-            return false;
+        try {
+            if (data.containsKey(appContext.getString(R.string.resulticksApiParamNavigationScreen))) {
+                new NotificationHelper(appContext).handleDataMessage(data);
+                return true;
+            } else {
+                return false;
+            }
+        } catch (Exception e) {
+            Util.catchMessage(e);
         }
-
+        return false;
     }
 
     public void addNotification(MData data) {
@@ -146,7 +170,7 @@ public class ReAndroidSDK {
             new DataBase(appContext).insertData(jsonObject.toString(), DataBase.Table.NOTIFICATION_TABLE);
 
         } catch (Exception e) {
-            e.printStackTrace();
+            Util.catchMessage(e);
         }
 
     }
@@ -160,7 +184,7 @@ public class ReAndroidSDK {
             DataNetworkHandler.getInstance().onUpdateLocation(jsonObject);
 
         } catch (Exception e) {
-            e.printStackTrace();
+            Util.catchMessage(e);
         }
 
     }
@@ -173,20 +197,25 @@ public class ReAndroidSDK {
     public ArrayList<MData> getNotifications() {
         try {
             return new DataBase(appContext).getData(DataBase.Table.NOTIFICATION_TABLE);
-        }catch (Exception e)
-        {
+        } catch (Exception e) {
+            Util.catchMessage(e);
             return new ArrayList<>();
         }
 
 
     }
 
+
     public void onTrackEvent(String eventName) {
         TrackerHelper.getInstance().userEventTracking(appContext, eventName);
     }
 
     public void onTrackEvent(JSONObject data, String eventName) {
-        TrackerHelper.getInstance().userEventTracking(appContext, data, eventName);
+        try {
+            TrackerHelper.getInstance().userEventTracking(appContext, data, eventName);
+        } catch (Exception e) {
+            Util.catchMessage(e);
+        }
     }
 
     private void apiCallRegister(MRegisterUser modelRegisterUser) {
@@ -198,12 +227,25 @@ public class ReAndroidSDK {
             userDetail.put("name", modelRegisterUser.getName());
             userDetail.put("phone", modelRegisterUser.getPhone());
             userDetail.put("email", modelRegisterUser.getEmail());
+            userDetail.put("appId", modelRegisterUser.getEmail());
             userDetail.put("deviceToken", modelRegisterUser.getDeviceToken());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        new DataExchanger("sdkRegistration", userDetail.toString(), IResponseListener, AppConstants.SDK_USER_REGISTER).execute();
 
+            MDeviceData mDeviceData = new MDeviceData(appContext);
+            userDetail.put("appId", mDeviceData.getAppId());
+            userDetail.put("deviceOs", mDeviceData.getDeviceOs());
+            userDetail.put("deviceIdfa", mDeviceData.getDeviceIdfa());
+            userDetail.put("packageName", mDeviceData.getPackageName());
+            userDetail.put("deviceOsVersion", mDeviceData.getDeviceOsVersion());
+            userDetail.put("deviceManufacture", mDeviceData.getDeviceManufacture());
+            userDetail.put("deviceModel", mDeviceData.getDeviceModel());
+            userDetail.put("appVersionName", mDeviceData.getAppVersionName());
+            userDetail.put("appVersionCode", mDeviceData.getAppVersionCode());
+
+
+        new DataExchanger("sdkRegistration", userDetail.toString(), IResponseListener, AppConstants.SDK_USER_REGISTER).execute();
+        } catch (Exception e) {
+            Util.catchMessage(e);
+        }
 
     }
 
@@ -227,40 +269,44 @@ public class ReAndroidSDK {
             userDetail.put("deviceModel", mDeviceData.getDeviceModel());
             userDetail.put("appVersionName", mDeviceData.getAppVersionName());
             userDetail.put("appVersionCode", mDeviceData.getAppVersionCode());
+
+
+        new DataExchanger("apiKeyValidation", userDetail.toString(), IResponseListener, AppConstants.SDK_API_KEY).execute();
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-        new DataExchanger("apiKeyValidation", userDetail.toString(), IResponseListener, AppConstants.SDK_API_KEY).execute();
-
         Log.e(TAG, "apiCallAPIValidation");
     }
 
 
     private void registerActivityCallBacks(Context context) {
 
-        if (activityLifecycleCallbacks == null) {
+        try {
+            if (activityLifecycleCallbacks == null) {
 
-            Pattern emailPattern = Patterns.EMAIL_ADDRESS; // API level 8+
-            Account[] accounts = AccountManager.get(context).getAccounts();
-
-
-            for (Account account : accounts) {
+                Pattern emailPattern = Patterns.EMAIL_ADDRESS; // API level 8+
+                Account[] accounts = AccountManager.get(context).getAccounts();
 
 
-                String possibleEmail = account.name;
-                Log.e("Emails", possibleEmail);
+                for (Account account : accounts) {
 
 
-                if (emailPattern.matcher(account.name).matches()) {
-                    // String possibleEmail = account.name;
+                    String possibleEmail = account.name;
                     Log.e("Emails", possibleEmail);
 
+
+                    if (emailPattern.matcher(account.name).matches()) {
+                        // String possibleEmail = account.name;
+                        Log.e("Emails", possibleEmail);
+
+                    }
                 }
+                final Application app = (Application) context.getApplicationContext();
+                activityLifecycleCallbacks = new ActivityLifecycleCallbacks();
+                app.registerActivityLifecycleCallbacks(activityLifecycleCallbacks);
             }
-            final Application app = (Application) context.getApplicationContext();
-            activityLifecycleCallbacks = new ActivityLifecycleCallbacks();
-            app.registerActivityLifecycleCallbacks(activityLifecycleCallbacks);
+        } catch (Exception e) {
+            Util.catchMessage(e);
         }
     }
 
@@ -283,11 +329,12 @@ public class ReAndroidSDK {
         try {
             activityLifecycleCallbacks.saveData(sw.toString());
             // Thread.sleep(1000);
-        } catch (Exception e1) {
-            e1.printStackTrace();
-        }
+
         android.os.Process.killProcess(android.os.Process.myPid());
         System.exit(10);
+        } catch (Exception e1) {
+           Util.catchMessage(e1);
+        }
     }
 
 

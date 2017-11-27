@@ -38,6 +38,7 @@ class DataBase {
     private final Context context;
     private DatabaseHelper DBHelper;
     private SQLiteDatabase db;
+
     DataBase(Context ctx) {
         this.context = ctx;
         DBHelper = new DatabaseHelper(context);
@@ -74,7 +75,7 @@ class DataBase {
             close();
             return array_list;
         } catch (Exception e) {
-            e.printStackTrace();
+            Util.catchMessage(e);
             close();
             return new ArrayList<>();
         }
@@ -89,39 +90,46 @@ class DataBase {
                 return cursor;
             else
                 return null;
-        }catch (Exception e)
-        {
+        } catch (Exception e) {
+            Util.catchMessage(e);
             return null;
         }
     }
 
     public MRegisterEvent getData(Table tablename, String viewId, String screenName) {
-        resolveStrictMode();
-        db = DBHelper.getReadableDatabase();
-        String tableName = getTableName(tablename);
-        Cursor cursor = null;
-        MRegisterEvent mRegisterEvent = new MRegisterEvent();
-        cursor = getCursorCount(viewId, screenName, tableName);
-        if (cursor != null & cursor.getCount() > 0) {
-            if (cursor.moveToFirst()) {
-                do {
-                    try {
-                        mRegisterEvent.setViewId(cursor.getString(1));
-                        mRegisterEvent.setScreenName(cursor.getString(2));
-                        JSONObject jsonObject = new JSONObject(cursor.getString(3));
-                        //mRegisterEvent=LoganSquare.parse(jsonObject.toString(),MRegisterEvent.class);
-                        mRegisterEvent.setEventID(cursor.getString(0));
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
+
+        try {
+            resolveStrictMode();
+
+            db = DBHelper.getReadableDatabase();
+            String tableName = getTableName(tablename);
+            Cursor cursor = null;
+            MRegisterEvent mRegisterEvent = new MRegisterEvent();
+            cursor = getCursorCount(viewId, screenName, tableName);
+            if (cursor != null & cursor.getCount() > 0) {
+                if (cursor.moveToFirst()) {
+                    do {
+                        try {
+                            mRegisterEvent.setViewId(cursor.getString(1));
+                            mRegisterEvent.setScreenName(cursor.getString(2));
+                            JSONObject jsonObject = new JSONObject(cursor.getString(3));
+                            //mRegisterEvent=LoganSquare.parse(jsonObject.toString(),MRegisterEvent.class);
+                            mRegisterEvent.setEventID(cursor.getString(0));
+                        } catch (Exception e) {
+                            Util.catchMessage(e);
+                        }
 
 
-                } while (cursor.moveToNext());
+                    } while (cursor.moveToNext());
+                }
+                cursor.close();
             }
-            cursor.close();
+            close();
+            return mRegisterEvent;
+        } catch (Exception e) {
+            Util.catchMessage(e);
         }
-        close();
-        return mRegisterEvent;
+        return null;
     }
 
     void deleteData(ArrayList<MData> values, Table i) {
@@ -131,22 +139,33 @@ class DataBase {
                 deleteData(mData, i);
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            Util.catchMessage(e);
         }
         close();
     }
 
     private void resolveStrictMode() {
-        open();
+
+        try {
+            open();
+        } catch (SQLException e) {
+            Util.catchMessage(e);
+        }
 
     }
 
     public void deleteEventData(String id, Table i) {
-        resolveStrictMode();
-        String tableName = getTableName(i);
-        Log.e("datas deleted", tableName + " " + id);
-        db.execSQL("delete from " + tableName + " where _id='" + id + "'");
-        close();
+
+        try {
+            resolveStrictMode();
+            String tableName = getTableName(i);
+            Log.e("datas deleted", tableName + " " + id);
+            db.execSQL("delete from " + tableName + " where _id='" + id + "'");
+            close();
+        } catch (Exception e) {
+            Util.catchMessage(e);
+        }
+
     }
 
     public void deleteData(MData mData, Table i) {
@@ -155,7 +174,7 @@ class DataBase {
             int id = mData.getId();
             deleteEventData("" + id, i);
         } catch (Exception e) {
-            e.printStackTrace();
+            Util.catchMessage(e);
         }
 
     }
@@ -181,32 +200,43 @@ class DataBase {
     }
 
     void insertData(String value, Table i) {
-        resolveStrictMode();
-        String tableName = getTableName(i);
-        ContentValues initialValues = new ContentValues();
-        initialValues.put("value", value);
-        Log.e("data  insert to ", "" + value.toString());
-        Log.e("data  insert to ", "" + tableName);
-        db.insert(tableName, null, initialValues);
-        close();
+
+
+        try {
+            resolveStrictMode();
+            String tableName = getTableName(i);
+            ContentValues initialValues = new ContentValues();
+            initialValues.put("value", value);
+            Log.e("data  insert to ", "" + value.toString());
+            Log.e("data  insert to ", "" + tableName);
+            db.insert(tableName, null, initialValues);
+            close();
+        } catch (Exception e) {
+            Util.catchMessage(e);
+        }
+
 
     }
 
     void insertOrUpdateData(String value, String viewId, String screenName, Table i) {
-        resolveStrictMode();
-        String tableName = getTableName(i);
-        ContentValues initialValues = new ContentValues();
-        initialValues.put("value", value);
-        initialValues.put("viewid", viewId);
-        initialValues.put("screenname", screenName);
-        Log.e("data  insert to ", "" + value.toString());
-        Log.e("data  insert to ", "" + tableName);
-        Cursor cursor = getCursorCount(viewId, screenName, tableName);
-        if (cursor != null && cursor.getCount() > 0)
-            db.update(tableName, initialValues, "viewid" + "=?" + " AND screenname" + "=?", new String[]{viewId, screenName});
-        else
-            db.insert(tableName, null, initialValues);
-        close();
+        try {
+            resolveStrictMode();
+            String tableName = getTableName(i);
+            ContentValues initialValues = new ContentValues();
+            initialValues.put("value", value);
+            initialValues.put("viewid", viewId);
+            initialValues.put("screenname", screenName);
+            Log.e("data  insert to ", "" + value.toString());
+            Log.e("data  insert to ", "" + tableName);
+            Cursor cursor = getCursorCount(viewId, screenName, tableName);
+            if (cursor != null && cursor.getCount() > 0)
+                db.update(tableName, initialValues, "viewid" + "=?" + " AND screenname" + "=?", new String[]{viewId, screenName});
+            else
+                db.insert(tableName, null, initialValues);
+            close();
+        } catch (Exception e) {
+            Util.catchMessage(e);
+        }
 
 
     }
@@ -217,7 +247,7 @@ class DataBase {
     }
 
     public synchronized void close() {
-        if(db != null){
+        if (db != null) {
             db.close();
         }
     }
@@ -236,10 +266,14 @@ class DataBase {
 
         //DB TABLE CREATION
         public void onCreate(SQLiteDatabase db) {
-            db.execSQL(CREATE_CAMPAIGN_TABLE);
-            db.execSQL(CREATE_NOTIFICATION_TABLE);
-            db.execSQL(CREATE_SCREENS_TABLE);
-            db.execSQL(CREATE_REGISTER_EVENT_TABLE);
+            try {
+                db.execSQL(CREATE_CAMPAIGN_TABLE);
+                db.execSQL(CREATE_NOTIFICATION_TABLE);
+                db.execSQL(CREATE_SCREENS_TABLE);
+                db.execSQL(CREATE_REGISTER_EVENT_TABLE);
+            } catch (SQLException e) {
+                Util.catchMessage(e);
+            }
             Log.e("DATA BASE CREATED", "DATA BASE CREATED");
         }
 

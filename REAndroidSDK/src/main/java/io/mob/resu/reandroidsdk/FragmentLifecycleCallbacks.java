@@ -12,13 +12,13 @@ import java.util.Calendar;
  * Created by P Buvaneswaran on 30-07-2017.
  */
 
-  class FragmentLifecycleCallbacks extends FragmentManager.FragmentLifecycleCallbacks {
+class FragmentLifecycleCallbacks extends FragmentManager.FragmentLifecycleCallbacks {
 
     Calendar sCalendar = Calendar.getInstance();
     Calendar oldCalendar = Calendar.getInstance();
-     String newScreenName="";
+    String newScreenName = "";
 
-     FragmentLifecycleCallbacks() {
+    FragmentLifecycleCallbacks() {
         super();
     }
 
@@ -51,11 +51,15 @@ import java.util.Calendar;
     @Override
     public void onFragmentStarted(FragmentManager fm, Fragment f) {
         super.onFragmentStarted(fm, f);
-        newScreenName=f.getClass().getSimpleName();
-        oldCalendar = sCalendar;
-        sCalendar = Calendar.getInstance();
-        AppWidgets.DialogHandler(false);
-        TrackerHelper.getInstance().screenTrackingUpdateToServer(f.getActivity());
+        try {
+            newScreenName = f.getClass().getSimpleName();
+            oldCalendar = sCalendar;
+            sCalendar = Calendar.getInstance();
+            AppWidgets.DialogHandler(false);
+            TrackerHelper.getInstance().screenTrackingUpdateToServer(f.getActivity());
+        } catch (Exception e) {
+            Util.catchMessage(e);
+        }
     }
 
     @Override
@@ -71,7 +75,7 @@ import java.util.Calendar;
     @Override
     public void onFragmentStopped(FragmentManager fm, Fragment f) {
         super.onFragmentStopped(fm, f);
-        TrackerHelper.getInstance().screenTracking(f.getActivity(),oldCalendar, Calendar.getInstance(),f.getActivity().getClass().getSimpleName(), f.getClass().getSimpleName(),null);
+        TrackerHelper.getInstance().screenTracking(f.getActivity(), oldCalendar, Calendar.getInstance(), f.getActivity().getClass().getSimpleName(), f.getClass().getSimpleName(), null);
     }
 
     @Override

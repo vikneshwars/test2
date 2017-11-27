@@ -48,6 +48,7 @@ public class InstallReferrerReceiver extends BroadcastReceiver {
                 SharedPref.getInstance().setSharedValue(context, context.getString(R.string.resulticksApiParamIsNewUser), true);
 
                 if (referrerObject.has(context.getString(R.string.resulticksDeepLinkParamReferralId)))
+
                     DataNetworkHandler.getInstance().campaignHandler(context, referrerObject.getString(context.getString(R.string.resulticksDeepLinkParamReferralId)), "2", true, null, null);
 
             } catch (Exception e) {
