@@ -1,7 +1,19 @@
 [
     {
+        "merged": "/Users/Buvaneswaran/Documents/GitHub/REAndroidSDK/REAndroidSDK/build/intermediates/res/merged/androidTest/debug/drawable-anydpi-v21/ic_hourglass_empty.xml",
+        "source": "/Users/Buvaneswaran/Documents/GitHub/REAndroidSDK/REAndroidSDK/build/intermediates/bundles/debug/res/drawable-anydpi-v21/ic_hourglass_empty.xml"
+    },
+    {
+        "merged": "/Users/Buvaneswaran/Documents/GitHub/REAndroidSDK/REAndroidSDK/build/intermediates/res/merged/androidTest/debug/drawable-anydpi-v21/ic_touch_app.xml",
+        "source": "/Users/Buvaneswaran/Documents/GitHub/REAndroidSDK/REAndroidSDK/build/intermediates/bundles/debug/res/drawable-anydpi-v21/ic_touch_app.xml"
+    },
+    {
         "merged": "/Users/apple/Desktop/buvanesh/projects/VisionBank/code/VisionBank/REAndroidSDK/build/intermediates/res/merged/androidTest/debug/drawable-anydpi-v21/ic_hourglass_empty.xml",
         "source": "/Users/apple/Desktop/buvanesh/projects/VisionBank/code/VisionBank/REAndroidSDK/build/intermediates/bundles/debug/res/drawable-anydpi-v21/ic_hourglass_empty.xml"
+    },
+    {
+        "merged": "/Users/Buvaneswaran/Documents/GitHub/REAndroidSDK/REAndroidSDK/build/intermediates/res/merged/androidTest/debug/drawable-anydpi-v21/ic_watch_later.xml",
+        "source": "/Users/Buvaneswaran/Documents/GitHub/REAndroidSDK/REAndroidSDK/build/intermediates/bundles/debug/res/drawable-anydpi-v21/ic_watch_later.xml"
     },
     {
         "merged": "/Users/apple/Desktop/buvanesh/projects/VisionBank/code/VisionBank/REAndroidSDK/build/intermediates/res/merged/androidTest/debug/drawable-anydpi-v21/ic_watch_later.xml",
@@ -10,6 +22,10 @@
     {
         "merged": "/Users/apple/Desktop/buvanesh/projects/VisionBank/code/VisionBank/REAndroidSDK/build/intermediates/res/merged/androidTest/debug/drawable-anydpi-v21/ic_close.xml",
         "source": "/Users/apple/Desktop/buvanesh/projects/VisionBank/code/VisionBank/REAndroidSDK/build/intermediates/bundles/debug/res/drawable-anydpi-v21/ic_close.xml"
+    },
+    {
+        "merged": "/Users/Buvaneswaran/Documents/GitHub/REAndroidSDK/REAndroidSDK/build/intermediates/res/merged/androidTest/debug/drawable-anydpi-v21/ic_close.xml",
+        "source": "/Users/Buvaneswaran/Documents/GitHub/REAndroidSDK/REAndroidSDK/build/intermediates/bundles/debug/res/drawable-anydpi-v21/ic_close.xml"
     },
     {
         "merged": "/Users/apple/Desktop/buvanesh/projects/VisionBank/code/VisionBank/REAndroidSDK/build/intermediates/res/merged/androidTest/debug/drawable-anydpi-v21/ic_touch_app.xml",

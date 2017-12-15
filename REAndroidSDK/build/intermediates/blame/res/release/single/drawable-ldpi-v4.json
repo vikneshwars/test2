@@ -4,6 +4,10 @@
         "source": "/Users/apple/Desktop/buvanesh/projects/VisionBank/code/VisionBank/REAndroidSDK/build/generated/res/pngs/release/drawable-ldpi/ic_close.png"
     },
     {
+        "merged": "/Users/Buvaneswaran/Documents/GitHub/REAndroidSDK/REAndroidSDK/build/intermediates/res/merged/release/drawable-ldpi-v4/common_ic_googleplayservices.png",
+        "source": "/Users/Buvaneswaran/.android/build-cache/569423d9c30e8e6fb8f5bb8ea451364fca2d3430/output/res/drawable-ldpi-v4/common_ic_googleplayservices.png"
+    },
+    {
         "merged": "/Users/apple/Desktop/buvanesh/projects/VisionBank/code/VisionBank/REAndroidSDK/build/intermediates/res/merged/release/drawable-ldpi-v4/ic_touch_app.png",
         "source": "/Users/apple/Desktop/buvanesh/projects/VisionBank/code/VisionBank/REAndroidSDK/build/generated/res/pngs/release/drawable-ldpi/ic_touch_app.png"
     },
@@ -20,6 +24,18 @@
         "source": "/Users/apple/Documents/GitHub/REAndroidSDK/REAndroidSDK/build/generated/res/pngs/release/drawable-ldpi/ic_watch_later.png"
     },
     {
+        "merged": "/Users/Buvaneswaran/Documents/GitHub/REAndroidSDK/REAndroidSDK/build/intermediates/res/merged/release/drawable-ldpi-v4/ic_touch_app.png",
+        "source": "/Users/Buvaneswaran/Documents/GitHub/REAndroidSDK/REAndroidSDK/build/generated/res/pngs/release/drawable-ldpi/ic_touch_app.png"
+    },
+    {
+        "merged": "/Users/Buvaneswaran/Documents/GitHub/REAndroidSDK/REAndroidSDK/build/intermediates/res/merged/release/drawable-ldpi-v4/ic_watch_later.png",
+        "source": "/Users/Buvaneswaran/Documents/GitHub/REAndroidSDK/REAndroidSDK/build/generated/res/pngs/release/drawable-ldpi/ic_watch_later.png"
+    },
+    {
+        "merged": "/Users/Buvaneswaran/Documents/GitHub/REAndroidSDK/REAndroidSDK/build/intermediates/res/merged/release/drawable-ldpi-v4/ic_close.png",
+        "source": "/Users/Buvaneswaran/Documents/GitHub/REAndroidSDK/REAndroidSDK/build/generated/res/pngs/release/drawable-ldpi/ic_close.png"
+    },
+    {
         "merged": "/Users/apple/Documents/GitHub/REAndroidSDK/REAndroidSDK/build/intermediates/res/merged/release/drawable-ldpi-v4/ic_close.png",
         "source": "/Users/apple/Documents/GitHub/REAndroidSDK/REAndroidSDK/build/generated/res/pngs/release/drawable-ldpi/ic_close.png"
     },
@@ -30,6 +46,10 @@
     {
         "merged": "/Users/apple/Documents/GitHub/REAndroidSDK/REAndroidSDK/build/intermediates/res/merged/release/drawable-ldpi-v4/ic_hourglass_empty.png",
         "source": "/Users/apple/Documents/GitHub/REAndroidSDK/REAndroidSDK/build/generated/res/pngs/release/drawable-ldpi/ic_hourglass_empty.png"
+    },
+    {
+        "merged": "/Users/Buvaneswaran/Documents/GitHub/REAndroidSDK/REAndroidSDK/build/intermediates/res/merged/release/drawable-ldpi-v4/ic_hourglass_empty.png",
+        "source": "/Users/Buvaneswaran/Documents/GitHub/REAndroidSDK/REAndroidSDK/build/generated/res/pngs/release/drawable-ldpi/ic_hourglass_empty.png"
     },
     {
         "merged": "/Users/apple/Documents/GitHub/REAndroidSDK/REAndroidSDK/build/intermediates/res/merged/release/drawable-ldpi-v4/ic_touch_app.png",

@@ -8,6 +8,10 @@
         "source": "/Users/apple/.android/build-cache/6596182529c8b7bc6e61e8817f7d2a4cfb188127/output/res/color/abc_btn_colored_text_material.xml"
     },
     {
+        "merged": "/Users/Buvaneswaran/Documents/GitHub/REAndroidSDK/REAndroidSDK/build/intermediates/res/merged/release/color/common_google_signin_btn_text_dark.xml",
+        "source": "/Users/Buvaneswaran/.android/build-cache/569423d9c30e8e6fb8f5bb8ea451364fca2d3430/output/res/color/common_google_signin_btn_text_dark.xml"
+    },
+    {
         "merged": "/Users/apple/Documents/GitHub/REAndroidSDK/REAndroidSDK/build/intermediates/res/merged/release/color/abc_tint_btn_checkable.xml",
         "source": "/Users/apple/.android/build-cache/6596182529c8b7bc6e61e8817f7d2a4cfb188127/output/res/color/abc_tint_btn_checkable.xml"
     },
@@ -16,12 +20,12 @@
         "source": "/Users/apple/.android/build-cache/6596182529c8b7bc6e61e8817f7d2a4cfb188127/output/res/color/abc_secondary_text_material_light.xml"
     },
     {
-        "merged": "/Users/apple/Desktop/buvanesh/projects/VisionBank/code/VisionBank/REAndroidSDK/build/intermediates/res/merged/release/color/abc_tint_switch_thumb.xml",
-        "source": "/Users/apple/.android/build-cache/6596182529c8b7bc6e61e8817f7d2a4cfb188127/output/res/color/abc_tint_switch_thumb.xml"
-    },
-    {
         "merged": "/Users/apple/Desktop/buvanesh/projects/VisionBank/code/VisionBank/REAndroidSDK/build/intermediates/res/merged/release/color/abc_primary_text_material_dark.xml",
         "source": "/Users/apple/.android/build-cache/6596182529c8b7bc6e61e8817f7d2a4cfb188127/output/res/color/abc_primary_text_material_dark.xml"
+    },
+    {
+        "merged": "/Users/apple/Desktop/buvanesh/projects/VisionBank/code/VisionBank/REAndroidSDK/build/intermediates/res/merged/release/color/abc_tint_switch_thumb.xml",
+        "source": "/Users/apple/.android/build-cache/6596182529c8b7bc6e61e8817f7d2a4cfb188127/output/res/color/abc_tint_switch_thumb.xml"
     },
     {
         "merged": "/Users/apple/Desktop/buvanesh/projects/VisionBank/code/VisionBank/REAndroidSDK/build/intermediates/res/merged/release/color/common_google_signin_btn_text_light.xml",
@@ -36,24 +40,48 @@
         "source": "/Users/apple/.android/build-cache/6596182529c8b7bc6e61e8817f7d2a4cfb188127/output/res/color/abc_tint_default.xml"
     },
     {
+        "merged": "/Users/Buvaneswaran/Documents/GitHub/REAndroidSDK/REAndroidSDK/build/intermediates/res/merged/release/color/abc_secondary_text_material_light.xml",
+        "source": "/Users/Buvaneswaran/.android/build-cache/18bc748e7111b9f82a549c3a033a2b2a9f0f63d0/output/res/color/abc_secondary_text_material_light.xml"
+    },
+    {
         "merged": "/Users/apple/Documents/GitHub/REAndroidSDK/REAndroidSDK/build/intermediates/res/merged/release/color/abc_primary_text_disable_only_material_light.xml",
         "source": "/Users/apple/.android/build-cache/6596182529c8b7bc6e61e8817f7d2a4cfb188127/output/res/color/abc_primary_text_disable_only_material_light.xml"
+    },
+    {
+        "merged": "/Users/Buvaneswaran/Documents/GitHub/REAndroidSDK/REAndroidSDK/build/intermediates/res/merged/release/color/switch_thumb_material_dark.xml",
+        "source": "/Users/Buvaneswaran/.android/build-cache/18bc748e7111b9f82a549c3a033a2b2a9f0f63d0/output/res/color/switch_thumb_material_dark.xml"
+    },
+    {
+        "merged": "/Users/Buvaneswaran/Documents/GitHub/REAndroidSDK/REAndroidSDK/build/intermediates/res/merged/release/color/abc_tint_switch_track.xml",
+        "source": "/Users/Buvaneswaran/.android/build-cache/18bc748e7111b9f82a549c3a033a2b2a9f0f63d0/output/res/color/abc_tint_switch_track.xml"
+    },
+    {
+        "merged": "/Users/Buvaneswaran/Documents/GitHub/REAndroidSDK/REAndroidSDK/build/intermediates/res/merged/release/color/abc_btn_colored_text_material.xml",
+        "source": "/Users/Buvaneswaran/.android/build-cache/18bc748e7111b9f82a549c3a033a2b2a9f0f63d0/output/res/color/abc_btn_colored_text_material.xml"
     },
     {
         "merged": "/Users/apple/Documents/GitHub/REAndroidSDK/REAndroidSDK/build/intermediates/res/merged/release/color/abc_btn_colored_borderless_text_material.xml",
         "source": "/Users/apple/.android/build-cache/6596182529c8b7bc6e61e8817f7d2a4cfb188127/output/res/color/abc_btn_colored_borderless_text_material.xml"
     },
     {
+        "merged": "/Users/Buvaneswaran/Documents/GitHub/REAndroidSDK/REAndroidSDK/build/intermediates/res/merged/release/color/abc_tint_spinner.xml",
+        "source": "/Users/Buvaneswaran/.android/build-cache/18bc748e7111b9f82a549c3a033a2b2a9f0f63d0/output/res/color/abc_tint_spinner.xml"
+    },
+    {
         "merged": "/Users/apple/Desktop/buvanesh/projects/VisionBank/code/VisionBank/REAndroidSDK/build/intermediates/res/merged/release/color/abc_tint_seek_thumb.xml",
         "source": "/Users/apple/.android/build-cache/6596182529c8b7bc6e61e8817f7d2a4cfb188127/output/res/color/abc_tint_seek_thumb.xml"
     },
     {
-        "merged": "/Users/apple/Desktop/buvanesh/projects/VisionBank/code/VisionBank/REAndroidSDK/build/intermediates/res/merged/release/color/abc_primary_text_material_light.xml",
-        "source": "/Users/apple/.android/build-cache/6596182529c8b7bc6e61e8817f7d2a4cfb188127/output/res/color/abc_primary_text_material_light.xml"
+        "merged": "/Users/Buvaneswaran/Documents/GitHub/REAndroidSDK/REAndroidSDK/build/intermediates/res/merged/release/color/abc_tint_edittext.xml",
+        "source": "/Users/Buvaneswaran/.android/build-cache/18bc748e7111b9f82a549c3a033a2b2a9f0f63d0/output/res/color/abc_tint_edittext.xml"
     },
     {
         "merged": "/Users/apple/Desktop/buvanesh/projects/VisionBank/code/VisionBank/REAndroidSDK/build/intermediates/res/merged/release/color/abc_search_url_text.xml",
         "source": "/Users/apple/.android/build-cache/6596182529c8b7bc6e61e8817f7d2a4cfb188127/output/res/color/abc_search_url_text.xml"
+    },
+    {
+        "merged": "/Users/apple/Desktop/buvanesh/projects/VisionBank/code/VisionBank/REAndroidSDK/build/intermediates/res/merged/release/color/abc_primary_text_material_light.xml",
+        "source": "/Users/apple/.android/build-cache/6596182529c8b7bc6e61e8817f7d2a4cfb188127/output/res/color/abc_primary_text_material_light.xml"
     },
     {
         "merged": "/Users/apple/Desktop/buvanesh/projects/VisionBank/code/VisionBank/REAndroidSDK/build/intermediates/res/merged/release/color/abc_btn_colored_text_material.xml",
@@ -80,19 +108,43 @@
         "source": "/Users/apple/.android/build-cache/75f304d8974eb1a3f123d7b82c9b02846fdfa173/output/res/color/common_google_signin_btn_text_dark.xml"
     },
     {
+        "merged": "/Users/Buvaneswaran/Documents/GitHub/REAndroidSDK/REAndroidSDK/build/intermediates/res/merged/release/color/abc_btn_colored_borderless_text_material.xml",
+        "source": "/Users/Buvaneswaran/.android/build-cache/18bc748e7111b9f82a549c3a033a2b2a9f0f63d0/output/res/color/abc_btn_colored_borderless_text_material.xml"
+    },
+    {
         "merged": "/Users/apple/Desktop/buvanesh/projects/VisionBank/code/VisionBank/REAndroidSDK/build/intermediates/res/merged/release/color/common_google_signin_btn_text_dark.xml",
         "source": "/Users/apple/.android/build-cache/75f304d8974eb1a3f123d7b82c9b02846fdfa173/output/res/color/common_google_signin_btn_text_dark.xml"
+    },
+    {
+        "merged": "/Users/Buvaneswaran/Documents/GitHub/REAndroidSDK/REAndroidSDK/build/intermediates/res/merged/release/color/abc_hint_foreground_material_light.xml",
+        "source": "/Users/Buvaneswaran/.android/build-cache/18bc748e7111b9f82a549c3a033a2b2a9f0f63d0/output/res/color/abc_hint_foreground_material_light.xml"
+    },
+    {
+        "merged": "/Users/Buvaneswaran/Documents/GitHub/REAndroidSDK/REAndroidSDK/build/intermediates/res/merged/release/color/abc_tint_seek_thumb.xml",
+        "source": "/Users/Buvaneswaran/.android/build-cache/18bc748e7111b9f82a549c3a033a2b2a9f0f63d0/output/res/color/abc_tint_seek_thumb.xml"
     },
     {
         "merged": "/Users/apple/Desktop/buvanesh/projects/VisionBank/code/VisionBank/REAndroidSDK/build/intermediates/res/merged/release/color/abc_tint_switch_track.xml",
         "source": "/Users/apple/.android/build-cache/6596182529c8b7bc6e61e8817f7d2a4cfb188127/output/res/color/abc_tint_switch_track.xml"
     },
     {
+        "merged": "/Users/Buvaneswaran/Documents/GitHub/REAndroidSDK/REAndroidSDK/build/intermediates/res/merged/release/color/abc_search_url_text.xml",
+        "source": "/Users/Buvaneswaran/.android/build-cache/18bc748e7111b9f82a549c3a033a2b2a9f0f63d0/output/res/color/abc_search_url_text.xml"
+    },
+    {
+        "merged": "/Users/Buvaneswaran/Documents/GitHub/REAndroidSDK/REAndroidSDK/build/intermediates/res/merged/release/color/abc_tint_default.xml",
+        "source": "/Users/Buvaneswaran/.android/build-cache/18bc748e7111b9f82a549c3a033a2b2a9f0f63d0/output/res/color/abc_tint_default.xml"
+    },
+    {
+        "merged": "/Users/apple/Desktop/buvanesh/projects/VisionBank/code/VisionBank/REAndroidSDK/build/intermediates/res/merged/release/color/abc_tint_spinner.xml",
+        "source": "/Users/apple/.android/build-cache/6596182529c8b7bc6e61e8817f7d2a4cfb188127/output/res/color/abc_tint_spinner.xml"
+    },
+    {
         "merged": "/Users/apple/Documents/GitHub/REAndroidSDK/REAndroidSDK/build/intermediates/res/merged/release/color/abc_primary_text_material_light.xml",
         "source": "/Users/apple/.android/build-cache/6596182529c8b7bc6e61e8817f7d2a4cfb188127/output/res/color/abc_primary_text_material_light.xml"
     },
     {
-        "merged": "/Users/apple/Desktop/buvanesh/projects/VisionBank/code/VisionBank/REAndroidSDK/build/intermediates/res/merged/release/color/abc_tint_spinner.xml",
+        "merged": "/Users/apple/Documents/GitHub/REAndroidSDK/REAndroidSDK/build/intermediates/res/merged/release/color/abc_tint_spinner.xml",
         "source": "/Users/apple/.android/build-cache/6596182529c8b7bc6e61e8817f7d2a4cfb188127/output/res/color/abc_tint_spinner.xml"
     },
     {
@@ -100,8 +152,8 @@
         "source": "/Users/apple/.android/build-cache/6596182529c8b7bc6e61e8817f7d2a4cfb188127/output/res/color/abc_primary_text_disable_only_material_dark.xml"
     },
     {
-        "merged": "/Users/apple/Documents/GitHub/REAndroidSDK/REAndroidSDK/build/intermediates/res/merged/release/color/abc_tint_spinner.xml",
-        "source": "/Users/apple/.android/build-cache/6596182529c8b7bc6e61e8817f7d2a4cfb188127/output/res/color/abc_tint_spinner.xml"
+        "merged": "/Users/Buvaneswaran/Documents/GitHub/REAndroidSDK/REAndroidSDK/build/intermediates/res/merged/release/color/abc_tint_switch_thumb.xml",
+        "source": "/Users/Buvaneswaran/.android/build-cache/18bc748e7111b9f82a549c3a033a2b2a9f0f63d0/output/res/color/abc_tint_switch_thumb.xml"
     },
     {
         "merged": "/Users/apple/Desktop/buvanesh/projects/VisionBank/code/VisionBank/REAndroidSDK/build/intermediates/res/merged/release/color/abc_secondary_text_material_light.xml",
@@ -116,6 +168,22 @@
         "source": "/Users/apple/.android/build-cache/75f304d8974eb1a3f123d7b82c9b02846fdfa173/output/res/color/common_plus_signin_btn_text_light.xml"
     },
     {
+        "merged": "/Users/Buvaneswaran/Documents/GitHub/REAndroidSDK/REAndroidSDK/build/intermediates/res/merged/release/color/common_google_signin_btn_text_light.xml",
+        "source": "/Users/Buvaneswaran/.android/build-cache/569423d9c30e8e6fb8f5bb8ea451364fca2d3430/output/res/color/common_google_signin_btn_text_light.xml"
+    },
+    {
+        "merged": "/Users/Buvaneswaran/Documents/GitHub/REAndroidSDK/REAndroidSDK/build/intermediates/res/merged/release/color/abc_primary_text_disable_only_material_dark.xml",
+        "source": "/Users/Buvaneswaran/.android/build-cache/18bc748e7111b9f82a549c3a033a2b2a9f0f63d0/output/res/color/abc_primary_text_disable_only_material_dark.xml"
+    },
+    {
+        "merged": "/Users/Buvaneswaran/Documents/GitHub/REAndroidSDK/REAndroidSDK/build/intermediates/res/merged/release/color/abc_primary_text_material_light.xml",
+        "source": "/Users/Buvaneswaran/.android/build-cache/18bc748e7111b9f82a549c3a033a2b2a9f0f63d0/output/res/color/abc_primary_text_material_light.xml"
+    },
+    {
+        "merged": "/Users/Buvaneswaran/Documents/GitHub/REAndroidSDK/REAndroidSDK/build/intermediates/res/merged/release/color/common_plus_signin_btn_text_light.xml",
+        "source": "/Users/Buvaneswaran/.android/build-cache/569423d9c30e8e6fb8f5bb8ea451364fca2d3430/output/res/color/common_plus_signin_btn_text_light.xml"
+    },
+    {
         "merged": "/Users/apple/Desktop/buvanesh/projects/VisionBank/code/VisionBank/REAndroidSDK/build/intermediates/res/merged/release/color/switch_thumb_material_light.xml",
         "source": "/Users/apple/.android/build-cache/6596182529c8b7bc6e61e8817f7d2a4cfb188127/output/res/color/switch_thumb_material_light.xml"
     },
@@ -128,12 +196,20 @@
         "source": "/Users/apple/.android/build-cache/6596182529c8b7bc6e61e8817f7d2a4cfb188127/output/res/color/abc_hint_foreground_material_light.xml"
     },
     {
+        "merged": "/Users/Buvaneswaran/Documents/GitHub/REAndroidSDK/REAndroidSDK/build/intermediates/res/merged/release/color/abc_primary_text_disable_only_material_light.xml",
+        "source": "/Users/Buvaneswaran/.android/build-cache/18bc748e7111b9f82a549c3a033a2b2a9f0f63d0/output/res/color/abc_primary_text_disable_only_material_light.xml"
+    },
+    {
         "merged": "/Users/apple/Desktop/buvanesh/projects/VisionBank/code/VisionBank/REAndroidSDK/build/intermediates/res/merged/release/color/abc_tint_default.xml",
         "source": "/Users/apple/.android/build-cache/6596182529c8b7bc6e61e8817f7d2a4cfb188127/output/res/color/abc_tint_default.xml"
     },
     {
         "merged": "/Users/apple/Documents/GitHub/REAndroidSDK/REAndroidSDK/build/intermediates/res/merged/release/color/common_google_signin_btn_text_light.xml",
         "source": "/Users/apple/.android/build-cache/75f304d8974eb1a3f123d7b82c9b02846fdfa173/output/res/color/common_google_signin_btn_text_light.xml"
+    },
+    {
+        "merged": "/Users/Buvaneswaran/Documents/GitHub/REAndroidSDK/REAndroidSDK/build/intermediates/res/merged/release/color/abc_primary_text_material_dark.xml",
+        "source": "/Users/Buvaneswaran/.android/build-cache/18bc748e7111b9f82a549c3a033a2b2a9f0f63d0/output/res/color/abc_primary_text_material_dark.xml"
     },
     {
         "merged": "/Users/apple/Desktop/buvanesh/projects/VisionBank/code/VisionBank/REAndroidSDK/build/intermediates/res/merged/release/color/common_plus_signin_btn_text_dark.xml",
@@ -144,8 +220,16 @@
         "source": "/Users/apple/.android/build-cache/6596182529c8b7bc6e61e8817f7d2a4cfb188127/output/res/color/abc_hint_foreground_material_dark.xml"
     },
     {
+        "merged": "/Users/Buvaneswaran/Documents/GitHub/REAndroidSDK/REAndroidSDK/build/intermediates/res/merged/release/color/abc_tint_btn_checkable.xml",
+        "source": "/Users/Buvaneswaran/.android/build-cache/18bc748e7111b9f82a549c3a033a2b2a9f0f63d0/output/res/color/abc_tint_btn_checkable.xml"
+    },
+    {
         "merged": "/Users/apple/Desktop/buvanesh/projects/VisionBank/code/VisionBank/REAndroidSDK/build/intermediates/res/merged/release/color/abc_tint_edittext.xml",
         "source": "/Users/apple/.android/build-cache/6596182529c8b7bc6e61e8817f7d2a4cfb188127/output/res/color/abc_tint_edittext.xml"
+    },
+    {
+        "merged": "/Users/Buvaneswaran/Documents/GitHub/REAndroidSDK/REAndroidSDK/build/intermediates/res/merged/release/color/switch_thumb_material_light.xml",
+        "source": "/Users/Buvaneswaran/.android/build-cache/18bc748e7111b9f82a549c3a033a2b2a9f0f63d0/output/res/color/switch_thumb_material_light.xml"
     },
     {
         "merged": "/Users/apple/Documents/GitHub/REAndroidSDK/REAndroidSDK/build/intermediates/res/merged/release/color/abc_primary_text_material_dark.xml",
@@ -160,8 +244,16 @@
         "source": "/Users/apple/.android/build-cache/6596182529c8b7bc6e61e8817f7d2a4cfb188127/output/res/color/switch_thumb_material_dark.xml"
     },
     {
+        "merged": "/Users/Buvaneswaran/Documents/GitHub/REAndroidSDK/REAndroidSDK/build/intermediates/res/merged/release/color/abc_secondary_text_material_dark.xml",
+        "source": "/Users/Buvaneswaran/.android/build-cache/18bc748e7111b9f82a549c3a033a2b2a9f0f63d0/output/res/color/abc_secondary_text_material_dark.xml"
+    },
+    {
         "merged": "/Users/apple/Desktop/buvanesh/projects/VisionBank/code/VisionBank/REAndroidSDK/build/intermediates/res/merged/release/color/abc_btn_colored_borderless_text_material.xml",
         "source": "/Users/apple/.android/build-cache/6596182529c8b7bc6e61e8817f7d2a4cfb188127/output/res/color/abc_btn_colored_borderless_text_material.xml"
+    },
+    {
+        "merged": "/Users/Buvaneswaran/Documents/GitHub/REAndroidSDK/REAndroidSDK/build/intermediates/res/merged/release/color/common_plus_signin_btn_text_dark.xml",
+        "source": "/Users/Buvaneswaran/.android/build-cache/569423d9c30e8e6fb8f5bb8ea451364fca2d3430/output/res/color/common_plus_signin_btn_text_dark.xml"
     },
     {
         "merged": "/Users/apple/Documents/GitHub/REAndroidSDK/REAndroidSDK/build/intermediates/res/merged/release/color/abc_search_url_text.xml",
@@ -182,6 +274,10 @@
     {
         "merged": "/Users/apple/Documents/GitHub/REAndroidSDK/REAndroidSDK/build/intermediates/res/merged/release/color/abc_primary_text_disable_only_material_dark.xml",
         "source": "/Users/apple/.android/build-cache/6596182529c8b7bc6e61e8817f7d2a4cfb188127/output/res/color/abc_primary_text_disable_only_material_dark.xml"
+    },
+    {
+        "merged": "/Users/Buvaneswaran/Documents/GitHub/REAndroidSDK/REAndroidSDK/build/intermediates/res/merged/release/color/abc_hint_foreground_material_dark.xml",
+        "source": "/Users/Buvaneswaran/.android/build-cache/18bc748e7111b9f82a549c3a033a2b2a9f0f63d0/output/res/color/abc_hint_foreground_material_dark.xml"
     },
     {
         "merged": "/Users/apple/Desktop/buvanesh/projects/VisionBank/code/VisionBank/REAndroidSDK/build/intermediates/res/merged/release/color/abc_tint_btn_checkable.xml",
