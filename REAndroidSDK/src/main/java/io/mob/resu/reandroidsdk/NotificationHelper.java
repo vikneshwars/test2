@@ -104,7 +104,7 @@ import java.util.Random;
                 String body = map.get("body");
                 String category = map.get("category");
                 String url = map.get("url");
-                addNotification(body,  title);
+
                 if (category.equalsIgnoreCase("Splash")) {
                     bannerNotification(getIntent(map), title, body, category, url);
                 } else if (category.equalsIgnoreCase("Rating"))

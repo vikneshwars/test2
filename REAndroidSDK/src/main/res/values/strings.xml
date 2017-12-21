@@ -55,7 +55,7 @@
     <string name="resulticksApiParamTimeStamp">timeStamp</string>
     <string name="resulticksApiParamAppCrash">appCrash</string>
     <string name="resulticksApiParamEventName">eventName</string>
-    <string name="resulticksApiParamViewId">viewId</string>
+    <string name="resulticksApiParamViewId">identifier</string>
     <string name="resulticksApiParamData">data</string>
 
 </resources>

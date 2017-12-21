@@ -30,8 +30,6 @@ import java.util.ArrayList;
  */
 
 class AppWidgets {
-
-
     static String screenName;
     static String viewId;
     static boolean flag = false;
@@ -39,6 +37,8 @@ class AppWidgets {
     static Dialog dialog;
     RatingBar ratingBar;
     WebView banner;
+
+
     private IResponseListener IResponseListener = new IResponseListener() {
         @Override
         public void onSuccess(String response, int flag) {
@@ -47,27 +47,28 @@ class AppWidgets {
 
         @Override
         public void onFailure(Throwable throwable, int flag) {
-
+            Log.e("response", throwable.getMessage());
         }
 
         @Override
         public void showDialog(String response, int flag) {
+            Log.e("response", response);
 
         }
 
         @Override
         public void showErrorDialog(String errorResponse, int flag) {
-
+            Log.e("response", errorResponse);
         }
 
         @Override
         public void showInternalServerErrorDialog(String errorResponse, int flag) {
-
+            Log.e("response", errorResponse);
         }
 
         @Override
         public void logOut(int flag) {
-
+            Log.e("response", ""+flag);
         }
     };
 
@@ -84,13 +85,9 @@ class AppWidgets {
     }
 
     static void showEventDialog() {
-
-
         final Activity context;
         try {
             context = ActivityLifecycleCallbacks.mActivity;
-
-
             context.runOnUiThread(new Runnable() {
 
                 public void run() {
@@ -98,7 +95,7 @@ class AppWidgets {
                     dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
                     dialog.setCancelable(false);
                     dialog.setContentView(R.layout.dialog_event);
-                    final EditText editText = dialog.findViewById(R.id.viewId);
+                    final EditText editText = dialog.findViewById(R.id.identifier);
                     final EditText eventName = dialog.findViewById(R.id.event_name);
                     final TextView close = dialog.findViewById(R.id.btn_close);
                     final Button mSave = dialog.findViewById(R.id.btn_save);
@@ -172,8 +169,6 @@ class AppWidgets {
 
 
     static void DialogHandler(boolean isShowing) {
-
-
         try {
             if (isShowing) {
                 if (dialog != null) {
@@ -205,10 +200,10 @@ class AppWidgets {
                     dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
                     dialog.setCancelable(false);
                     dialog.setContentView(R.layout.dialog_rating);
-                    TextView title = (TextView) dialog.findViewById(R.id.tv_title);
-                    TextView description = (TextView) dialog.findViewById(R.id.tv_description);
-                    ratingBar = (RatingBar) dialog.findViewById(R.id.rating_bar);
-                    Button dialogButton = (Button) dialog.findViewById(R.id.btn_submit);
+                    TextView title =  dialog.findViewById(R.id.tv_title);
+                    TextView description =  dialog.findViewById(R.id.tv_description);
+                    ratingBar =  dialog.findViewById(R.id.rating_bar);
+                    Button dialogButton = dialog.findViewById(R.id.btn_submit);
 
                     dialogButton.setOnClickListener(new View.OnClickListener() {
                         @Override
@@ -216,11 +211,7 @@ class AppWidgets {
                             dialog.dismiss();
                             if (intent.getExtras().containsKey("rating")) {
                                 if (ratingBar.getRating() > Integer.parseInt(intent.getExtras().getString("rating"))) {
-
-
                                     DataNetworkHandler.getInstance().campaignHandler(context, intent.getExtras().getString(context.getString(R.string.resulticksApiParamId)), "4", false, "" + ratingBar.getRating(), null);
-
-
                                     shareIntent(dialogTitle, dialogMessage, context);
                                 } else {
                                     showFeedBackDialog(context, dialogTitle, dialogMessage, intent);
@@ -266,7 +257,6 @@ class AppWidgets {
                     final EditText comments = dialog.findViewById(R.id.ed_comments);
                     Button cancel = dialog.findViewById(R.id.btn_cancel);
                     Button submit = dialog.findViewById(R.id.btn_submit);
-
                     submit.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
@@ -315,8 +305,8 @@ class AppWidgets {
                         public void onClick(View view) {
                             try {
                                 dialog.dismiss();
-    //                            Intent intents = new Intent(context, Class.forName(intent.getExtras().getString("navigationScreen")));
-    //                            context.startActivity(intents);
+                                //                            Intent intents = new Intent(context, Class.forName(intent.getExtras().getString("navigationScreen")));
+                                //                            context.startActivity(intents);
                             } catch (Exception e) {
                                 e.printStackTrace();
                             }
@@ -355,8 +345,8 @@ class AppWidgets {
                         public void onClick(View view) {
                             try {
                                 dialog.dismiss();
-    //                            Intent intents = new Intent(context, Class.forName(intent.getExtras().getString("navigationScreen")));
-    //                            context.startActivity(intents);
+                                //                            Intent intents = new Intent(context, Class.forName(intent.getExtras().getString("navigationScreen")));
+                                //                            context.startActivity(intents);
                             } catch (Exception e) {
                                 e.printStackTrace();
                             }
@@ -375,17 +365,16 @@ class AppWidgets {
     private void userRating(String id, String comments) {
 
         try {
-        JSONObject userDetail = new JSONObject();
-
+            JSONObject userDetail;
             userDetail = new JSONObject();
             userDetail.put("id", id);
             userDetail.put("rating", ratingBar.getRating());
+            userDetail.put("status", "2");
             userDetail.put("comments", comments);
-
-        new DataExchanger("campaignTracking", userDetail.toString(), IResponseListener, AppConstants.SDK_USER_REGISTER).execute();
+            new DataExchanger("campaignTracking", userDetail.toString(), IResponseListener, AppConstants.SDK_USER_REGISTER).execute();
 
         } catch (Exception e) {
-           Util.catchMessage(e);
+            Util.catchMessage(e);
         }
        /* ApiInterface apiInterface = ApiClient.getClient().create(ApiInterface.class);
         Call<ResponseBody> call = apiInterface.callCampaignRating(id, "" + ratingBar.getRating(), comments);

@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 
 import org.json.JSONArray;
@@ -65,12 +66,42 @@ class TrackerHelper {
     private static ArrayList<MScreenTracker> getScreenTrackers() throws Exception {
         try {
             ArrayList<MScreenTracker> mScreenTrackers = new ArrayList<>();
+
             ArrayList<MRecord> mRecords = new ArrayList<>();
             mRecords.add(new MRecord("", "value", "input_email"));
             mRecords.add(new MRecord("", "value", "input_name"));
             mRecords.add(new MRecord("", "length", "input_password"));
+            mRecords.add(new MRecord("", "action", "btnRegister","New Register"));
+
+            ArrayList<MRecord> mRecords1 = new ArrayList<>();
+            mRecords1.add(new MRecord("", "value", "email"));
+            mRecords1.add(new MRecord("", "length", "password"));
+            mRecords1.add(new MRecord("", "action", "btnLogin","User Login"));
+
+            ArrayList<MRecord> mRecords2 = new ArrayList<>();
+            mRecords2.add(new MRecord("", "value", "amount"));
+            mRecords2.add(new MRecord("", "action", "tv_personal_loan","Personal Loan"));
+
+            ArrayList<MRecord> mRecords3 = new ArrayList<>();
+            mRecords3.add(new MRecord("", "value", "ed_name"));
+            mRecords3.add(new MRecord("", "value", "et_phone"));
+            mRecords3.add(new MRecord("", "value", "et_email"));
+            mRecords3.add(new MRecord("", "action", "btnbuynow","Submit"));
+
+
+
             MScreenTracker screenTracker = new MScreenTracker(mRecords, "SignUpActivity", "");
+            MScreenTracker screenTracker0 = new MScreenTracker(mRecords, "LauncherActivity", "ApplicationFormFragment");
+            MScreenTracker screenTracker1 = new MScreenTracker(mRecords1, "LoginActivity", "");
+            MScreenTracker screenTracker2 = new MScreenTracker(mRecords2, "LauncherActivity", "DashboardFragment");
             mScreenTrackers.add(screenTracker);
+            mScreenTrackers.add(screenTracker0);
+            mScreenTrackers.add(screenTracker1);
+            mScreenTrackers.add(screenTracker2);
+
+
+
+
             return mScreenTrackers;
         } catch (Exception e) {
             Util.catchMessage(e);
@@ -86,6 +117,10 @@ class TrackerHelper {
      */
 
     void InitTrack(Activity activity) {
+
+
+
+        Log.e("app Lancher mode",""+activity.getCallingActivity());
 
         try {
             //Campaign Notification
@@ -160,9 +195,6 @@ class TrackerHelper {
 
     }
 
-    private void addViewEventListener(Activity context) {
-        printFullTree(context);
-    }
 
     private void registerFragmentLifeCycle(Activity mActivity) {
         // Fragment Screens
@@ -177,30 +209,26 @@ class TrackerHelper {
             Util.catchMessage(e);
         }
     }
+    private void addViewEventListener(Activity context) {
+        setIdWiseTracking(context,context.getClass().getSimpleName());
+    }
 
-    private void printFullTree(Activity activity) {
+
+    private void setIdWiseTracking(Activity activity,String screenName) {
+
         try {
-
-
-            // printTree(activity.getWindow().getDecorView().getRootView(), 0);
-            MScreenTracker mScreenTracker = GetScreenTracker(activity.getClass().getSimpleName());
+             //printTree(activity.getWindow().getDecorView().getRootView(), 0);
+            MScreenTracker mScreenTracker = GetScreenTracker(screenName);
             if (mScreenTracker != null) {
-
                 View view = activity.getWindow().getDecorView().getRootView();
                 for (MRecord mRecord : mScreenTracker.getMRecord()) {
-
-                    String id = mRecord.getViewId();
-
+                    String id = mRecord.getIdentifier();
                     int resID = activity.getResources().getIdentifier(id, "id", activity.getPackageName());
                     View view1 = view.findViewById(resID);
-
-
                     if (view1 != null) {
                         view1.setAccessibilityDelegate(new EventTrackingListener());
                     }
                 }
-
-
             }
         } catch (Exception e) {
             Util.catchMessage(e);
@@ -214,11 +242,7 @@ class TrackerHelper {
         try {
 
             if (view.getId() > 0) {
-                /*MRecord mRecord=getTag(view);
-                if(mRecord!=null) {
-                    view.setTag(mRecord);*/
                 view.setAccessibilityDelegate(new EventTrackingListener());
-                //}
             }
 
             if (view instanceof ViewGroup) {
@@ -273,20 +297,23 @@ class TrackerHelper {
 
                         for (Map.Entry map : EditTextMAP.entrySet()) {
 
-                            if (map.getKey().toString().contains(mRecord.getViewId())) {
+                            if (map.getKey().toString().contains(mRecord.getIdentifier())) {
                                 if (mRecord.getCaptureType().equalsIgnoreCase("value"))
-                                    mRecord.setResult(" " + map.getValue());
+                                    mRecord.setResult("" + map.getValue());
                                 else if (mRecord.getCaptureType().equalsIgnoreCase("length"))
                                     mRecord.setResult("" + map.getValue().toString().length());
+                                else if (mRecord.getCaptureType().equalsIgnoreCase("action"))
+                                    mRecord.setResult("Clicked");
                             }
                             System.out.println(map.getKey() + " " + map.getValue());
 
 
                         }
 
-                        jsonObject.put("viewID", mRecord.getViewId());
+                        jsonObject.put("viewID", mRecord.getIdentifier());
                         jsonObject.put("captureType", mRecord.getCaptureType());
                         jsonObject.put("result", mRecord.getResult());
+                        jsonObject.put("description", mRecord.getDescription());
                         jsonObjects.add(jsonObject);
                     }
                     screenObject.put("filedCapture", new JSONArray(jsonObjects));
@@ -314,7 +341,7 @@ class TrackerHelper {
             ReAndroidSDK.mScreenTrackers = getScreenTrackers();
 
             for (MScreenTracker screenTracker : ReAndroidSDK.mScreenTrackers) {
-                if (screenTracker.getScreen().contains(ScreenName))
+                if (screenTracker.getScreen().contains(ScreenName)||screenTracker.getSubscreen().contains(ScreenName))
                     return screenTracker;
             }
         } catch (Exception e) {
@@ -341,11 +368,11 @@ class TrackerHelper {
         System.out.println(differenceSeconds + " seconds.");
     }
 
-    void screenTrackingUpdateToServer(Activity mActivity) throws Exception {
-        if (mActivity.getCallingActivity() != null) {
+    void screenTrackingUpdateToServer(Activity mActivity,String screenName) throws Exception {
+        //if (mActivity.getCallingActivity() != null) {
             DataNetworkHandler.getInstance().onMakeTrackingRequest(mActivity);
-        }
-        printFullTree(mActivity);
+        //}
+        setIdWiseTracking(mActivity,screenName);
     }
 
     /**
@@ -364,13 +391,17 @@ class TrackerHelper {
         return simpleDateFormat.format(Calendar.getInstance().getTime());
     }
 
-    public void EditTextTracking(View host)  {
+    public void marketerTracking(View host)  {
 
         try {
             if (EditTextMAP == null)
                 EditTextMAP = new HashMap<String, String>();
+            if(host instanceof EditText)
+                 EditTextMAP.put(host.getResources().getResourceName(host.getId()), ((EditText) host).getText().toString());
+            else
+                 EditTextMAP.put(host.getResources().getResourceName(host.getId()), "");
 
-            EditTextMAP.put(host.getResources().getResourceName(host.getId()), ((EditText) host).getText().toString());
+
         } catch (Resources.NotFoundException e) {
             Util.catchMessage(e);
         }

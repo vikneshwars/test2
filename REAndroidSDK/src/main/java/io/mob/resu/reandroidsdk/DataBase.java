@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.os.StrictMode;
 import android.support.annotation.NonNull;
 import android.util.Log;
 
@@ -51,34 +52,36 @@ class DataBase {
 
     ArrayList<MData> getData(Table i) {
         try {
-            resolveStrictMode();
+            open();
+
+            if (db.isOpen())
+                db.close();
+
             db = DBHelper.getReadableDatabase();
             ArrayList<MData> array_list = new ArrayList<>();
             String tableName = getTableName(i);
             Cursor cursor = null;
-            cursor = getCursor(tableName);
+            cursor = db.query(tableName, new String[]{"_id", "value"}, null, null, null, null, null);
             if (cursor != null && cursor.getCount() > 0) {
-
                 if (cursor.moveToFirst()) {
                     do {
                         MData mData = new MData();
                         Log.e("buvaneshID", "" + cursor.getString(0));
                         mData.setId(cursor.getInt(0));
                         mData.setValues(cursor.getString(1));
-
-                        // Log.e("buvanesh", "" + cursor.getString(1));
                         array_list.add(mData);
                     } while (cursor.moveToNext());
                 }
                 cursor.close();
             }
-            close();
+
             return array_list;
         } catch (Exception e) {
-            Util.catchMessage(e);
-            close();
             return new ArrayList<>();
+        } finally {
+            db.close();
         }
+
     }
 
     private Cursor getCursor(String tableName) {
@@ -86,6 +89,8 @@ class DataBase {
             Cursor cursor = null;
             cursor = db.query(tableName, new String[]{"_id", "value"}, null, null, null, null, null);
 
+
+            cursor.close();
             if (cursor != null && cursor.getCount() > 0)
                 return cursor;
             else
@@ -99,8 +104,10 @@ class DataBase {
     public MRegisterEvent getData(Table tablename, String viewId, String screenName) {
 
         try {
-            resolveStrictMode();
-
+            if (db != null) {
+                if (db.isOpen())
+                    db.close();
+            }
             db = DBHelper.getReadableDatabase();
             String tableName = getTableName(tablename);
             Cursor cursor = null;
@@ -133,6 +140,7 @@ class DataBase {
     }
 
     void deleteData(ArrayList<MData> values, Table i) {
+
         resolveStrictMode();
         try {
             for (MData mData : values) {
@@ -147,6 +155,13 @@ class DataBase {
     private void resolveStrictMode() {
 
         try {
+            StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder().detectAll().build());
+            StrictMode.setVmPolicy(new StrictMode.VmPolicy.Builder().detectAll().build());
+
+            if (db != null) {
+                if (db.isOpen())
+                    db.close();
+            }
             open();
         } catch (SQLException e) {
             Util.catchMessage(e);
@@ -240,6 +255,15 @@ class DataBase {
 
 
     }
+
+    void deleteAll(Table table) {
+        String tableName = getTableName(table);
+        Cursor cursor = db.rawQuery("SELECT * FROM " + tableName, null);
+
+        if (cursor != null & cursor.getCount() > 1000)
+            db.execSQL("delete from " + tableName);
+    }
+
 
     private Cursor getCursorCount(String viewId, String screenName, String tableName) {
         return db.query(tableName, new String[]{"_id", "viewid", "screenname", "value"}, "viewid" + "=?" + " AND screenname" + "=?", new String[]{viewId, screenName}, null, null, null, null);

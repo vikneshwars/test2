@@ -30,6 +30,7 @@ class ActivityLifecycleCallbacks implements Application.ActivityLifecycleCallbac
     private SensorManager mSensorManager;
     private Sensor mAccelerometer;
 
+
     /**
      *  Activity onCreate
      *
@@ -40,16 +41,19 @@ class ActivityLifecycleCallbacks implements Application.ActivityLifecycleCallbac
     @Override
     public void onActivityCreated(final Activity activity, Bundle bundle) {
         try {
-            mActivity = activity;
+              mActivity = activity;
             if (!TrackerHelper.itHasFragment(activity)) {
                 AppWidgets.DialogHandler(true);
                 TrackerHelper.getInstance().InitTrack(activity);
+               Log.e("ClassName",activity.getLocalClassName()) ;
             }
         } catch (Exception e) {
             Util.catchMessage(e);
         }
 
     }
+
+
 
     /**
      * Activity  onStart
@@ -66,7 +70,7 @@ class ActivityLifecycleCallbacks implements Application.ActivityLifecycleCallbac
             sCalendar = Calendar.getInstance();
             if (!TrackerHelper.itHasFragment(activity)) {
                 AppWidgets.DialogHandler(false);
-                TrackerHelper.getInstance().screenTrackingUpdateToServer(activity);
+                TrackerHelper.getInstance().screenTrackingUpdateToServer(activity,newActivityName);
             }
         } catch (Exception e) {
             Util.catchMessage(e);

@@ -2202,6 +2202,7 @@ containing a value of this type.
         public static int icon=0x7f0a0034;
         public static int icon_group=0x7f0a007b;
         public static int icon_only=0x7f0a0024;
+        public static int identifier=0x7f0a0061;
         public static int ifRoom=0x7f0a0021;
         public static int image=0x7f0a0031;
         public static int img_banner=0x7f0a005e;
@@ -2271,7 +2272,6 @@ containing a value of this type.
         public static int tv_title=0x7f0a0067;
         public static int up=0x7f0a0008;
         public static int useLogo=0x7f0a0012;
-        public static int viewId=0x7f0a0061;
         public static int wide=0x7f0a0026;
         public static int withText=0x7f0a0023;
         public static int wrap_content=0x7f0a0019;

@@ -56,7 +56,7 @@ class FragmentLifecycleCallbacks extends FragmentManager.FragmentLifecycleCallba
             oldCalendar = sCalendar;
             sCalendar = Calendar.getInstance();
             AppWidgets.DialogHandler(false);
-            TrackerHelper.getInstance().screenTrackingUpdateToServer(f.getActivity());
+            TrackerHelper.getInstance().screenTrackingUpdateToServer(f.getActivity(),newScreenName);
         } catch (Exception e) {
             Util.catchMessage(e);
         }

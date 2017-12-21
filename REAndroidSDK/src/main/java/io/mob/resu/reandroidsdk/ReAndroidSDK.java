@@ -7,6 +7,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 import android.util.Patterns;
+import android.widget.Toast;
 
 import org.json.JSONObject;
 
@@ -52,38 +53,38 @@ public class ReAndroidSDK {
             }
         }
 
+
         @Override
         public void onFailure(Throwable throwable, int flag) {
+            Log.e("response", throwable.getMessage());
         }
 
         @Override
         public void showDialog(String response, int flag) {
+            Log.e("response", response);
+
         }
 
         @Override
         public void showErrorDialog(String errorResponse, int flag) {
+            Log.e("response", errorResponse);
         }
 
         @Override
         public void showInternalServerErrorDialog(String errorResponse, int flag) {
-
+            Log.e("response", errorResponse);
         }
 
         @Override
         public void logOut(int flag) {
+            Log.e("response", ""+flag);
         }
 
     };
 
     private ReAndroidSDK(Context context) {
         try {
-            String user = Util.getMetadata(context, context.getString(R.string.resulticksManifestApiKey));
-            Log.e(TAG, "" + user);
-            if (user != null) {
-                user = user.replace("api_key_", "");
-                Log.e(TAG, "" + user);
-                SharedPref.getInstance().setSharedValue(context, context.getString(R.string.resulticksSharedAPIKey), user);
-            }
+
             registerActivityCallBacks(context);
             appCrashHandler();
             apiCallAPIValidation();
@@ -95,6 +96,16 @@ public class ReAndroidSDK {
 
     public static ReAndroidSDK getInstance(Context context) {
         try {
+
+            String user = Util.getMetadata(context, context.getString(R.string.resulticksManifestApiKey));
+            Log.e(TAG, "" + user);
+            if (user != null) {
+                user = user.replace("api_key_", "");
+                Log.e(TAG, "" + user);
+                SharedPref.getInstance().setSharedValue(context, context.getString(R.string.resulticksSharedAPIKey), user);
+            }else {
+                Toast.makeText(context,"Please add your SDK API KEY",Toast.LENGTH_LONG).show();
+            }
             appContext = context;
             Log.e(TAG, "" + tracker);
             if (tracker == null) {

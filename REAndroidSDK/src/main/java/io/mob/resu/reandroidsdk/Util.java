@@ -73,6 +73,9 @@ class Util {
         return isInBackground;
     }
 
+
+
+
     static void getAdvertisementId(final Context appContext) {
         AsyncTask<Void, Void, String> task = new AsyncTask<Void, Void, String>() {
             @Override
