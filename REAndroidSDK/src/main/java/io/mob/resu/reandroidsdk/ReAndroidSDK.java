@@ -40,11 +40,11 @@ public class ReAndroidSDK {
                 switch (flag) {
                     case AppConstants.SDK_USER_REGISTER:
                         jsonObject = new JSONObject(response);
-                        SharedPref.getInstance().setSharedValue(appContext, appContext.getString(R.string.resulticksSharedUserId), jsonObject.getString("userID"));
+                        SharedPref.getInstance().setSharedValue(appContext, appContext.getString(R.string.resulticksSharedUserId), jsonObject.optString("userID"));
                         break;
                     case AppConstants.SDK_API_KEY:
                         jsonObject = new JSONObject(response);
-                        SharedPref.getInstance().setSharedValue(appContext, appContext.getString(R.string.resulticksSharedDatabaseDeviceId), jsonObject.getString(appContext.getString(R.string.resulticksApiParamsDeviceId)));
+                        SharedPref.getInstance().setSharedValue(appContext, appContext.getString(R.string.resulticksSharedDatabaseDeviceId), jsonObject.optString(appContext.getString(R.string.resulticksApiParamsDeviceId)));
                         break;
 
                 }
@@ -207,6 +207,8 @@ public class ReAndroidSDK {
 
     public ArrayList<MData> getNotifications() {
         try {
+
+
             return new DataBase(appContext).getData(DataBase.Table.NOTIFICATION_TABLE);
         } catch (Exception e) {
             Util.catchMessage(e);

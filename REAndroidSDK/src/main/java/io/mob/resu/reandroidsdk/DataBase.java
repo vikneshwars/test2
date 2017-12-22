@@ -6,7 +6,6 @@ import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.os.StrictMode;
 import android.support.annotation.NonNull;
 import android.util.Log;
 
@@ -50,47 +49,45 @@ class DataBase {
         return this;
     }
 
+
     ArrayList<MData> getData(Table i) {
         try {
-            open();
-
-            if (db.isOpen())
-                db.close();
-
             db = DBHelper.getReadableDatabase();
             ArrayList<MData> array_list = new ArrayList<>();
             String tableName = getTableName(i);
             Cursor cursor = null;
-            cursor = db.query(tableName, new String[]{"_id", "value"}, null, null, null, null, null);
+            cursor = db.rawQuery("select * from " + tableName, null);
             if (cursor != null && cursor.getCount() > 0) {
+
                 if (cursor.moveToFirst()) {
                     do {
                         MData mData = new MData();
-                        Log.e("buvaneshID", "" + cursor.getString(0));
+                        // Log.e("buvaneshID", "" +  cursor.get);
+                        // Log.e("buvaneshID", "" +  cursor.getType(1));
+                        //Log.e("buvaneshID", "" +  DatabaseUtils.dumpCursorToString(cursor));
+                        //Log.e("buvaneshID", "" +  DatabaseUtils.dumpCursorToString(cursor));
                         mData.setId(cursor.getInt(0));
                         mData.setValues(cursor.getString(1));
                         array_list.add(mData);
                     } while (cursor.moveToNext());
                 }
+
+            }
+            if (cursor != null && !cursor.isClosed()) {
                 cursor.close();
             }
-
             return array_list;
         } catch (Exception e) {
+            Util.catchMessage(e);
             return new ArrayList<>();
-        } finally {
-            db.close();
         }
-
     }
+
 
     private Cursor getCursor(String tableName) {
         try {
             Cursor cursor = null;
-            cursor = db.query(tableName, new String[]{"_id", "value"}, null, null, null, null, null);
-
-
-            cursor.close();
+            //cursor = db.rawQuery("select * from "+tableName,null);
             if (cursor != null && cursor.getCount() > 0)
                 return cursor;
             else
@@ -155,9 +152,6 @@ class DataBase {
     private void resolveStrictMode() {
 
         try {
-            StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder().detectAll().build());
-            StrictMode.setVmPolicy(new StrictMode.VmPolicy.Builder().detectAll().build());
-
             if (db != null) {
                 if (db.isOpen())
                     db.close();
@@ -215,14 +209,12 @@ class DataBase {
     }
 
     void insertData(String value, Table i) {
-
-
         try {
             resolveStrictMode();
             String tableName = getTableName(i);
             ContentValues initialValues = new ContentValues();
             initialValues.put("value", value);
-            Log.e("data  insert to ", "" + value.toString());
+            Log.e("data  insert to ", "" + value);
             Log.e("data  insert to ", "" + tableName);
             db.insert(tableName, null, initialValues);
             close();

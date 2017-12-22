@@ -722,6 +722,7 @@ public final class R {
         public static final int icon = 0x7f0a0034;
         public static final int icon_group = 0x7f0a007b;
         public static final int icon_only = 0x7f0a0024;
+        public static final int identifier = 0x7f0a0061;
         public static final int ifRoom = 0x7f0a0021;
         public static final int image = 0x7f0a0031;
         public static final int img_banner = 0x7f0a005e;
@@ -791,7 +792,6 @@ public final class R {
         public static final int tv_title = 0x7f0a0067;
         public static final int up = 0x7f0a0008;
         public static final int useLogo = 0x7f0a0012;
-        public static final int viewId = 0x7f0a0061;
         public static final int wide = 0x7f0a0026;
         public static final int withText = 0x7f0a0023;
         public static final int wrap_content = 0x7f0a0019;

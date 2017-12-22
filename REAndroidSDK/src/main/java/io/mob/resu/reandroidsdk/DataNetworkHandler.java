@@ -1,6 +1,7 @@
 package io.mob.resu.reandroidsdk;
 
 import android.content.Context;
+import android.os.AsyncTask;
 import android.os.StrictMode;
 import android.support.annotation.NonNull;
 import android.util.Log;
@@ -9,7 +10,18 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.UnsupportedEncodingException;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.ProtocolException;
+import java.net.URL;
 import java.util.ArrayList;
+
+import javax.net.ssl.HttpsURLConnection;
 
 /**
  * Created by Interakt on 10/6/17.
@@ -27,43 +39,12 @@ class DataNetworkHandler implements IResponseListener {
     }
 
 
+
+
+
     void onMakeTrackingRequest(Context context) {
-
         this.context = context;
-        try {
-            if (Util.getInstance(context).hasNetworkConnection()) {
-                StrictMode.setVmPolicy(new StrictMode.VmPolicy.Builder().detectAll().penaltyLog()
-                        .penaltyDeath().build());
-                DataBase dataBase = new DataBase(context.getApplicationContext());
-                dbScreen = dataBase.getData(DataBase.Table.SCREENS_TABLE);
-                ArrayList<JSONObject> screenArrayList = new ArrayList<>();
-                // JSONObject jsonObject1 = new JSONObject();
-                if (dbScreen != null && dbScreen.size() > 0) {
-                    for (MData mData : dbScreen) {
-                        String s = mData.getValues();
-                        JSONObject jsonObject1 = new JSONObject(s);
-                        Log.e("values", s);
-                        screenArrayList.add(jsonObject1);
-                    }
-                }
-                if (screenArrayList.size() > 0) {
-                    try {
-                        JSONObject jsonObject = new JSONObject();
-                        jsonObject.put("appId", SharedPref.getInstance().getStringValue(context, context.getString(R.string.resulticksSharedAPIKey)));
-                        jsonObject.put("campaignId", SharedPref.getInstance().getStringValue(context, context.getString(R.string.resulticksSharedCampaignId)));
-                        jsonObject.put("userId", SharedPref.getInstance().getStringValue(context, context.getString(R.string.resulticksSharedUserId)));
-                        jsonObject.put("deviceId", SharedPref.getInstance().getStringValue(context, context.getString(R.string.resulticksSharedDatabaseDeviceId)));
-                        jsonObject.put("screen", new JSONArray(screenArrayList));
-                        apiCallScreenTracking(jsonObject.toString());
-                    } catch (Exception e) {
-                        Util.catchMessage(e);
-                    }
-                }
-            }
-        } catch (Exception e) {
-            Util.catchMessage(e);
-        }
-
+        new DataGetting().execute();
     }
 
 
@@ -89,6 +70,10 @@ class DataNetworkHandler implements IResponseListener {
             Util.catchMessage(e);
         }
     }
+
+
+
+
 
     private void apiCallScreenTracking(String screenTracking) {
         new DataExchanger("screenTracking", screenTracking, this, AppConstants.SDK_SCREEN_TACKING).execute();
@@ -231,4 +216,65 @@ class DataNetworkHandler implements IResponseListener {
             Util.catchMessage(e);
         }
     }
+
+    class DataGetting extends AsyncTask<String, String, String> {
+
+
+        @Override
+        protected String doInBackground(String... params) {
+
+
+            JSONObject jsonObject =null;
+
+            try {
+                if (Util.getInstance(context).hasNetworkConnection()) {
+
+                    dbScreen = new DataBase(context).getData(DataBase.Table.SCREENS_TABLE);
+
+                    ArrayList<JSONObject> screenArrayList = new ArrayList<>();
+                    // JSONObject jsonObject1 = new JSONObject();
+                    if (dbScreen != null && dbScreen.size() > 0) {
+                        for (MData mData : dbScreen) {
+                            String s = mData.getValues();
+                            JSONObject jsonObject1 = new JSONObject(s);
+                            Log.e("values", s);
+                            screenArrayList.add(jsonObject1);
+                        }
+                    }
+                    if (screenArrayList.size() > 0) {
+                        try {
+                            jsonObject = new JSONObject();
+                            jsonObject.put("appId", SharedPref.getInstance().getStringValue(context, context.getString(R.string.resulticksSharedAPIKey)));
+                            jsonObject.put("campaignId", SharedPref.getInstance().getStringValue(context, context.getString(R.string.resulticksSharedCampaignId)));
+                            jsonObject.put("userId", SharedPref.getInstance().getStringValue(context, context.getString(R.string.resulticksSharedUserId)));
+                            jsonObject.put("deviceId", SharedPref.getInstance().getStringValue(context, context.getString(R.string.resulticksSharedDatabaseDeviceId)));
+                            jsonObject.put("screen", new JSONArray(screenArrayList));
+
+                        } catch (Exception e) {
+                            Util.catchMessage(e);
+                        }
+                    }
+                }
+            } catch (Exception e) {
+                Util.catchMessage(e);
+            }
+
+            if(jsonObject!=null)
+            return jsonObject.toString();
+            else return null;
+
+        }
+
+        @Override
+        protected void onPostExecute(String result) {
+            super.onPostExecute(result);
+            if(result!=null)
+                apiCallScreenTracking(result);
+
+
+        }
+
+
+    }
+
 }
