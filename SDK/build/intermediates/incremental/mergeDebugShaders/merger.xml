@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger version="3"><dataSet config="main"><source path="/Users/Buvaneswaran/Documents/GitHub/REAndroidSDK/SDK/src/main/shaders"/></dataSet><dataSet config="debug"><source path="/Users/Buvaneswaran/Documents/GitHub/REAndroidSDK/SDK/src/debug/shaders"/></dataSet></merger>

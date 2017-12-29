@@ -8,7 +8,7 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/REAndroidSDK" />
+            <option value="$PROJECT_DIR$/SDK" />
             <option value="$PROJECT_DIR$/app" />
           </set>
         </option>
