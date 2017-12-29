@@ -3,12 +3,13 @@ package io.mob.resu.reandroidsdk;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import android.util.Log;
 
 import org.json.JSONObject;
 
 import java.net.URLDecoder;
 import java.util.HashMap;
+
+import io.mob.resu.reandroidsdk.error.Log;
 
 /**
  * Created by P Buvaneswaran on 07-08-2017.

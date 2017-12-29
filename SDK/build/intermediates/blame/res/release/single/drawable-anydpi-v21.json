@@ -1,5 +1,13 @@
 [
     {
+        "merged": "/Users/Buvaneswaran/Documents/GitHub/VisionBank/REAndroidSDK/build/intermediates/res/merged/release/drawable-anydpi-v21/ic_touch_app.xml",
+        "source": "/Users/Buvaneswaran/Documents/GitHub/VisionBank/REAndroidSDK/build/generated/res/pngs/release/drawable-anydpi-v21/ic_touch_app.xml"
+    },
+    {
+        "merged": "/Users/Buvaneswaran/Documents/GitHub/VisionBank/REAndroidSDK/build/intermediates/res/merged/release/drawable-anydpi-v21/ic_hourglass_empty.xml",
+        "source": "/Users/Buvaneswaran/Documents/GitHub/VisionBank/REAndroidSDK/build/generated/res/pngs/release/drawable-anydpi-v21/ic_hourglass_empty.xml"
+    },
+    {
         "merged": "/Users/Buvaneswaran/Documents/GitHub/REAndroidSDK/SDK/build/intermediates/res/merged/release/drawable-anydpi-v21/ic_close.xml",
         "source": "/Users/Buvaneswaran/Documents/GitHub/REAndroidSDK/SDK/build/generated/res/pngs/release/drawable-anydpi-v21/ic_close.xml"
     },
@@ -14,5 +22,13 @@
     {
         "merged": "/Users/Buvaneswaran/Documents/GitHub/REAndroidSDK/SDK/build/intermediates/res/merged/release/drawable-anydpi-v21/ic_hourglass_empty.xml",
         "source": "/Users/Buvaneswaran/Documents/GitHub/REAndroidSDK/SDK/build/generated/res/pngs/release/drawable-anydpi-v21/ic_hourglass_empty.xml"
+    },
+    {
+        "merged": "/Users/Buvaneswaran/Documents/GitHub/VisionBank/REAndroidSDK/build/intermediates/res/merged/release/drawable-anydpi-v21/ic_watch_later.xml",
+        "source": "/Users/Buvaneswaran/Documents/GitHub/VisionBank/REAndroidSDK/build/generated/res/pngs/release/drawable-anydpi-v21/ic_watch_later.xml"
+    },
+    {
+        "merged": "/Users/Buvaneswaran/Documents/GitHub/VisionBank/REAndroidSDK/build/intermediates/res/merged/release/drawable-anydpi-v21/ic_close.xml",
+        "source": "/Users/Buvaneswaran/Documents/GitHub/VisionBank/REAndroidSDK/build/generated/res/pngs/release/drawable-anydpi-v21/ic_close.xml"
     }
 ]

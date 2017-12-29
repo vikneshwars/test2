@@ -11,10 +11,12 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.NotificationCompat;
 import android.text.TextUtils;
-import android.util.Log;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import io.mob.resu.reandroidsdk.error.ExceptionTracker;
+import io.mob.resu.reandroidsdk.error.Log;
 
 
 /**
@@ -26,7 +28,6 @@ import org.json.JSONObject;
  */
 
 public class AppNotification {
-
 
     /**
      * The unique identifier for this type of notification.
@@ -48,7 +49,7 @@ public class AppNotification {
                 nm.cancel(id);
             }
         } catch (Exception e) {
-            Util.catchMessage(e);
+            ExceptionTracker.track(e);
         }
     }
 
@@ -66,11 +67,20 @@ public class AppNotification {
                 nm.notify(NOTIFICATION_ID, notification);
             }
         } catch (Exception e) {
-           Util.catchMessage(e);
+            ExceptionTracker.track(e);
         }
 
     }
 
+    /**
+     * Notification Button Action provider
+     *
+     * @param context
+     * @param bundle
+     * @param icon
+     * @param actionName
+     * @return
+     */
     private NotificationCompat.Action getActionIntent(Context context, Bundle bundle, int icon, String actionName) {
 
         Intent actionIntent = null;
@@ -81,12 +91,21 @@ public class AppNotification {
         return new NotificationCompat.Action.Builder(icon, actionName, pendingIntent).build();
     }
 
+    /**
+     * App level notification Builder
+     *
+     * @param context
+     * @param title
+     * @param text
+     * @param actionName
+     * @param intent
+     * @param bitmap
+     */
     public void showCustomerNotification(final Context context, final String title, final String text, String actionName, Intent intent, Bitmap bitmap) {
 
 
-
         try {
-            addNotification( context, text,  title);
+            addNotification(context, text, title);
             NOTIFICATION_ID = intent.getExtras().getInt(context.getString(R.string.resulticksAppNotificationId));
             int icon;
             icon = R.drawable.ic_touch_app;
@@ -149,10 +168,18 @@ public class AppNotification {
             builder.setAutoCancel(true);
             notify(context, builder.build());
         } catch (Exception e) {
-            Util.catchMessage(e);
+            ExceptionTracker.track(e);
         }
     }
-    private void addNotification(Context context,String message, String title) {
+
+    /**
+     * App Level Notification add to notification database
+     *
+     * @param context
+     * @param message
+     * @param title
+     */
+    private void addNotification(Context context, String message, String title) {
 
         JSONObject jsonObject = new JSONObject();
         try {
@@ -161,12 +188,21 @@ public class AppNotification {
             jsonObject.put("title", title);
             new DataBase(context).insertData(jsonObject.toString(), DataBase.Table.NOTIFICATION_TABLE);
         } catch (JSONException e) {
-            Util.catchMessage(e);
+            ExceptionTracker.track(e);
         }
     }
 
-    public void showNotification(final Context context, final String title, final String text, String actionName, Intent intent, Bitmap bitmap) {
+    /**
+     * Campaign push notification
+     * @param context
+     * @param title
+     * @param text
+     * @param actionName
+     * @param intent
+     * @param bitmap
+     */
 
+    public void showNotification(final Context context, final String title, final String text, String actionName, Intent intent, Bitmap bitmap) {
 
 
         try {
@@ -199,7 +235,7 @@ public class AppNotification {
             // notification drawer on devices running Android 3.0 or later.
             //  .setLargeIcon(picture)
 
-             // Show a number. This is useful when stacking notifications of
+            // Show a number. This is useful when stacking notifications of
             // a single type.
             builder.setNumber(0);
 
@@ -232,7 +268,7 @@ public class AppNotification {
             builder.setAutoCancel(true);
             notify(context, builder.build());
         } catch (Exception e) {
-           Util.catchMessage(e);
+            ExceptionTracker.track(e);
         }
     }
 

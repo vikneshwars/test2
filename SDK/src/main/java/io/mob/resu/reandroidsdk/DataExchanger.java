@@ -14,6 +14,8 @@ import java.net.URL;
 
 import javax.net.ssl.HttpsURLConnection;
 
+import io.mob.resu.reandroidsdk.error.ExceptionTracker;
+
 /**
  * Created by Interakt on 11/15/17.
  */
@@ -76,7 +78,7 @@ public class DataExchanger extends AsyncTask<String, String, String> {
                 listener.onFailure(new Throwable(), requestCode);
             }
         } catch (Exception e) {
-            Util.catchMessage(e);
+            ExceptionTracker.track(e);
         }
 
     }
@@ -134,15 +136,15 @@ public class DataExchanger extends AsyncTask<String, String, String> {
             System.out.println("Response : " + result);
 
         } catch (UnsupportedEncodingException e) {
-           Util.catchMessage(e);
+           ExceptionTracker.track(e);
         } catch (MalformedURLException e) {
-            Util.catchMessage(e);
+            ExceptionTracker.track(e);
         } catch (ProtocolException e) {
-            Util.catchMessage(e);
+            ExceptionTracker.track(e);
         } catch (IOException e) {
-            Util.catchMessage(e);
+            ExceptionTracker.track(e);
         } catch (Exception e) {
-            Util.catchMessage(e);
+            ExceptionTracker.track(e);
         } finally {
 
             return modelResponseData;

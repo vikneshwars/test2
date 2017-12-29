@@ -7,11 +7,13 @@ import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.support.annotation.NonNull;
-import android.util.Log;
 
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+
+import io.mob.resu.reandroidsdk.error.ExceptionTracker;
+import io.mob.resu.reandroidsdk.error.Log;
 
 class DataBase {
     private static final String DATABASE_NAME = "resulticks";
@@ -49,7 +51,11 @@ class DataBase {
         return this;
     }
 
-
+    /**
+     * Getting All Table wise
+     * @param i
+     * @return
+     */
     ArrayList<MData> getData(Table i) {
         try {
             db = DBHelper.getReadableDatabase();
@@ -62,10 +68,10 @@ class DataBase {
                 if (cursor.moveToFirst()) {
                     do {
                         MData mData = new MData();
-                        // Log.e("buvaneshID", "" +  cursor.get);
-                        // Log.e("buvaneshID", "" +  cursor.getType(1));
-                        //Log.e("buvaneshID", "" +  DatabaseUtils.dumpCursorToString(cursor));
-                        //Log.e("buvaneshID", "" +  DatabaseUtils.dumpCursorToString(cursor));
+                        // SDKLog.e("buvaneshID", "" +  cursor.get);
+                        // SDKLog.e("buvaneshID", "" +  cursor.getType(1));
+                        //SDKLog.e("buvaneshID", "" +  DatabaseUtils.dumpCursorToString(cursor));
+                        //SDKLog.e("buvaneshID", "" +  DatabaseUtils.dumpCursorToString(cursor));
                         mData.setId(cursor.getInt(0));
                         mData.setValues(cursor.getString(1));
                         array_list.add(mData);
@@ -78,26 +84,19 @@ class DataBase {
             }
             return array_list;
         } catch (Exception e) {
-            Util.catchMessage(e);
+            ExceptionTracker.track(e);
             return new ArrayList<>();
         }
     }
 
 
-    private Cursor getCursor(String tableName) {
-        try {
-            Cursor cursor = null;
-            //cursor = db.rawQuery("select * from "+tableName,null);
-            if (cursor != null && cursor.getCount() > 0)
-                return cursor;
-            else
-                return null;
-        } catch (Exception e) {
-            Util.catchMessage(e);
-            return null;
-        }
-    }
-
+    /**
+     * Provide Already register Event
+     * @param tablename
+     * @param viewId
+     * @param screenName
+     * @return
+     */
     public MRegisterEvent getData(Table tablename, String viewId, String screenName) {
 
         try {
@@ -120,7 +119,7 @@ class DataBase {
                             //mRegisterEvent=LoganSquare.parse(jsonObject.toString(),MRegisterEvent.class);
                             mRegisterEvent.setEventID(cursor.getString(0));
                         } catch (Exception e) {
-                            Util.catchMessage(e);
+                            ExceptionTracker.track(e);
                         }
 
 
@@ -131,25 +130,30 @@ class DataBase {
             close();
             return mRegisterEvent;
         } catch (Exception e) {
-            Util.catchMessage(e);
+            ExceptionTracker.track(e);
         }
         return null;
     }
 
+    /**
+     * Delete list of rows table wise
+     * @param values
+     * @param i
+     */
     void deleteData(ArrayList<MData> values, Table i) {
 
-        resolveStrictMode();
+        dbOpen();
         try {
             for (MData mData : values) {
                 deleteData(mData, i);
             }
         } catch (Exception e) {
-            Util.catchMessage(e);
+            ExceptionTracker.track(e);
         }
         close();
     }
 
-    private void resolveStrictMode() {
+    private void dbOpen() {
 
         try {
             if (db != null) {
@@ -158,36 +162,52 @@ class DataBase {
             }
             open();
         } catch (SQLException e) {
-            Util.catchMessage(e);
+            ExceptionTracker.track(e);
         }
 
     }
 
+    /**
+     * Delete data row id wise
+     * @param id
+     * @param i
+     */
     public void deleteEventData(String id, Table i) {
 
         try {
-            resolveStrictMode();
+            dbOpen();
             String tableName = getTableName(i);
             Log.e("datas deleted", tableName + " " + id);
             db.execSQL("delete from " + tableName + " where _id='" + id + "'");
             close();
         } catch (Exception e) {
-            Util.catchMessage(e);
+            ExceptionTracker.track(e);
         }
 
     }
 
+
+    /**
+     * Delete data row id wise
+     * @param mData
+     * @param i
+     */
     public void deleteData(MData mData, Table i) {
-        resolveStrictMode();
+        dbOpen();
         try {
             int id = mData.getId();
             deleteEventData("" + id, i);
         } catch (Exception e) {
-            Util.catchMessage(e);
+            ExceptionTracker.track(e);
         }
 
     }
 
+    /**
+     * enum type to get table name
+     * @param i
+     * @return
+     */
     @NonNull
     private String getTableName(Table i) {
         String tableName = "";
@@ -208,9 +228,15 @@ class DataBase {
         return tableName;
     }
 
+
+    /**
+     * insert Data table wise
+     * @param value
+     * @param i
+     */
     void insertData(String value, Table i) {
         try {
-            resolveStrictMode();
+            dbOpen();
             String tableName = getTableName(i);
             ContentValues initialValues = new ContentValues();
             initialValues.put("value", value);
@@ -219,15 +245,22 @@ class DataBase {
             db.insert(tableName, null, initialValues);
             close();
         } catch (Exception e) {
-            Util.catchMessage(e);
+            ExceptionTracker.track(e);
         }
 
 
     }
 
+    /**
+     * Update Data table wise
+     * @param value
+     * @param viewId
+     * @param screenName
+     * @param i
+     */
     void insertOrUpdateData(String value, String viewId, String screenName, Table i) {
         try {
-            resolveStrictMode();
+            dbOpen();
             String tableName = getTableName(i);
             ContentValues initialValues = new ContentValues();
             initialValues.put("value", value);
@@ -242,12 +275,16 @@ class DataBase {
                 db.insert(tableName, null, initialValues);
             close();
         } catch (Exception e) {
-            Util.catchMessage(e);
+            ExceptionTracker.track(e);
         }
 
 
     }
 
+    /**
+     * Delete all rows table wise
+     * @param table
+     */
     void deleteAll(Table table) {
         String tableName = getTableName(table);
         Cursor cursor = db.rawQuery("SELECT * FROM " + tableName, null);
@@ -256,18 +293,30 @@ class DataBase {
             db.execSQL("delete from " + tableName);
     }
 
-
+    /**
+     * getting view id wise register events
+     * @param viewId
+     * @param screenName
+     * @param tableName
+     * @return
+     */
     private Cursor getCursorCount(String viewId, String screenName, String tableName) {
         return db.query(tableName, new String[]{"_id", "viewid", "screenname", "value"}, "viewid" + "=?" + " AND screenname" + "=?", new String[]{viewId, screenName}, null, null, null, null);
         // return db.rawQuery("SELECT * FROM " + tableName , null);
     }
 
+    /**
+     * database close
+     */
     public synchronized void close() {
         if (db != null) {
             db.close();
         }
     }
 
+    /**
+     * Enum table names
+     */
     enum Table {
         NOTIFICATION_TABLE,
         CAMPAIGN_TABLE,
@@ -288,7 +337,7 @@ class DataBase {
                 db.execSQL(CREATE_SCREENS_TABLE);
                 db.execSQL(CREATE_REGISTER_EVENT_TABLE);
             } catch (SQLException e) {
-                Util.catchMessage(e);
+                ExceptionTracker.track(e);
             }
             Log.e("DATA BASE CREATED", "DATA BASE CREATED");
         }

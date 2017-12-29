@@ -5,7 +5,6 @@ import android.accounts.AccountManager;
 import android.app.Application;
 import android.content.Context;
 import android.os.Bundle;
-import android.util.Log;
 import android.util.Patterns;
 import android.widget.Toast;
 
@@ -16,6 +15,9 @@ import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.regex.Pattern;
+
+import io.mob.resu.reandroidsdk.error.ExceptionTracker;
+import io.mob.resu.reandroidsdk.error.Log;
 
 
 /**
@@ -31,6 +33,9 @@ public class ReAndroidSDK {
     private static Context appContext;
     private static ReAndroidSDK tracker;
 
+    /**
+     * Sever call response listener
+     */
     private IResponseListener IResponseListener = new IResponseListener() {
         @Override
         public void onSuccess(String response, int flag) {
@@ -49,7 +54,7 @@ public class ReAndroidSDK {
 
                 }
             } catch (Exception e) {
-                Util.catchMessage(e);
+                ExceptionTracker.track(e);
             }
         }
 
@@ -77,7 +82,7 @@ public class ReAndroidSDK {
 
         @Override
         public void logOut(int flag) {
-            Log.e("response", ""+flag);
+            Log.e("response", "" + flag);
         }
 
     };
@@ -90,7 +95,7 @@ public class ReAndroidSDK {
             apiCallAPIValidation();
             Util.getAdvertisementId(appContext);
         } catch (Exception e) {
-            Util.catchMessage(e);
+            ExceptionTracker.track(e);
         }
     }
 
@@ -103,8 +108,8 @@ public class ReAndroidSDK {
                 user = user.replace("api_key_", "");
                 Log.e(TAG, "" + user);
                 SharedPref.getInstance().setSharedValue(context, context.getString(R.string.resulticksSharedAPIKey), user);
-            }else {
-                Toast.makeText(context,"Please add your SDK API KEY",Toast.LENGTH_LONG).show();
+            } else {
+                Toast.makeText(context, "Please add your SDK API KEY", Toast.LENGTH_LONG).show();
             }
             appContext = context;
             Log.e(TAG, "" + tracker);
@@ -114,7 +119,7 @@ public class ReAndroidSDK {
             } else
                 return tracker;
         } catch (Exception e) {
-            Util.catchMessage(e);
+            ExceptionTracker.track(e);
         }
         return tracker;
     }
@@ -129,21 +134,37 @@ public class ReAndroidSDK {
             return tracker;
     }
 
+    /**
+     * smart link Data provider
+     *
+     * @param IDeepLinkInterface
+     */
     public void InitDeepLink(IDeepLinkInterface IDeepLinkInterface) {
         try {
             IDeepLinkInterface.onDeepLinkData(SharedPref.getInstance().getStringValue(appContext, appContext.getString(R.string.resulticksSharedReferral)));
             IDeepLinkInterface.onInstallDataReceived(SharedPref.getInstance().getStringValue(appContext, appContext.getString(R.string.resulticksSharedReferral)));
         } catch (Exception e) {
-            Util.catchMessage(e);
+            ExceptionTracker.track(e);
         }
 
 
     }
 
+    /**
+     * FCM OR GCM token receive
+     *
+     * @param modelRegisterUser
+     */
     public void onDeviceUserRegister(MRegisterUser modelRegisterUser) {
         apiCallRegister(modelRegisterUser);
     }
 
+    /**
+     * FCM Notification Receiver
+     *
+     * @param data
+     * @return
+     */
     public boolean onReceivedCampaign(Map<String, String> data) {
         try {
             if (data.containsKey(appContext.getString(R.string.resulticksApiParamNavigationScreen))) {
@@ -153,11 +174,17 @@ public class ReAndroidSDK {
                 return false;
             }
         } catch (Exception e) {
-            Util.catchMessage(e);
+            ExceptionTracker.track(e);
         }
         return false;
     }
 
+    /**
+     * GCM Notification Receiver
+     *
+     * @param data
+     * @return
+     */
     public boolean onReceivedCampaign(Bundle data) {
 
         try {
@@ -168,24 +195,17 @@ public class ReAndroidSDK {
                 return false;
             }
         } catch (Exception e) {
-            Util.catchMessage(e);
+            ExceptionTracker.track(e);
         }
         return false;
     }
 
-    public void addNotification(MData data) {
 
-        try {
-            JSONObject jsonObject = new JSONObject(data.getValues());
-            jsonObject.put("timeStamp", Util.getCurrentUTC());
-            new DataBase(appContext).insertData(jsonObject.toString(), DataBase.Table.NOTIFICATION_TABLE);
-
-        } catch (Exception e) {
-            Util.catchMessage(e);
-        }
-
-    }
-
+    /**
+     * User Moving Location update
+     * @param latitude
+     * @param longitude
+     */
     public void onLocationUpdate(double latitude, double longitude) {
 
         try {
@@ -195,42 +215,60 @@ public class ReAndroidSDK {
             DataNetworkHandler.getInstance().onUpdateLocation(jsonObject);
 
         } catch (Exception e) {
-            Util.catchMessage(e);
+            ExceptionTracker.track(e);
         }
 
     }
 
-
+    /**
+     * Notification wise Delete
+     * @param data
+     */
     public void deleteNotification(MData data) {
         new DataBase(appContext).deleteData(data, DataBase.Table.NOTIFICATION_TABLE);
     }
 
+    /**
+     * Campaign & User Notification
+     * @return
+     */
     public ArrayList<MData> getNotifications() {
         try {
 
-
             return new DataBase(appContext).getData(DataBase.Table.NOTIFICATION_TABLE);
         } catch (Exception e) {
-            Util.catchMessage(e);
+            ExceptionTracker.track(e);
             return new ArrayList<>();
         }
 
 
     }
 
-
+    /**
+     *  Event type: 1
+     * @param eventName
+     */
     public void onTrackEvent(String eventName) {
-        TrackerHelper.getInstance().userEventTracking(appContext, eventName);
+        AppLifecyclePresenter.getInstance().userEventTracking(appContext, eventName);
     }
 
+    /**
+     * Event type: 2
+     * @param data
+     * @param eventName
+     */
     public void onTrackEvent(JSONObject data, String eventName) {
         try {
-            TrackerHelper.getInstance().userEventTracking(appContext, data, eventName);
+            AppLifecyclePresenter.getInstance().userEventTracking(appContext, data, eventName);
         } catch (Exception e) {
-            Util.catchMessage(e);
+            ExceptionTracker.track(e);
         }
     }
 
+    /**
+     * SDK App User register
+     * @param modelRegisterUser
+     */
     private void apiCallRegister(MRegisterUser modelRegisterUser) {
 
         JSONObject userDetail = new JSONObject();
@@ -255,14 +293,16 @@ public class ReAndroidSDK {
             userDetail.put("appVersionCode", mDeviceData.getAppVersionCode());
 
 
-        new DataExchanger("sdkRegistration", userDetail.toString(), IResponseListener, AppConstants.SDK_USER_REGISTER).execute();
+            new DataExchanger("sdkRegistration", userDetail.toString(), IResponseListener, AppConstants.SDK_USER_REGISTER).execute();
         } catch (Exception e) {
-            Util.catchMessage(e);
+            ExceptionTracker.track(e);
         }
 
     }
 
-
+    /**
+     * SDK App id Validation
+     */
     private void apiCallAPIValidation() {
 
         MDeviceData mDeviceData = new MDeviceData(appContext);
@@ -284,14 +324,17 @@ public class ReAndroidSDK {
             userDetail.put("appVersionCode", mDeviceData.getAppVersionCode());
 
 
-        new DataExchanger("apiKeyValidation", userDetail.toString(), IResponseListener, AppConstants.SDK_API_KEY).execute();
+            new DataExchanger("apiKeyValidation", userDetail.toString(), IResponseListener, AppConstants.SDK_API_KEY).execute();
         } catch (Exception e) {
             e.printStackTrace();
         }
         Log.e(TAG, "apiCallAPIValidation");
     }
 
-
+    /**
+     * Activity Add LifecycleListener
+     * @param context
+     */
     private void registerActivityCallBacks(Context context) {
 
         try {
@@ -319,11 +362,14 @@ public class ReAndroidSDK {
                 app.registerActivityLifecycleCallbacks(activityLifecycleCallbacks);
             }
         } catch (Exception e) {
-            Util.catchMessage(e);
+            ExceptionTracker.track(e);
         }
     }
 
 
+    /**
+     * App crash Listener
+     */
     private void appCrashHandler() {
         Thread.setDefaultUncaughtExceptionHandler(new Thread.UncaughtExceptionHandler() {
             @Override
@@ -338,15 +384,19 @@ public class ReAndroidSDK {
         });
     }
 
+    /**
+     * App Exit Listener
+     * @param sw
+     */
     private void killProcessAndExit(String sw) {
         try {
-            activityLifecycleCallbacks.saveData(sw.toString());
+            activityLifecycleCallbacks.appCrashHandle(sw.toString());
             // Thread.sleep(1000);
 
-        android.os.Process.killProcess(android.os.Process.myPid());
-        System.exit(10);
+            android.os.Process.killProcess(android.os.Process.myPid());
+            System.exit(10);
         } catch (Exception e1) {
-           Util.catchMessage(e1);
+            Util.catchMessage(e1);
         }
     }
 

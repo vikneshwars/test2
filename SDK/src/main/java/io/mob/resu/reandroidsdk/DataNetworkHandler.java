@@ -2,26 +2,16 @@ package io.mob.resu.reandroidsdk;
 
 import android.content.Context;
 import android.os.AsyncTask;
-import android.os.StrictMode;
 import android.support.annotation.NonNull;
-import android.util.Log;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.io.UnsupportedEncodingException;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.ProtocolException;
-import java.net.URL;
 import java.util.ArrayList;
 
-import javax.net.ssl.HttpsURLConnection;
+import io.mob.resu.reandroidsdk.error.ExceptionTracker;
+import io.mob.resu.reandroidsdk.error.Log;
 
 /**
  * Created by Interakt on 10/6/17.
@@ -37,9 +27,6 @@ class DataNetworkHandler implements IResponseListener {
     public static DataNetworkHandler getInstance() {
         return new DataNetworkHandler();
     }
-
-
-
 
 
     void onMakeTrackingRequest(Context context) {
@@ -62,17 +49,14 @@ class DataNetworkHandler implements IResponseListener {
             // campaignTracking = getCampaignDataFromLocalDataBase(context);
             String campaignTracking = getCampaignFromLocalDataBase(context);
             if (Util.getInstance(context).hasNetworkConnection()) {
-                apiCallCampaignTracking(campaignTracking,id);
+                apiCallCampaignTracking(campaignTracking, id);
             }
 
 
         } catch (Exception e) {
-            Util.catchMessage(e);
+            ExceptionTracker.track(e);
         }
     }
-
-
-
 
 
     private void apiCallScreenTracking(String screenTracking) {
@@ -86,7 +70,7 @@ class DataNetworkHandler implements IResponseListener {
 
     private void apiCallCampaignTracking(String campaignTracking, String id) {
 
-        new DataExchanger("https://b.resu.io/GCM/GetSmartCodeDetail?smartCode="+id, "", this, AppConstants.SDK_CAMPAIGN_DETAILS).execute();
+        new DataExchanger("https://b.resu.io/GCM/GetSmartCodeDetail?smartCode=" + id, "", this, AppConstants.SDK_CAMPAIGN_DETAILS).execute();
 
         new DataExchanger("campaignTracking", campaignTracking, this, AppConstants.SDK_NOTIFICATION_VIEWED).execute();
 
@@ -141,7 +125,7 @@ class DataNetworkHandler implements IResponseListener {
         try {
             new DataBase(context).insertData(jsonObject.toString(), DataBase.Table.CAMPAIGN_TABLE);
         } catch (Exception e) {
-            Util.catchMessage(e);
+            ExceptionTracker.track(e);
         }
 
     }
@@ -191,7 +175,7 @@ class DataNetworkHandler implements IResponseListener {
                     try {
                         new DataBase(context).deleteData(dbCampaign, DataBase.Table.CAMPAIGN_TABLE);
                     } catch (Exception e) {
-                        Util.catchMessage(e);
+                        ExceptionTracker.track(e);
                     }
 
                     break;
@@ -202,7 +186,7 @@ class DataNetworkHandler implements IResponseListener {
                     try {
                         new DataBase(context).deleteData(dbScreen, DataBase.Table.SCREENS_TABLE);
                     } catch (Exception e) {
-                        Util.catchMessage(e);
+                        ExceptionTracker.track(e);
                     }
                     break;
 
@@ -213,7 +197,7 @@ class DataNetworkHandler implements IResponseListener {
 
             }
         } catch (Exception e) {
-            Util.catchMessage(e);
+            ExceptionTracker.track(e);
         }
     }
 
@@ -224,7 +208,7 @@ class DataNetworkHandler implements IResponseListener {
         protected String doInBackground(String... params) {
 
 
-            JSONObject jsonObject =null;
+            JSONObject jsonObject = null;
 
             try {
                 if (Util.getInstance(context).hasNetworkConnection()) {
@@ -251,16 +235,16 @@ class DataNetworkHandler implements IResponseListener {
                             jsonObject.put("screen", new JSONArray(screenArrayList));
 
                         } catch (Exception e) {
-                            Util.catchMessage(e);
+                            ExceptionTracker.track(e);
                         }
                     }
                 }
             } catch (Exception e) {
-                Util.catchMessage(e);
+                ExceptionTracker.track(e);
             }
 
-            if(jsonObject!=null)
-            return jsonObject.toString();
+            if (jsonObject != null)
+                return jsonObject.toString();
             else return null;
 
         }
@@ -268,7 +252,7 @@ class DataNetworkHandler implements IResponseListener {
         @Override
         protected void onPostExecute(String result) {
             super.onPostExecute(result);
-            if(result!=null)
+            if (result != null)
                 apiCallScreenTracking(result);
 
 

@@ -2,15 +2,14 @@ package io.mob.resu.reandroidsdk;
 
 import android.app.Activity;
 import android.app.Application;
-import android.content.Context;
-import android.hardware.Sensor;
-import android.hardware.SensorManager;
 import android.os.Bundle;
-import android.util.Log;
-import android.widget.Toast;
-import org.json.JSONObject;
 
 import java.util.Calendar;
+
+import io.mob.resu.reandroidsdk.error.ExceptionTracker;
+import io.mob.resu.reandroidsdk.error.Log;
+
+import static io.mob.resu.reandroidsdk.Util.deepLinkDataReset;
 
 
 /**
@@ -23,15 +22,15 @@ class ActivityLifecycleCallbacks implements Application.ActivityLifecycleCallbac
     private final String TAG = this.getClass().getSimpleName();
     String oldActivityName;
     String newActivityName;
-    ShakeDetector mShakeDetector;
+    //ShakeDetector mShakeDetector;
     private Calendar oldCalendar = Calendar.getInstance();
     private Calendar sCalendar = Calendar.getInstance();
-    private SensorManager mSensorManager;
-    private Sensor mAccelerometer;
+    //private SensorManager mSensorManager;
+    //private Sensor mAccelerometer;
 
 
     /**
-     *  Activity onCreate
+     * Activity onCreate
      *
      * @param activity
      * @param bundle
@@ -39,19 +38,10 @@ class ActivityLifecycleCallbacks implements Application.ActivityLifecycleCallbac
 
     @Override
     public void onActivityCreated(final Activity activity, Bundle bundle) {
-        try {
-              mActivity = activity;
-            if (!TrackerHelper.itHasFragment(activity)) {
-                AppWidgets.DialogHandler(true);
-                TrackerHelper.getInstance().InitTrack(activity);
-               Log.e("ClassName",activity.getLocalClassName()) ;
-            }
-        } catch (Exception e) {
-            Util.catchMessage(e);
-        }
+        mActivity = activity;
+        AppLifecyclePresenter.getInstance().Init(activity);
 
     }
-
 
 
     /**
@@ -62,54 +52,52 @@ class ActivityLifecycleCallbacks implements Application.ActivityLifecycleCallbac
     @Override
     public void onActivityStarted(final Activity activity) {
         try {
-            snakeEvent(activity);
+            //snakeEvent(activity);
             mActivity = activity;
             newActivityName = activity.getClass().getSimpleName();
             oldCalendar = sCalendar;
             sCalendar = Calendar.getInstance();
-            if (!TrackerHelper.itHasFragment(activity)) {
-                AppWidgets.DialogHandler(false);
-                TrackerHelper.getInstance().screenTrackingUpdateToServer(activity,newActivityName);
-            }
+            AppLifecyclePresenter.getInstance().screenSessionUpdate(activity, newActivityName);
+
         } catch (Exception e) {
-            Util.catchMessage(e);
+            ExceptionTracker.track(e);
         }
     }
 
     /**
-     *  Activity onResume
+     * Activity onResume
      *
      * @param activity
      */
     @Override
     public void onActivityResumed(Activity activity) {
-        try {
+       /* try {
             if (mSensorManager != null) {
                 mSensorManager.registerListener(mShakeDetector,
                         mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER),
                         SensorManager.SENSOR_DELAY_UI);
             }
         } catch (Exception e) {
-            Util.catchMessage(e);
+            ExceptionTracker.track(e);
         }
-
+*/
     }
 
     /**
-     *  Activity onPaused
+     * Activity onPaused
      *
      * @param activity
      */
 
     @Override
     public void onActivityPaused(Activity activity) {
-        try {
+        /*try {
             if (mSensorManager != null) {
                 mSensorManager.unregisterListener(mShakeDetector);
             }
         } catch (Exception e) {
-            Util.catchMessage(e);
-        }
+            ExceptionTracker.track(e);
+        }*/
     }
 
     /**
@@ -122,10 +110,10 @@ class ActivityLifecycleCallbacks implements Application.ActivityLifecycleCallbac
     public void onActivityStopped(final Activity activity) {
         try {
             oldActivityName = activity.getClass().getSimpleName();
-            if (!TrackerHelper.itHasFragment(activity))
-                TrackerHelper.getInstance().screenTracking(activity, oldCalendar, Calendar.getInstance(), activity.getClass().getSimpleName(), null, null);
+            if (!Util.itHasFragment(activity))
+                AppLifecyclePresenter.getInstance().screenByUserActivity(activity, oldCalendar, Calendar.getInstance(), activity.getClass().getSimpleName(), null, null);
         } catch (Exception e) {
-            Util.catchMessage(e);
+            ExceptionTracker.track(e);
         }
     }
 
@@ -145,38 +133,24 @@ class ActivityLifecycleCallbacks implements Application.ActivityLifecycleCallbac
                 Log.e(TAG, "App Continue");
             }
         } catch (Exception e) {
-            Util.catchMessage(e);
+            ExceptionTracker.track(e);
         }
 
 
     }
 
-
-    private void deepLinkDataReset(Activity activity)throws Exception {
-        try {
-            JSONObject referrerObject = new JSONObject();
-            referrerObject.put(activity.getString(R.string.resulticksDeepLinkParamIsNewInstall), false);
-            referrerObject.put(activity.getString(R.string.resulticksDeepLinkParamIsViaDeepLinkingLauncher), false);
-            SharedPref.getInstance().setSharedValue(mActivity, activity.getString(R.string.resulticksSharedReferral), referrerObject.toString());
-            SharedPref.getInstance().setSharedValue(activity, activity.getString(R.string.resulticksSharedCampaignId), "");
-
-        } catch (Exception e) {
-            Util.catchMessage(e);
-        }
-    }
 
     /**
      * App Crash Data Handler
      *
      * @param appCrash
      */
-    public void saveData(String appCrash) throws Exception{
+    public void appCrashHandle(String appCrash) throws Exception {
         deepLinkDataReset(mActivity);
-        String subScreenName = null;
-        TrackerHelper.getInstance().screenTracking(mActivity, oldCalendar, Calendar.getInstance(), mActivity.getClass().getSimpleName(), subScreenName, appCrash);
+        AppLifecyclePresenter.getInstance().screenByUserActivity(mActivity, oldCalendar, Calendar.getInstance(), mActivity.getClass().getSimpleName(), null, appCrash);
     }
 
-    private void snakeEvent(final Context context) throws Exception {
+   /* private void snakeEvent(final Context context) throws Exception {
         // ShakeDetector initialization
         mShakeDetector = new ShakeDetector();
         mSensorManager = (SensorManager) context.getSystemService(Context.SENSOR_SERVICE);
@@ -210,6 +184,6 @@ class ActivityLifecycleCallbacks implements Application.ActivityLifecycleCallbac
             //}
         });
     }
-
+*/
 
 }

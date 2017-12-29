@@ -11,6 +11,8 @@ import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
+import io.mob.resu.reandroidsdk.error.ExceptionTracker;
+
 /**
  * Created by P Buvaneswaran on 01-08-2017.
  */
@@ -51,7 +53,7 @@ import java.net.URL;
                 Bitmap theBitmap = BitmapFactory.decodeStream(input);
                 return theBitmap;
             } catch (IOException e) {
-                Util.catchMessage(e);
+                ExceptionTracker.track(e);
                 return null;
             }
 
@@ -67,7 +69,7 @@ import java.net.URL;
                     new AppNotification().showNotification(mContext, title, message, actionName, intent, null);
 
             } catch (Exception e) {
-                Util.catchMessage(e);
+                ExceptionTracker.track(e);
             }
         }
     }

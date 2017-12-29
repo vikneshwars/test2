@@ -8,6 +8,8 @@ import android.view.View;
 
 import java.util.Calendar;
 
+import io.mob.resu.reandroidsdk.error.ExceptionTracker;
+
 /**
  * Created by P Buvaneswaran on 30-07-2017.
  */
@@ -56,9 +58,9 @@ class FragmentLifecycleCallbacks extends FragmentManager.FragmentLifecycleCallba
             oldCalendar = sCalendar;
             sCalendar = Calendar.getInstance();
             AppWidgets.DialogHandler(false);
-            TrackerHelper.getInstance().screenTrackingUpdateToServer(f.getActivity(),newScreenName);
+            AppLifecyclePresenter.getInstance().screenSessionUpdate(f.getActivity(),newScreenName);
         } catch (Exception e) {
-            Util.catchMessage(e);
+            ExceptionTracker.track(e);
         }
     }
 
@@ -75,7 +77,7 @@ class FragmentLifecycleCallbacks extends FragmentManager.FragmentLifecycleCallba
     @Override
     public void onFragmentStopped(FragmentManager fm, Fragment f) {
         super.onFragmentStopped(fm, f);
-        TrackerHelper.getInstance().screenTracking(f.getActivity(), oldCalendar, Calendar.getInstance(), f.getActivity().getClass().getSimpleName(), f.getClass().getSimpleName(), null);
+        AppLifecyclePresenter.getInstance().screenByUserActivity(f.getActivity(), oldCalendar, Calendar.getInstance(), f.getActivity().getClass().getSimpleName(), f.getClass().getSimpleName(), null);
     }
 
     @Override

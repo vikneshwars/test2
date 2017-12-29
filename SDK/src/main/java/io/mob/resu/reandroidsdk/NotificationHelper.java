@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.text.TextUtils;
-import android.util.Log;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -13,11 +12,14 @@ import org.json.JSONObject;
 import java.util.Map;
 import java.util.Random;
 
+import io.mob.resu.reandroidsdk.error.ExceptionTracker;
+import io.mob.resu.reandroidsdk.error.Log;
+
 /**
  * Created by Interakt on 9/14/17.
  */
 
- class NotificationHelper {
+class NotificationHelper {
 
     private static Context appContext;
 
@@ -38,11 +40,12 @@ import java.util.Random;
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
             return intent;
         } catch (Exception e) {
-            Util.catchMessage(e);
+            ExceptionTracker.track(e);
         }
         return intent;
 
     }
+
     @NonNull
     public Intent getIntent(Bundle map) {
         Intent intent = new Intent();
@@ -63,7 +66,7 @@ import java.util.Random;
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
             return intent;
         } catch (Exception e) {
-            Util.catchMessage(e);
+            ExceptionTracker.track(e);
         }
         return intent;
 
@@ -76,7 +79,7 @@ import java.util.Random;
                 String body = map.getString("body");
                 String category = map.getString("category");
                 String url = map.getString("url");
-                addNotification(body,  title);
+                addNotification(body, title);
                 if (category.equalsIgnoreCase("Splash")) {
                     bannerNotification(getIntent(map), title, body, category, url);
                 } else if (category.equalsIgnoreCase("Rating"))
@@ -91,7 +94,7 @@ import java.util.Random;
 
             }
         } catch (Exception e) {
-            Util.catchMessage(e);
+            ExceptionTracker.track(e);
         }
 
     }
@@ -119,7 +122,7 @@ import java.util.Random;
 
             }
         } catch (Exception e) {
-            Util.catchMessage(e);
+            ExceptionTracker.track(e);
         }
 
     }
@@ -133,7 +136,7 @@ import java.util.Random;
             jsonObject.put("title", title);
             new DataBase(appContext).insertData(jsonObject.toString(), DataBase.Table.NOTIFICATION_TABLE);
         } catch (JSONException e) {
-            Util.catchMessage(e);
+            ExceptionTracker.track(e);
         }
     }
 
@@ -148,7 +151,7 @@ import java.util.Random;
                     new PictureStyleNotification(appContext, title, body, url, category, intent);
             }
         } catch (Exception e) {
-            Util.catchMessage(e);
+            ExceptionTracker.track(e);
         }
     }
 
@@ -163,7 +166,7 @@ import java.util.Random;
                     new PictureStyleNotification(appContext, title, body, url, category, intent);
             }
         } catch (Exception e) {
-            Util.catchMessage(e);
+            ExceptionTracker.track(e);
         }
     }
 

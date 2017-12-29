@@ -1,6 +1,5 @@
 package io.mob.resu.reandroidsdk;
 
-import android.util.Log;
 import android.view.View;
 import android.view.accessibility.AccessibilityEvent;
 import android.widget.Button;
@@ -8,6 +7,8 @@ import android.widget.EditText;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+
+import io.mob.resu.reandroidsdk.error.Log;
 
 /**
  * Created by Interakt on 9/7/17.
@@ -23,17 +24,15 @@ class EventTrackingListener extends View.AccessibilityDelegate {
     public void sendAccessibilityEvent(View host, int eventType) {
 
         if (host instanceof EditText) {
-            TrackerHelper.getInstance().marketerTracking(host);
-            // Log.e("sendAccessibilityEvent", "" + eventType + "   " + host.getResources().getResourceName(host.getId()));
+            AppLifecyclePresenter.getInstance().fieldWiseDataListener(host);
         } else if (host instanceof Button) {
-            TrackerHelper.getInstance().marketerTracking(host);
-            // Log.e("sendAccessibilityEvent", "" + eventType + "   " + host.getResources().getResourceName(host.getId()));
+            AppLifecyclePresenter.getInstance().fieldWiseDataListener(host);
         }
         Log.e("sendAccessibilityEvent", "" + eventType );
 
         if (AccessibilityEvent.TYPE_VIEW_CLICKED == eventType || AccessibilityEvent.TYPE_VIEW_LONG_CLICKED == eventType) {
-            TrackerHelper.getInstance().marketerTracking(host);
-           /* TrackerHelper.getInstance().autoEventTracking(host);
+            AppLifecyclePresenter.getInstance().fieldWiseDataListener(host);
+           /* AppLifecyclePresenter.getInstance().autoEventTracking(host);
             if (isDebugMode)
                 AppWidgets.showEventDialog(host);*/
         }

@@ -4,7 +4,9 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
+
+import io.mob.resu.reandroidsdk.error.ExceptionTracker;
+import io.mob.resu.reandroidsdk.error.Log;
 
 /**
  * Created by P Buvaneswaran on 31-07-2017.
@@ -53,7 +55,7 @@ public class NotificationActionReceiver extends BroadcastReceiver {
             DataNetworkHandler.getInstance().campaignHandler(context, bundles.getString(context.getString(R.string.resulticksApiParamId)), "3", false, null, null);
             AppNotification.cancel(context, bundles.getInt(context.getString(R.string.resulticksAppNotificationId)));
         } catch (Exception e) {
-            Util.catchMessage(e);
+            ExceptionTracker.track(e);
         }
 
 

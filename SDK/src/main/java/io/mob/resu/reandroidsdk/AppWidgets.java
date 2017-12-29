@@ -7,7 +7,6 @@ import android.graphics.Bitmap;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
-import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.webkit.WebResourceRequest;
@@ -25,11 +24,15 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
+import io.mob.resu.reandroidsdk.error.ExceptionTracker;
+import io.mob.resu.reandroidsdk.error.Log;
+
 /**
  * Created by P Buvaneswaran on 10-08-2017.
  */
 
 class AppWidgets {
+
     static String screenName;
     static String viewId;
     static boolean flag = false;
@@ -68,23 +71,30 @@ class AppWidgets {
 
         @Override
         public void logOut(int flag) {
-            Log.e("response", ""+flag);
+            Log.e("response", "" + flag);
         }
     };
 
+    /**
+     * Snake event filed tracking
+     * @param views
+     */
     static void showEventDialog(final View views) {
 
         try {
             screenName = views.getContext().getClass().getSimpleName();
             viewId = views.getResources().getResourceName(views.getId());
-            showEventDialog();
+            showDialog();
         } catch (Exception e) {
-            Util.catchMessage(e);
+            ExceptionTracker.track(e);
         }
 
     }
-
-    static void showEventDialog() {
+    /**
+     * Snake event filed tracking
+     *
+     */
+    static void showDialog() {
         final Activity context;
         try {
             context = ActivityLifecycleCallbacks.mActivity;
@@ -161,13 +171,16 @@ class AppWidgets {
                 }
             });
         } catch (Exception e) {
-            Util.catchMessage(e);
+            ExceptionTracker.track(e);
         }
 
 
     }
 
-
+    /**
+     * screen navigation time keep showing dialog handler
+     * @param isShowing
+     */
     static void DialogHandler(boolean isShowing) {
         try {
             if (isShowing) {
@@ -180,16 +193,22 @@ class AppWidgets {
             } else {
                 if (flag) {
                     flag = false;
-                    showEventDialog();
+                    showDialog();
                 }
             }
         } catch (Exception e) {
-            Util.catchMessage(e);
+            ExceptionTracker.track(e);
         }
 
     }
 
-
+    /**
+     * Push notification Rating Campaign
+     * @param context
+     * @param dialogTitle
+     * @param dialogMessage
+     * @param intent
+     */
     void showRatingDialog(final Activity context, final String dialogTitle, final String dialogMessage, final Intent intent) {
 
 
@@ -200,9 +219,9 @@ class AppWidgets {
                     dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
                     dialog.setCancelable(false);
                     dialog.setContentView(R.layout.dialog_rating);
-                    TextView title =  dialog.findViewById(R.id.tv_title);
-                    TextView description =  dialog.findViewById(R.id.tv_description);
-                    ratingBar =  dialog.findViewById(R.id.rating_bar);
+                    TextView title = dialog.findViewById(R.id.tv_title);
+                    TextView description = dialog.findViewById(R.id.tv_description);
+                    ratingBar = dialog.findViewById(R.id.rating_bar);
                     Button dialogButton = dialog.findViewById(R.id.btn_submit);
 
                     dialogButton.setOnClickListener(new View.OnClickListener() {
@@ -223,11 +242,17 @@ class AppWidgets {
                 }
             });
         } catch (Exception e) {
-            Util.catchMessage(e);
+            ExceptionTracker.track(e);
         }
 
     }
 
+    /**
+     * Rating wise share option
+     * @param dialogTitle
+     * @param dialogMessage
+     * @param context
+     */
     private void shareIntent(String dialogTitle, String dialogMessage, Activity context) {
 
         try {
@@ -238,10 +263,17 @@ class AppWidgets {
             sharingIntent.putExtra(Intent.EXTRA_TEXT, dialogMessage);
             context.startActivity(Intent.createChooser(sharingIntent, "Share With"));
         } catch (Exception e) {
-            Util.catchMessage(e);
+            ExceptionTracker.track(e);
         }
     }
 
+    /**
+     * low rating Comments
+     * @param context
+     * @param dialogTitle
+     * @param dialogMessage
+     * @param intent
+     */
     void showFeedBackDialog(final Activity context, String dialogTitle, String dialogMessage, final Intent intent) {
 
 
@@ -278,11 +310,19 @@ class AppWidgets {
                 }
             });
         } catch (Exception e) {
-            Util.catchMessage(e);
+            ExceptionTracker.track(e);
         }
 
     }
 
+    /**
+     * Promotion Banner Campaign
+     * @param context
+     * @param dialogTitle
+     * @param dialogMessage
+     * @param intent
+     * @param Url
+     */
     void showBannerDialog(final Activity context, String dialogTitle, String dialogMessage, final Intent intent, final String Url) {
 
 
@@ -317,11 +357,19 @@ class AppWidgets {
                 }
             });
         } catch (Exception e) {
-            Util.catchMessage(e);
+            ExceptionTracker.track(e);
         }
 
     }
 
+    /**
+     * Serve Campaign
+     * @param context
+     * @param dialogTitle
+     * @param dialogMessage
+     * @param intent
+     * @param Url
+     */
     void showServeyDialog(final Activity context, String dialogTitle, String dialogMessage, final Intent intent, final String Url) {
 
 
@@ -357,11 +405,16 @@ class AppWidgets {
                 }
             });
         } catch (Exception e) {
-            Util.catchMessage(e);
+            ExceptionTracker.track(e);
         }
 
     }
 
+    /**
+     * Server Update
+     * @param id
+     * @param comments
+     */
     private void userRating(String id, String comments) {
 
         try {
@@ -374,13 +427,16 @@ class AppWidgets {
             new DataExchanger("campaignTracking", userDetail.toString(), IResponseListener, AppConstants.SDK_USER_REGISTER).execute();
 
         } catch (Exception e) {
-            Util.catchMessage(e);
+            ExceptionTracker.track(e);
         }
        /* ApiInterface apiInterface = ApiClient.getClient().create(ApiInterface.class);
         Call<ResponseBody> call = apiInterface.callCampaignRating(id, "" + ratingBar.getRating(), comments);
         RetroFitUtils.getInstance().retrofitEnqueue(call, IResponseListener, 1000);*/
     }
 
+    /**
+     * Serve form webView MyWebViewClient
+     */
     private class MyWebViewClient extends WebViewClient {
         @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
         @Override

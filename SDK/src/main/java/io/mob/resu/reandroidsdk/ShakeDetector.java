@@ -7,7 +7,9 @@ package io.mob.resu.reandroidsdk;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
-import android.util.Log;
+
+import io.mob.resu.reandroidsdk.error.ExceptionTracker;
+import io.mob.resu.reandroidsdk.error.Log;
 
 class ShakeDetector implements SensorEventListener {
 
@@ -70,7 +72,7 @@ class ShakeDetector implements SensorEventListener {
                 }
             }
         } catch (Exception e) {
-            Util.catchMessage(e);
+            ExceptionTracker.track(e);
         }
 
     }
