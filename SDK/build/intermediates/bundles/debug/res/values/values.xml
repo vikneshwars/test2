@@ -1,37 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="Darkblue">#0d3c70</color>
-    <color name="PrimaryColor">#1959a3</color>
-    <color name="PrimaryDarkColor">#1976D2</color>
     <color name="background">#5B7ADF</color>
-    <color name="backgroundcolor">#000080</color>
-    <color name="bg_login">#26ae90</color>
-    <color name="bg_main">#428bca</color>
-    <color name="bg_register">#2e3237</color>
-    <color name="blue">#007FFF</color>
-    <color name="btn_login">#26ae90</color>
-    <color name="btn_login_bg">#eceef1</color>
-    <color name="btn_logut_bg">#ff6861</color>
-    <color name="buttonbackground">#1d4bf0</color>
-    <color name="colorAccent">#428bca</color>
-    <color name="colorBackground">#0F365F</color>
-    <color name="colorBlack">#FF000000</color>
-    <color name="colorGray">#D3D3D3</color>
-    <color name="colorPrimary">#2856ac</color>
-    <color name="colorPrimaryDark">#2856ac</color>
-    <color name="colorWhite">#FFFFFF</color>
-    <color name="input_login">#222222</color>
-    <color name="input_login_hint">#999999</color>
-    <color name="input_register">#888888</color>
-    <color name="input_register_bg">#3b4148</color>
-    <color name="input_register_hint">#5e6266</color>
-    <color name="lbl_name">#333333</color>
-    <color name="notificationBackground">#252436</color>
-    <color name="textcolor">#5B7ADF</color>
-    <color name="trans">#00000000</color>
-    <color name="white">#ffffff</color>
-    <color name="whitegrey">#FFF2F2F2</color>
+    <color name="backgroundColor">#000080</color>
     <string name="app_name">Resulticks</string>
+    <string name="hint_cancel">Cancel</string>
+    <string name="hint_enter_your_comments">Enter your comments</string>
+    <string name="hint_event_name">Event Name</string>
+    <string name="hint_event_tracking">Event tracking</string>
+    <string name="hint_leave_your_comments">Leave your comments</string>
+    <string name="hint_let_us_know_about_n_your_purchase">Let us know about   your purchase</string>
+    <string name="hint_save">Save</string>
+    <string name="hint_submit">submit</string>
     <string name="resulticksApiParamAppCrash">appCrash</string>
     <string name="resulticksApiParamBody">body</string>
     <string name="resulticksApiParamCategory">category</string>
@@ -52,9 +31,7 @@
     <string name="resulticksApiParamTimeStamp">timeStamp</string>
     <string name="resulticksApiParamTitle">title</string>
     <string name="resulticksApiParamUrl">url</string>
-    <string name="resulticksApiParamViewId">identifier</string>
     <string name="resulticksApiParamsDeviceId">deviceId</string>
-    <string name="resulticksApiParamsUserId">userId</string>
     <string name="resulticksAppNotificationId">notificationId</string>
     <string name="resulticksDeepLinkParamIsNewInstall">isNewInstall</string>
     <string name="resulticksDeepLinkParamIsViaDeepLinkingLauncher">isViaDeepLinkingLauncher</string>
@@ -67,20 +44,7 @@
     <string name="resulticksSharedAdverId">advertId</string>
     <string name="resulticksSharedCampaignId">sharedCampaignId</string>
     <string name="resulticksSharedDatabaseDeviceId">sharedDatabaseDeviceId</string>
-    <string name="resulticksSharedDeviceId">sharedDeviceId</string>
     <string name="resulticksSharedReferral">QueryParameter</string>
     <string name="resulticksSharedUserId">sharedUserId</string>
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
-        <item name="android:typeface">serif</item>
-    </style>
-    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
-    <style name="AppTheme.NoActionBar">
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
-    </style>
-    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
+    <string name="we_are_always_trying_to_improve_n_what_we_do_and_your_feedback_is_invaluable">We are always trying to improve  what we do and your feedback is invaluable!</string>
 </resources>

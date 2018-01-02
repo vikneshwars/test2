@@ -12,21 +12,19 @@ import io.mob.resu.reandroidsdk.error.Log;
 import static io.mob.resu.reandroidsdk.Util.deepLinkDataReset;
 
 
-/**
- * Created by P Buvaneswaran on 31-07-2017.
- */
-
 class ActivityLifecycleCallbacks implements Application.ActivityLifecycleCallbacks {
 
-    public static Activity mActivity;
+    public  Activity mActivity;
+
     private final String TAG = this.getClass().getSimpleName();
-    String oldActivityName;
-    String newActivityName;
+    private String newActivityName;
     //ShakeDetector mShakeDetector;
     private Calendar oldCalendar = Calendar.getInstance();
     private Calendar sCalendar = Calendar.getInstance();
     //private SensorManager mSensorManager;
     //private Sensor mAccelerometer;
+
+
 
 
     /**
@@ -109,9 +107,8 @@ class ActivityLifecycleCallbacks implements Application.ActivityLifecycleCallbac
     @Override
     public void onActivityStopped(final Activity activity) {
         try {
-            oldActivityName = activity.getClass().getSimpleName();
-            if (!Util.itHasFragment(activity))
-                AppLifecyclePresenter.getInstance().screenByUserActivity(activity, oldCalendar, Calendar.getInstance(), activity.getClass().getSimpleName(), null, null);
+            if (Util.itHasFragment(activity))
+                AppLifecyclePresenter.getInstance().screenByUserActivity(activity, oldCalendar, Calendar.getInstance(),    activity.getClass().getSimpleName(), null, null);
         } catch (Exception e) {
             ExceptionTracker.track(e);
         }
@@ -145,7 +142,7 @@ class ActivityLifecycleCallbacks implements Application.ActivityLifecycleCallbac
      *
      * @param appCrash
      */
-    public void appCrashHandle(String appCrash) throws Exception {
+    public void appCrashHandle(String appCrash) {
         deepLinkDataReset(mActivity);
         AppLifecyclePresenter.getInstance().screenByUserActivity(mActivity, oldCalendar, Calendar.getInstance(), mActivity.getClass().getSimpleName(), null, appCrash);
     }

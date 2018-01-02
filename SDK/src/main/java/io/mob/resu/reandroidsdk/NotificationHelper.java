@@ -15,9 +15,6 @@ import java.util.Random;
 import io.mob.resu.reandroidsdk.error.ExceptionTracker;
 import io.mob.resu.reandroidsdk.error.Log;
 
-/**
- * Created by Interakt on 9/14/17.
- */
 
 class NotificationHelper {
 
@@ -47,7 +44,7 @@ class NotificationHelper {
     }
 
     @NonNull
-    public Intent getIntent(Bundle map) {
+    private Intent getIntent(Bundle map) {
         Intent intent = new Intent();
         try {
 
@@ -86,9 +83,9 @@ class NotificationHelper {
                     ratingNotification(getIntent(map), title, body, category, url);
                 else {
                     if (!TextUtils.isEmpty(url))
-                        new PictureStyleNotification(appContext, title, body, url, category, getIntent(map));
+                        new PictureStyleNotification(appContext, title, body, url, getIntent(map));
                     else
-                        new AppNotification().showNotification(appContext, title, body, category, getIntent(map), null);
+                        new AppNotification().showNotification(appContext, title, body, getIntent(map), null);
                 }
 
 
@@ -114,9 +111,9 @@ class NotificationHelper {
                     ratingNotification(getIntent(map), title, body, category, url);
                 else {
                     if (!TextUtils.isEmpty(url))
-                        new PictureStyleNotification(appContext, title, body, url, category, getIntent(map));
+                        new PictureStyleNotification(appContext, title, body, url,  getIntent(map));
                     else
-                        new AppNotification().showNotification(appContext, title, body, category, getIntent(map), null);
+                        new AppNotification().showNotification(appContext, title, body,  getIntent(map), null);
                 }
 
 
@@ -143,12 +140,12 @@ class NotificationHelper {
     private void ratingNotification(Intent intent, String title, String body, String category, String url) {
         try {
             if (Util.isAppIsInBackground(appContext))
-                new PictureStyleNotification(appContext, title, body, url, category, intent);
+                new PictureStyleNotification(appContext, title, body, url,  intent);
             else {
-                if (ActivityLifecycleCallbacks.mActivity != null)
-                    new AppWidgets().showRatingDialog(ActivityLifecycleCallbacks.mActivity, title, body, intent);
+                if (ReAndroidSDK.activityLifecycleCallbacks.mActivity != null)
+                    new AppWidgets().showRatingDialog(ReAndroidSDK.activityLifecycleCallbacks.mActivity, title, body, intent);
                 else
-                    new PictureStyleNotification(appContext, title, body, url, category, intent);
+                    new PictureStyleNotification(appContext, title, body, url,  intent);
             }
         } catch (Exception e) {
             ExceptionTracker.track(e);
@@ -158,12 +155,12 @@ class NotificationHelper {
     private void bannerNotification(Intent intent, String title, String body, String category, String url) {
         try {
             if (Util.isAppIsInBackground(appContext))
-                new PictureStyleNotification(appContext, title, body, url, category, intent);
+                new PictureStyleNotification(appContext, title, body, url,  intent);
             else {
-                if (ActivityLifecycleCallbacks.mActivity != null)
-                    new AppWidgets().showBannerDialog(ActivityLifecycleCallbacks.mActivity, title, body, intent, url);
+                if (ReAndroidSDK.activityLifecycleCallbacks.mActivity != null)
+                    new AppWidgets().showBannerDialog(ReAndroidSDK.activityLifecycleCallbacks.mActivity, title, body, intent, url);
                 else
-                    new PictureStyleNotification(appContext, title, body, url, category, intent);
+                    new PictureStyleNotification(appContext, title, body, url, intent);
             }
         } catch (Exception e) {
             ExceptionTracker.track(e);

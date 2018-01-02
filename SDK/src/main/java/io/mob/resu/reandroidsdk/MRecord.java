@@ -1,21 +1,17 @@
 package io.mob.resu.reandroidsdk;
 
-/**
- * Created by Interakt on 11/23/17.
- */
+
 
 public class MRecord {
     private String result;
     private String captureType;
     private String identifier;
-    private String type;
     private String description;
 
-    public MRecord(String result, String captureType, String identifier, String description) {
+     MRecord(String result, String captureType, String identifier, String description) {
         this.result = result;
         this.captureType = captureType;
         this.identifier = identifier;
-        this.type = type;
         this.description = description;
     }
 
@@ -29,9 +25,6 @@ public class MRecord {
     }
 
 
-    public String getType() {
-        return type;
-    }
 
     public MRecord(String result, String captureType, String identifier) {
         this.result = result;
@@ -39,9 +32,6 @@ public class MRecord {
         this.identifier = identifier;
     }
 
-    public void setType(String type) {
-        this.type = type;
-    }
 
     public MRecord() {
 
@@ -75,7 +65,7 @@ public class MRecord {
 
     @Override
     public String toString() {
-        return "ClassPojo [result = " + result + ", captureType = " + captureType + ", identifier = " + identifier + "]";
+        return "MRecord [result = " + result + ", captureType = " + captureType + ", identifier = " + identifier + "]";
     }
 }
 

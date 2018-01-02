@@ -13,13 +13,10 @@ import java.util.ArrayList;
 import io.mob.resu.reandroidsdk.error.ExceptionTracker;
 import io.mob.resu.reandroidsdk.error.Log;
 
-/**
- * Created by Interakt on 10/6/17.
- */
 
 class DataNetworkHandler implements IResponseListener {
 
-    Context context;
+    private Context context;
     private ArrayList<MData> dbScreen;
     private ArrayList<MData> dbCampaign;
 
@@ -96,23 +93,30 @@ class DataNetworkHandler implements IResponseListener {
 
 
     @NonNull
-    private String getCampaignFromLocalDataBase(Context context) throws JSONException, java.io.IOException {
-        dbCampaign = new DataBase(context).getData(DataBase.Table.CAMPAIGN_TABLE);
+    private String getCampaignFromLocalDataBase(Context context) {
         JSONObject campaignObj = new JSONObject();
-        campaignObj.put("appId", SharedPref.getInstance().getStringValue(context, context.getString(R.string.resulticksSharedAPIKey)));
+        try {
+            dbCampaign = new DataBase(context).getData(DataBase.Table.CAMPAIGN_TABLE);
 
-        ArrayList<JSONObject> campaigns = new ArrayList<>();
+            campaignObj.put("appId", SharedPref.getInstance().getStringValue(context, context.getString(R.string.resulticksSharedAPIKey)));
 
-        // making format of webservice
-        if (dbCampaign != null && dbCampaign.size() > 0) {
-            for (MData mData : dbCampaign) {
-                String s = mData.getValues();
-                JSONObject jsonObject1 = new JSONObject(s);
-                campaigns.add(jsonObject1);
+            ArrayList<JSONObject> campaigns = new ArrayList<>();
+
+            // making format of webservice
+            if (dbCampaign != null && dbCampaign.size() > 0) {
+                for (MData mData : dbCampaign) {
+                    String s = mData.getValues();
+                    JSONObject jsonObject1 = new JSONObject(s);
+                    campaigns.add(jsonObject1);
+                }
             }
-        }
-        campaignObj.put("campaigns", new JSONArray(campaigns));
+            campaignObj.put("campaigns", new JSONArray(campaigns));
 
+
+        }catch (Exception e)
+        {
+           ExceptionTracker.track(e);
+        }
         return campaignObj.toString();
     }
 
@@ -201,7 +205,7 @@ class DataNetworkHandler implements IResponseListener {
         }
     }
 
-    class DataGetting extends AsyncTask<String, String, String> {
+    private class DataGetting extends AsyncTask<String, String, String> {
 
 
         @Override

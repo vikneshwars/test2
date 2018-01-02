@@ -7,7 +7,6 @@
     <string name="resulticksSharedDatabaseDeviceId">sharedDatabaseDeviceId</string>
     <string name="resulticksSharedReferral">QueryParameter</string>
     <string name="resulticksSharedAPIKey">sharedAPIKey</string>
-    <string name="resulticksSharedDeviceId">sharedDeviceId</string>
     <string name="resulticksSharedAdverId">advertId</string>
 
 
@@ -36,7 +35,6 @@
 
     <string name="resulticksApiParamId">id</string>
     <string name="resulticksApiParamCategory">category</string>
-    <string name="resulticksApiParamsUserId">userId</string>
     <string name="resulticksApiParamsDeviceId">deviceId</string>
     <string name="resulticksApiParamNavigationScreen">navigationScreen</string>
     <string name="resulticksApiParamTitle">title</string>
@@ -55,7 +53,15 @@
     <string name="resulticksApiParamTimeStamp">timeStamp</string>
     <string name="resulticksApiParamAppCrash">appCrash</string>
     <string name="resulticksApiParamEventName">eventName</string>
-    <string name="resulticksApiParamViewId">identifier</string>
     <string name="resulticksApiParamData">data</string>
+    <string name="hint_cancel">Cancel</string>
+    <string name="hint_save">Save</string>
+    <string name="hint_event_tracking">Event tracking</string>
+    <string name="hint_event_name">Event Name</string>
+    <string name="hint_leave_your_comments">Leave your comments</string>
+    <string name="hint_enter_your_comments">Enter your comments</string>
+    <string name="hint_submit">submit</string>
+    <string name="hint_let_us_know_about_n_your_purchase">Let us know about   your purchase</string>
+    <string name="we_are_always_trying_to_improve_n_what_we_do_and_your_feedback_is_invaluable">We are always trying to improve  what we do and your feedback is invaluable!</string>
 
 </resources>

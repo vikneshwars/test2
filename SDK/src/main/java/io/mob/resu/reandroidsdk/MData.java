@@ -1,10 +1,8 @@
 package io.mob.resu.reandroidsdk;
 
-/**
- * Created by Interakt on 10/9/17.
- */
 
-public class MData {
+
+ public class MData {
 
     private int id;
     private String values;

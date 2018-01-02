@@ -20,6 +20,7 @@
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:contentDescription="@string/app_name"
                 android:scaleType="centerCrop"
                 android:src="@drawable/img_rating_banner" />
 
@@ -30,7 +31,7 @@
                 android:layout_margin="10dp"
                 android:gravity="center"
                 android:padding="10dp"
-                android:text="Let us know  about \nyour purchase"
+                android:text="@string/hint_let_us_know_about_n_your_purchase"
                 android:textColor="#007FFF"
                 android:textSize="16sp" />
 
@@ -42,7 +43,7 @@
                 android:layout_margin="10dp"
                 android:gravity="center"
                 android:padding="10dp"
-                android:text="We are always trying to improve\n what we do and your feedback is invaluable!"
+                android:text="@string/we_are_always_trying_to_improve_n_what_we_do_and_your_feedback_is_invaluable"
                 android:textSize="16sp" />
 
             <LinearLayout
@@ -68,7 +69,7 @@
                     android:gravity="center"
                     android:padding="10dp"
                     android:shadowRadius="5"
-                    android:text="Submit"
+                    android:text="@string/hint_submit"
                     android:textAllCaps="false"
                     android:textColor="#ffff" />
 

@@ -8,8 +8,6 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.support.annotation.NonNull;
 
-import org.json.JSONObject;
-
 import java.util.ArrayList;
 
 import io.mob.resu.reandroidsdk.error.ExceptionTracker;
@@ -37,22 +35,21 @@ class DataBase {
             "value LONG TEXT NOT NULL);";
 
 
-    private final Context context;
     private DatabaseHelper DBHelper;
     private SQLiteDatabase db;
 
     DataBase(Context ctx) {
-        this.context = ctx;
-        DBHelper = new DatabaseHelper(context);
+        DBHelper = new DatabaseHelper(ctx);
     }
 
-    DataBase open() throws SQLException {
+    private DataBase open() throws SQLException {
         db = DBHelper.getWritableDatabase();
         return this;
     }
 
     /**
      * Getting All Table wise
+     *
      * @param i
      * @return
      */
@@ -61,17 +58,14 @@ class DataBase {
             db = DBHelper.getReadableDatabase();
             ArrayList<MData> array_list = new ArrayList<>();
             String tableName = getTableName(i);
-            Cursor cursor = null;
+            Cursor cursor;
             cursor = db.rawQuery("select * from " + tableName, null);
             if (cursor != null && cursor.getCount() > 0) {
 
                 if (cursor.moveToFirst()) {
                     do {
                         MData mData = new MData();
-                        // SDKLog.e("buvaneshID", "" +  cursor.get);
-                        // SDKLog.e("buvaneshID", "" +  cursor.getType(1));
-                        //SDKLog.e("buvaneshID", "" +  DatabaseUtils.dumpCursorToString(cursor));
-                        //SDKLog.e("buvaneshID", "" +  DatabaseUtils.dumpCursorToString(cursor));
+
                         mData.setId(cursor.getInt(0));
                         mData.setValues(cursor.getString(1));
                         array_list.add(mData);
@@ -92,6 +86,7 @@ class DataBase {
 
     /**
      * Provide Already register Event
+     *
      * @param tablename
      * @param viewId
      * @param screenName
@@ -106,7 +101,7 @@ class DataBase {
             }
             db = DBHelper.getReadableDatabase();
             String tableName = getTableName(tablename);
-            Cursor cursor = null;
+            Cursor cursor;
             MRegisterEvent mRegisterEvent = new MRegisterEvent();
             cursor = getCursorCount(viewId, screenName, tableName);
             if (cursor != null & cursor.getCount() > 0) {
@@ -115,7 +110,7 @@ class DataBase {
                         try {
                             mRegisterEvent.setViewId(cursor.getString(1));
                             mRegisterEvent.setScreenName(cursor.getString(2));
-                            JSONObject jsonObject = new JSONObject(cursor.getString(3));
+                            //  JSONObject jsonObject = new JSONObject(cursor.getString(3));
                             //mRegisterEvent=LoganSquare.parse(jsonObject.toString(),MRegisterEvent.class);
                             mRegisterEvent.setEventID(cursor.getString(0));
                         } catch (Exception e) {
@@ -137,6 +132,7 @@ class DataBase {
 
     /**
      * Delete list of rows table wise
+     *
      * @param values
      * @param i
      */
@@ -169,10 +165,11 @@ class DataBase {
 
     /**
      * Delete data row id wise
+     *
      * @param id
      * @param i
      */
-    public void deleteEventData(String id, Table i) {
+    private void deleteEventData(String id, Table i) {
 
         try {
             dbOpen();
@@ -189,6 +186,7 @@ class DataBase {
 
     /**
      * Delete data row id wise
+     *
      * @param mData
      * @param i
      */
@@ -205,6 +203,7 @@ class DataBase {
 
     /**
      * enum type to get table name
+     *
      * @param i
      * @return
      */
@@ -231,6 +230,7 @@ class DataBase {
 
     /**
      * insert Data table wise
+     *
      * @param value
      * @param i
      */
@@ -253,6 +253,7 @@ class DataBase {
 
     /**
      * Update Data table wise
+     *
      * @param value
      * @param viewId
      * @param screenName
@@ -266,7 +267,7 @@ class DataBase {
             initialValues.put("value", value);
             initialValues.put("viewid", viewId);
             initialValues.put("screenname", screenName);
-            Log.e("data  insert to ", "" + value.toString());
+
             Log.e("data  insert to ", "" + tableName);
             Cursor cursor = getCursorCount(viewId, screenName, tableName);
             if (cursor != null && cursor.getCount() > 0)
@@ -281,20 +282,10 @@ class DataBase {
 
     }
 
-    /**
-     * Delete all rows table wise
-     * @param table
-     */
-    void deleteAll(Table table) {
-        String tableName = getTableName(table);
-        Cursor cursor = db.rawQuery("SELECT * FROM " + tableName, null);
-
-        if (cursor != null & cursor.getCount() > 1000)
-            db.execSQL("delete from " + tableName);
-    }
 
     /**
      * getting view id wise register events
+     *
      * @param viewId
      * @param screenName
      * @param tableName
@@ -308,7 +299,7 @@ class DataBase {
     /**
      * database close
      */
-    public synchronized void close() {
+    private synchronized void close() {
         if (db != null) {
             db.close();
         }

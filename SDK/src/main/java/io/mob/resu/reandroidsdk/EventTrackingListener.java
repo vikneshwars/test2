@@ -10,9 +10,7 @@ import java.util.HashMap;
 
 import io.mob.resu.reandroidsdk.error.Log;
 
-/**
- * Created by Interakt on 9/7/17.
- */
+
 
 class EventTrackingListener extends View.AccessibilityDelegate {
 

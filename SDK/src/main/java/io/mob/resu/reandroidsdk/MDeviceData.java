@@ -5,12 +5,10 @@ import android.os.Build;
 
 import java.util.ArrayList;
 
-/**
- * Created by Interakt on 8/22/17.
- */
-class MDeviceData {
 
-    Context context;
+public class MDeviceData {
+
+    private Context context;
     private String appId = "";
     private String name = "";
     private String phone = "";

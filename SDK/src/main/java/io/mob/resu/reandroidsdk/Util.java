@@ -23,6 +23,7 @@ import com.google.android.gms.ads.identifier.AdvertisingIdClient;
 import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
 import com.google.android.gms.common.GooglePlayServicesRepairableException;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
@@ -34,9 +35,6 @@ import java.util.TimeZone;
 
 import io.mob.resu.reandroidsdk.error.ExceptionTracker;
 
-/**
- * Created by Interakt on 8/22/17.
- */
 
 class Util {
     Context appContext;
@@ -81,8 +79,6 @@ class Util {
     }
 
 
-
-
     static void getAdvertisementId(final Context appContext) {
         AsyncTask<Void, Void, String> task = new AsyncTask<Void, Void, String>() {
             @Override
@@ -90,11 +86,7 @@ class Util {
                 AdvertisingIdClient.Info idInfo = null;
                 try {
                     idInfo = AdvertisingIdClient.getAdvertisingIdInfo(appContext);
-                } catch (GooglePlayServicesNotAvailableException e) {
-                    e.printStackTrace();
-                } catch (GooglePlayServicesRepairableException e) {
-                    e.printStackTrace();
-                } catch (IOException e) {
+                } catch (GooglePlayServicesNotAvailableException | GooglePlayServicesRepairableException | IOException e) {
                     e.printStackTrace();
                 }
                 try {
@@ -124,7 +116,6 @@ class Util {
     }
 
 
-
     static String getMetadata(Context context, String name) {
 
         try {
@@ -135,6 +126,7 @@ class Util {
                 return null;
 
         } catch (Exception e) {
+            ExceptionTracker.track(e);
         }
         return null;
     }
@@ -194,6 +186,81 @@ class Util {
         e.printStackTrace();
     }
 
+    /**
+     * Check Activity have Fragment
+     *
+     * @param activity
+     * @return
+     */
+
+    static boolean itHasFragment(Activity activity) {
+        try {
+            FragmentManager manager = ((AppCompatActivity) activity).getSupportFragmentManager();
+            return manager == null || manager.getFragments() == null || manager.getFragments().size() <= 0;
+
+        } catch (Exception e) {
+            catchMessage(e);
+            return true;
+        }
+
+
+    }
+
+    /**
+     * Show screen Spent Timer
+     *
+     * @param start
+     * @param end
+     */
+    static void showScreenSession(Calendar start, Calendar end) {
+        long difference = start.getTime().getTime() - end.getTime().getTime();
+        long differenceSeconds = difference / 1000 % 60;
+        long differenceMinutes = difference / (60 * 1000) % 60;
+        long differenceHours = difference / (60 * 60 * 1000) % 24;
+        long differenceDays = difference / (24 * 60 * 60 * 1000);
+        System.out.println(differenceDays + " days, ");
+        System.out.println(differenceHours + " hours, ");
+        System.out.println(differenceMinutes + " minutes, ");
+        System.out.println(differenceSeconds + " seconds.");
+    }
+
+    static void deepLinkDataReset(Activity activity) {
+        try {
+            JSONObject referrerObject = new JSONObject();
+            referrerObject.put(activity.getString(R.string.resulticksDeepLinkParamIsNewInstall), false);
+            referrerObject.put(activity.getString(R.string.resulticksDeepLinkParamIsViaDeepLinkingLauncher), false);
+            SharedPref.getInstance().setSharedValue(activity, activity.getString(R.string.resulticksSharedReferral), referrerObject.toString());
+            SharedPref.getInstance().setSharedValue(activity, activity.getString(R.string.resulticksSharedCampaignId), "");
+
+        } catch (Exception e) {
+            ExceptionTracker.track(e);
+        }
+    }
+
+    static String getTime(Calendar calendar) {
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ");
+        simpleDateFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
+        return simpleDateFormat.format(calendar.getTime());
+    }
+
+    /**
+     * Get App Crash Reasons
+     *
+     * @param mActivity
+     * @param appCrashValue
+     * @param screenObject
+     * @throws JSONException
+     */
+    static void getAppCrashData(Context mActivity, String appCrashValue, JSONObject screenObject) throws JSONException {
+        // App Crash
+        if (appCrashValue != null) {
+            JSONObject appCrash = new JSONObject();
+            appCrash.put(mActivity.getString(R.string.resulticksApiParamCrashText), appCrashValue);
+            appCrash.put(mActivity.getString(R.string.resulticksApiParamTimeStamp), getCurrentUTC());
+            screenObject.put(mActivity.getString(R.string.resulticksApiParamAppCrash), appCrash);
+        }
+    }
+
     public boolean hasNetworkConnection() {
         try {
             ConnectivityManager cm = (ConnectivityManager) appContext.getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -212,67 +279,4 @@ class Util {
         }
         return false;
     }
-    /**
-     * Check Activity have Fragment
-     * @param activity
-     * @return
-     */
-
-    static boolean itHasFragment(Activity activity) {
-        try {
-            FragmentManager manager = ((AppCompatActivity) activity).getSupportFragmentManager();
-            if (manager != null && manager.getFragments() != null && manager.getFragments().size() > 0) {
-                return true;
-            } else {
-                return false;
-            }
-
-        } catch (Exception e) {
-            catchMessage(e);
-            return false;
-        }
-
-
-    }
-
-    /**
-     * Show screen Spent Timer
-     *
-     * @param start
-     * @param end
-     */
-    static void showScreenSession(Calendar start, Calendar end) throws Exception {
-        long difference = start.getTime().getTime() - end.getTime().getTime();
-        long differenceSeconds = difference / 1000 % 60;
-        long differenceMinutes = difference / (60 * 1000) % 60;
-        long differenceHours = difference / (60 * 60 * 1000) % 24;
-        long differenceDays = difference / (24 * 60 * 60 * 1000);
-        System.out.println(differenceDays + " days, ");
-        System.out.println(differenceHours + " hours, ");
-        System.out.println(differenceMinutes + " minutes, ");
-        System.out.println(differenceSeconds + " seconds.");
-    }
-
-
-    static void deepLinkDataReset(Activity activity)throws Exception {
-        try {
-            JSONObject referrerObject = new JSONObject();
-            referrerObject.put(activity.getString(R.string.resulticksDeepLinkParamIsNewInstall), false);
-            referrerObject.put(activity.getString(R.string.resulticksDeepLinkParamIsViaDeepLinkingLauncher), false);
-            SharedPref.getInstance().setSharedValue(activity, activity.getString(R.string.resulticksSharedReferral), referrerObject.toString());
-            SharedPref.getInstance().setSharedValue(activity, activity.getString(R.string.resulticksSharedCampaignId), "");
-
-        } catch (Exception e) {
-            ExceptionTracker.track(e);
-        }
-    }
-
-    static String getTime(Calendar calendar)
-    {
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ");
-        simpleDateFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
-        return simpleDateFormat.format(calendar.getTime());
-    }
-
-
 }

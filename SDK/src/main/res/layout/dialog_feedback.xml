@@ -22,7 +22,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
                 android:padding="10dp"
-                android:text="Leave your comments"
+                android:text="@string/hint_leave_your_comments"
                 android:textSize="16sp" />
 
             <EditText
@@ -31,7 +31,7 @@
                 android:layout_height="100dp"
                 android:layout_margin="10dp"
                 android:gravity="left"
-                android:hint="Enter your comments"
+                android:hint="@string/hint_enter_your_comments"
                 android:inputType="textMultiLine"
                 android:textSize="14sp" />
 
@@ -44,14 +44,14 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:text="Cancel" />
+                    android:text="@string/hint_cancel" />
 
                 <Button
                     android:id="@+id/btn_submit"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:text="submit" />
+                    android:text="@string/hint_submit" />
 
             </LinearLayout>
 

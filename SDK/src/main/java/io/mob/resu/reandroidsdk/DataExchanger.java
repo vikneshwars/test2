@@ -3,27 +3,16 @@ package io.mob.resu.reandroidsdk;
 import android.os.AsyncTask;
 
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
-import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.ProtocolException;
 import java.net.URL;
-
-import javax.net.ssl.HttpsURLConnection;
 
 import io.mob.resu.reandroidsdk.error.ExceptionTracker;
 
-/**
- * Created by Interakt on 11/15/17.
- */
 
-public class DataExchanger extends AsyncTask<String, String, String> {
+class DataExchanger extends AsyncTask<String, String, String> {
 
-    private HttpsURLConnection connection = null;
-    private BufferedReader reader = null;
     private String url;
     private String parameters;
     private ModelResponseData modelResponseData;
@@ -40,8 +29,12 @@ public class DataExchanger extends AsyncTask<String, String, String> {
 
     @Override
     protected String doInBackground(String... params) {
+        try {
+            modelResponseData = sendPost(url, parameters);
 
-        modelResponseData = sendPost(url, parameters);
+        } catch (Exception e) {
+            ExceptionTracker.track(e);
+        }
 
         return "";
     }
@@ -83,72 +76,59 @@ public class DataExchanger extends AsyncTask<String, String, String> {
 
     }
 
-    public ModelResponseData sendPost(String _url, String values) {
+    private ModelResponseData sendPost(String _url, String values) throws Exception {
 
 
         String USER_AGENT = "android";
 
-        String result = "";
+        String result;
 
         String baseUrl = "http://resulticks.biz:81/Home/";
 
-        ModelResponseData modelResponseData = null;
-        try {
-            String url;
-            if(_url.contains("http"))
-                url = _url;
-            else
-                url = baseUrl+_url;
+        ModelResponseData modelResponseData;
+        String url;
+        if (_url.contains("http"))
+            url = _url;
+        else
+            url = baseUrl + _url;
 
 
-            URL obj = new URL(url);
-            HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+        URL obj = new URL(url);
+        HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 
-            con.setRequestMethod("POST");
-            con.setRequestProperty("User-Agent", USER_AGENT);
-            con.setRequestProperty("Accept-Language", "UTF-8");
+        con.setRequestMethod("POST");
+        con.setRequestProperty("User-Agent", USER_AGENT);
+        con.setRequestProperty("Accept-Language", "UTF-8");
 
-            con.setDoOutput(true);
-            OutputStreamWriter outputStreamWriter = new OutputStreamWriter(con.getOutputStream());
-            outputStreamWriter.write(values);
-            outputStreamWriter.flush();
+        con.setDoOutput(true);
+        OutputStreamWriter outputStreamWriter = new OutputStreamWriter(con.getOutputStream());
+        outputStreamWriter.write(values);
+        outputStreamWriter.flush();
 
-            int responseCode = con.getResponseCode();
+        int responseCode = con.getResponseCode();
 
-            System.out.println("\nSending 'POST' request to URL : " + url);
-            System.out.println("Post parameters : " + values);
-            System.out.println("Response Code : " + responseCode);
+        System.out.println("\nSending 'POST' request to URL : " + url);
+        System.out.println("Post parameters : " + values);
+        System.out.println("Response Code : " + responseCode);
 
 
-            BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
-            String inputLine;
-            StringBuffer response = new StringBuffer();
+        BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
+        String inputLine;
+        StringBuffer response = new StringBuffer();
 
-            while ((inputLine = in.readLine()) != null) {
-                response.append(inputLine + "\n");
-            }
-            in.close();
-
-            result = response.toString();
-
-            modelResponseData = new ModelResponseData(result, responseCode);
-
-            System.out.println("Response : " + result);
-
-        } catch (UnsupportedEncodingException e) {
-           ExceptionTracker.track(e);
-        } catch (MalformedURLException e) {
-            ExceptionTracker.track(e);
-        } catch (ProtocolException e) {
-            ExceptionTracker.track(e);
-        } catch (IOException e) {
-            ExceptionTracker.track(e);
-        } catch (Exception e) {
-            ExceptionTracker.track(e);
-        } finally {
-
-            return modelResponseData;
+        while ((inputLine = in.readLine()) != null) {
+            response.append(inputLine + "\n");
         }
+        in.close();
+
+        result = response.toString();
+
+        modelResponseData = new ModelResponseData(result, responseCode);
+
+        System.out.println("Response : " + result);
+
+        return modelResponseData;
+
 
     }
 }

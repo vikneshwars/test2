@@ -19,26 +19,26 @@ public final class R {
         public static final int scopeUris = 0x7f0100d8;
     }
     public static final class color {
-        public static final int common_google_signin_btn_text_dark = 0x7f090083;
-        public static final int common_google_signin_btn_text_dark_default = 0x7f09002b;
-        public static final int common_google_signin_btn_text_dark_disabled = 0x7f09002c;
-        public static final int common_google_signin_btn_text_dark_focused = 0x7f09002d;
-        public static final int common_google_signin_btn_text_dark_pressed = 0x7f09002e;
-        public static final int common_google_signin_btn_text_light = 0x7f090084;
-        public static final int common_google_signin_btn_text_light_default = 0x7f09002f;
-        public static final int common_google_signin_btn_text_light_disabled = 0x7f090030;
-        public static final int common_google_signin_btn_text_light_focused = 0x7f090031;
-        public static final int common_google_signin_btn_text_light_pressed = 0x7f090032;
-        public static final int common_plus_signin_btn_text_dark = 0x7f090085;
-        public static final int common_plus_signin_btn_text_dark_default = 0x7f090033;
-        public static final int common_plus_signin_btn_text_dark_disabled = 0x7f090034;
-        public static final int common_plus_signin_btn_text_dark_focused = 0x7f090035;
-        public static final int common_plus_signin_btn_text_dark_pressed = 0x7f090036;
-        public static final int common_plus_signin_btn_text_light = 0x7f090086;
-        public static final int common_plus_signin_btn_text_light_default = 0x7f090037;
-        public static final int common_plus_signin_btn_text_light_disabled = 0x7f090038;
-        public static final int common_plus_signin_btn_text_light_focused = 0x7f090039;
-        public static final int common_plus_signin_btn_text_light_pressed = 0x7f09003a;
+        public static final int common_google_signin_btn_text_dark = 0x7f090066;
+        public static final int common_google_signin_btn_text_dark_default = 0x7f090019;
+        public static final int common_google_signin_btn_text_dark_disabled = 0x7f09001a;
+        public static final int common_google_signin_btn_text_dark_focused = 0x7f09001b;
+        public static final int common_google_signin_btn_text_dark_pressed = 0x7f09001c;
+        public static final int common_google_signin_btn_text_light = 0x7f090067;
+        public static final int common_google_signin_btn_text_light_default = 0x7f09001d;
+        public static final int common_google_signin_btn_text_light_disabled = 0x7f09001e;
+        public static final int common_google_signin_btn_text_light_focused = 0x7f09001f;
+        public static final int common_google_signin_btn_text_light_pressed = 0x7f090020;
+        public static final int common_plus_signin_btn_text_dark = 0x7f090068;
+        public static final int common_plus_signin_btn_text_dark_default = 0x7f090021;
+        public static final int common_plus_signin_btn_text_dark_disabled = 0x7f090022;
+        public static final int common_plus_signin_btn_text_dark_focused = 0x7f090023;
+        public static final int common_plus_signin_btn_text_dark_pressed = 0x7f090024;
+        public static final int common_plus_signin_btn_text_light = 0x7f090069;
+        public static final int common_plus_signin_btn_text_light_default = 0x7f090025;
+        public static final int common_plus_signin_btn_text_light_disabled = 0x7f090026;
+        public static final int common_plus_signin_btn_text_light_focused = 0x7f090027;
+        public static final int common_plus_signin_btn_text_light_pressed = 0x7f090028;
     }
     public static final class drawable {
         public static final int common_full_open_on_phone = 0x7f020053;
@@ -128,11 +128,11 @@ public final class R {
         public static final int create_calendar_message = 0x7f050037;
         public static final int create_calendar_title = 0x7f050038;
         public static final int decline = 0x7f050039;
-        public static final int store_picture_message = 0x7f050060;
-        public static final int store_picture_title = 0x7f050061;
+        public static final int store_picture_message = 0x7f050065;
+        public static final int store_picture_title = 0x7f050066;
     }
     public static final class style {
-        public static final int Theme_IAPTheme = 0x7f070118;
+        public static final int Theme_IAPTheme = 0x7f070114;
     }
     public static final class styleable {
         public static final int[] AdsAttrs = { 0x7f010021, 0x7f010022, 0x7f010023 };

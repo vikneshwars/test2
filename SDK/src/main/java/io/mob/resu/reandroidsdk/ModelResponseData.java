@@ -1,8 +1,5 @@
 package io.mob.resu.reandroidsdk;
 
-/**
- * Created by Interakt on 11/15/17.
- */
 
 public class ModelResponseData {
 

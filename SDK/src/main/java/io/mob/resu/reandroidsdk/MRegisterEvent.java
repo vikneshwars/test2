@@ -1,9 +1,7 @@
 package io.mob.resu.reandroidsdk;
 
 
-/**
- * Created by Interakt on 10/11/17.
- */
+
 class MRegisterEvent {
 
     private String eventID;

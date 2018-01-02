@@ -20,16 +20,13 @@ import io.mob.resu.reandroidsdk.error.ExceptionTracker;
 import io.mob.resu.reandroidsdk.error.Log;
 
 
-/**
- * Created by P Buvaneswaran on 31-07-2017.
- */
 
 
 public class ReAndroidSDK {
 
     private static final String TAG = ReAndroidSDK.class.getSimpleName();
     static ArrayList<MScreenTracker> mScreenTrackers = new ArrayList<>();
-    private static ActivityLifecycleCallbacks activityLifecycleCallbacks;
+    static ActivityLifecycleCallbacks activityLifecycleCallbacks;
     private static Context appContext;
     private static ReAndroidSDK tracker;
 
@@ -89,7 +86,6 @@ public class ReAndroidSDK {
 
     private ReAndroidSDK(Context context) {
         try {
-
             registerActivityCallBacks(context);
             appCrashHandler();
             apiCallAPIValidation();
@@ -220,6 +216,17 @@ public class ReAndroidSDK {
 
     }
 
+    public void addNotification(MData data) {
+        try {
+            JSONObject e = new JSONObject(data.getValues());
+            e.put("timeStamp", Util.getCurrentUTC());
+            (new DataBase(appContext)).insertData(e.toString(), DataBase.Table.NOTIFICATION_TABLE);
+        } catch (Exception var3) {
+            Util.catchMessage(var3);
+        }
+
+    }
+
     /**
      * Notification wise Delete
      * @param data
@@ -271,7 +278,7 @@ public class ReAndroidSDK {
      */
     private void apiCallRegister(MRegisterUser modelRegisterUser) {
 
-        JSONObject userDetail = new JSONObject();
+        JSONObject userDetail;
         try {
             userDetail = new JSONObject();
             userDetail.put("deviceId", SharedPref.getInstance().getStringValue(appContext, appContext.getString(R.string.resulticksSharedDatabaseDeviceId)));
@@ -307,7 +314,7 @@ public class ReAndroidSDK {
 
         MDeviceData mDeviceData = new MDeviceData(appContext);
 
-        JSONObject userDetail = new JSONObject();
+        JSONObject userDetail;
         try {
 
             userDetail = new JSONObject();
@@ -342,19 +349,12 @@ public class ReAndroidSDK {
 
                 Pattern emailPattern = Patterns.EMAIL_ADDRESS; // API level 8+
                 Account[] accounts = AccountManager.get(context).getAccounts();
-
-
                 for (Account account : accounts) {
-
-
                     String possibleEmail = account.name;
                     Log.e("Emails", possibleEmail);
-
-
                     if (emailPattern.matcher(account.name).matches()) {
                         // String possibleEmail = account.name;
                         Log.e("Emails", possibleEmail);
-
                     }
                 }
                 final Application app = (Application) context.getApplicationContext();
@@ -390,7 +390,7 @@ public class ReAndroidSDK {
      */
     private void killProcessAndExit(String sw) {
         try {
-            activityLifecycleCallbacks.appCrashHandle(sw.toString());
+            activityLifecycleCallbacks.appCrashHandle(sw);
             // Thread.sleep(1000);
 
             android.os.Process.killProcess(android.os.Process.myPid());

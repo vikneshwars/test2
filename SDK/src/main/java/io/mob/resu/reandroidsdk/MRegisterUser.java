@@ -1,8 +1,6 @@
 package io.mob.resu.reandroidsdk;
 
-/**
- * Created by Interakt on 8/22/17.
- */
+
 
 
 public class MRegisterUser {

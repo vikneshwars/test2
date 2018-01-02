@@ -1,8 +1,6 @@
 package io.mob.resu.reandroidsdk;
 
-/**
- * Created by Buvaneswaran on 06-12-2016.
- */
+
  interface IResponseListener {
 
     void onSuccess(String response, int flag);

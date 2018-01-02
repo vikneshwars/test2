@@ -1,8 +1,6 @@
 package io.mob.resu.reandroidsdk;
 
-/**
- * Created by Interakt on 10/9/17.
- */
+
 
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
@@ -24,13 +22,12 @@ class ShakeDetector implements SensorEventListener {
     private static final float SHAKE_THRESHOLD_GRAVITY = 20.7F;
     private static final int SHAKE_SLOP_TIME_MS = 500;
     private static final int SHAKE_COUNT_RESET_TIME_MS = 3000;
-    public static int mShakeCount;
+    private static int mShakeCount;
     int count = 1;
     private OnShakeListener mListener;
     private long mShakeTimestamp;
     private float mAccel; // acceleration apart from gravity
     private float mAccelCurrent; // current acceleration including gravity
-    private float mAccelLast;
 
     public void setOnShakeListener(OnShakeListener listener) {
         this.mListener = listener;
@@ -48,7 +45,7 @@ class ShakeDetector implements SensorEventListener {
                 float x = event.values[0];
                 float y = event.values[1];
                 float z = event.values[2];
-                mAccelLast = mAccelCurrent;
+                float mAccelLast = mAccelCurrent;
                 mAccelCurrent = (float) Math.sqrt((double) (x * x + y * y + z * z));
                 float delta = mAccelCurrent - mAccelLast;
                 mAccel = mAccel * 0.9f + delta;
@@ -79,6 +76,6 @@ class ShakeDetector implements SensorEventListener {
 
     public interface OnShakeListener {
 
-        public void onShake(int count);
+        void onShake(int count);
     }
 }

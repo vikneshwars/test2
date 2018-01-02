@@ -8,9 +8,7 @@ import android.os.Bundle;
 import io.mob.resu.reandroidsdk.error.ExceptionTracker;
 import io.mob.resu.reandroidsdk.error.Log;
 
-/**
- * Created by P Buvaneswaran on 31-07-2017.
- */
+
 
 public class NotificationActionReceiver extends BroadcastReceiver {
 

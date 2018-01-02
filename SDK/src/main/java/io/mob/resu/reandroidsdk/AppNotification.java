@@ -27,12 +27,11 @@ import io.mob.resu.reandroidsdk.error.Log;
  * class to create notifications in a backward-compatible way.
  */
 
-public class AppNotification {
+ class AppNotification {
 
     /**
      * The unique identifier for this type of notification.
      */
-    private static final String NOTIFICATION_TAG = "NewMessage";
     private static int NOTIFICATION_ID = 0;
 
     /**
@@ -43,11 +42,9 @@ public class AppNotification {
         try {
             final NotificationManager nm = (NotificationManager) context
                     .getSystemService(Context.NOTIFICATION_SERVICE);
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.ECLAIR) {
-                nm.cancel(NOTIFICATION_TAG, id);
-            } else {
+
                 nm.cancel(id);
-            }
+
         } catch (Exception e) {
             ExceptionTracker.track(e);
         }
@@ -61,11 +58,9 @@ public class AppNotification {
             nm = (NotificationManager) context
                     .getSystemService(Context.NOTIFICATION_SERVICE);
             Log.e("notificationId", "" + NOTIFICATION_ID);
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.ECLAIR) {
-                nm.notify(NOTIFICATION_TAG, NOTIFICATION_ID, notification);
-            } else {
+
                 nm.notify(NOTIFICATION_ID, notification);
-            }
+
         } catch (Exception e) {
             ExceptionTracker.track(e);
         }
@@ -83,7 +78,7 @@ public class AppNotification {
      */
     private NotificationCompat.Action getActionIntent(Context context, Bundle bundle, int icon, String actionName) {
 
-        Intent actionIntent = null;
+        Intent actionIntent;
         actionIntent = new Intent(context, NotificationActionReceiver.class);
         bundle.putString("clickActionName", actionName);
         actionIntent.putExtras(bundle);
@@ -97,13 +92,12 @@ public class AppNotification {
      * @param context
      * @param title
      * @param text
-     * @param actionName
      * @param intent
      * @param bitmap
      */
-    public void showCustomerNotification(final Context context, final String title, final String text, String actionName, Intent intent, Bitmap bitmap) {
+    public void showCustomerNotification(final Context context, final String title, final String text , Intent intent, Bitmap bitmap) {
 
-
+        String actionName;
         try {
             addNotification(context, text, title);
             NOTIFICATION_ID = intent.getExtras().getInt(context.getString(R.string.resulticksAppNotificationId));
@@ -197,13 +191,12 @@ public class AppNotification {
      * @param context
      * @param title
      * @param text
-     * @param actionName
      * @param intent
      * @param bitmap
      */
 
-    public void showNotification(final Context context, final String title, final String text, String actionName, Intent intent, Bitmap bitmap) {
-
+    public void showNotification(final Context context, final String title, final String text,  Intent intent, Bitmap bitmap) {
+        String actionName;
 
         try {
             NOTIFICATION_ID = intent.getExtras().getInt(context.getString(R.string.resulticksAppNotificationId));

@@ -2,9 +2,7 @@ package io.mob.resu.reandroidsdk;
 
 import java.util.ArrayList;
 
-/**
- * Created by Interakt on 11/23/17.
- */
+
 
 public class MScreenTracker
 {
@@ -12,15 +10,15 @@ public class MScreenTracker
 
     private String screen;
 
-    private String subscreen;
+    private String subScreen;
 
     public MScreenTracker() {
     }
 
-    public MScreenTracker(ArrayList<MRecord> MRecord, String screen, String subscreen) {
+    public MScreenTracker(ArrayList<MRecord> MRecord, String screen, String subScreen) {
         this.MRecord = MRecord;
         this.screen = screen;
-        this.subscreen = subscreen;
+        this.subScreen = subScreen;
 
     }
 
@@ -44,20 +42,20 @@ public class MScreenTracker
         this.screen = screen;
     }
 
-    public String getSubscreen ()
+    public String getSubScreen()
     {
-        return subscreen;
+        return subScreen;
     }
 
-    public void setSubscreen (String subscreen)
+    public void setSubScreen(String subScreen)
     {
-        this.subscreen = subscreen;
+        this.subScreen = subScreen;
     }
 
     @Override
     public String toString()
     {
-        return "ClassPojo [MRecord = "+ MRecord +", screen = "+screen+", subscreen = "+subscreen+"]";
+        return "MRecord [MRecord = "+ MRecord +", screen = "+screen+", subScreen = "+ subScreen +"]";
     }
 }
 

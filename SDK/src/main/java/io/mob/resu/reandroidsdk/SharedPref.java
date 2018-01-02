@@ -8,7 +8,6 @@ import android.content.SharedPreferences.Editor;
  class SharedPref {
 
     private static SharedPreferences preference = null;
-    private static String preferenceName = "Resulticks";
     private static SharedPref sharedPref = null;
 
     public static SharedPref getInstance() {
@@ -29,7 +28,7 @@ import android.content.SharedPreferences.Editor;
      */
 
     public static SharedPreferences getPreferenceInstance(Context context) {
-
+        String preferenceName = "Resulticks";
         if (preference != null) {
             return preference;
         } else {
@@ -50,7 +49,7 @@ import android.content.SharedPreferences.Editor;
         getPreferenceInstance(context);
         Editor editor = preference.edit();
         editor.putString(key, value);
-        editor.commit();
+        editor.apply();
     }
 
 
@@ -66,7 +65,7 @@ import android.content.SharedPreferences.Editor;
         getPreferenceInstance(context);
         Editor editor = preference.edit();
         editor.putInt(key, value);
-        editor.commit();
+        editor.apply();
     }
 
     /**
@@ -81,7 +80,7 @@ import android.content.SharedPreferences.Editor;
         getPreferenceInstance(context);
         Editor editor = preference.edit();
         editor.putBoolean(key, value);
-        editor.commit();
+        editor.apply();
     }
 
     /**
@@ -104,7 +103,7 @@ import android.content.SharedPreferences.Editor;
      * @return Int
      */
 
-    public int getIntVlue(Context context, String key) {
+    public int getIntValue(Context context, String key) {
         return getPreferenceInstance(context).getInt(key, 0);
     }
 

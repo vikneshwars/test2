@@ -13,33 +13,27 @@ import java.net.URL;
 
 import io.mob.resu.reandroidsdk.error.ExceptionTracker;
 
-/**
- * Created by P Buvaneswaran on 01-08-2017.
- */
 
   class PictureStyleNotification {
 
-    Intent intent;
-    Bitmap theBitmap;
+    private Intent intent;
     private Context mContext;
     private String title,
             message,
-            actionName,
             imageUrl;
 
-    public PictureStyleNotification(Context context, String title, String message, String imageUrl, String actionName, Intent intent) {
+    public PictureStyleNotification(Context context, String title, String message, String imageUrl,  Intent intent) {
         super();
         this.mContext = context;
         this.title = title;
         this.message = message;
         this.imageUrl = imageUrl;
-        this.actionName = actionName;
         this.intent = intent;
         new MyAsync().execute();
     }
 
 
-    public class MyAsync extends AsyncTask<Void, Void, Bitmap> {
+    private class MyAsync extends AsyncTask<Void, Void, Bitmap> {
 
         @Override
         protected Bitmap doInBackground(Void... params) {
@@ -50,8 +44,7 @@ import io.mob.resu.reandroidsdk.error.ExceptionTracker;
                 connection.setDoInput(true);
                 connection.connect();
                 InputStream input = connection.getInputStream();
-                Bitmap theBitmap = BitmapFactory.decodeStream(input);
-                return theBitmap;
+                return BitmapFactory.decodeStream(input);
             } catch (IOException e) {
                 ExceptionTracker.track(e);
                 return null;
@@ -64,9 +57,9 @@ import io.mob.resu.reandroidsdk.error.ExceptionTracker;
             super.onPostExecute(result);
             try {
                 if (result != null)
-                    new AppNotification().showNotification(mContext, title, message, actionName, intent, result);
+                    new AppNotification().showNotification(mContext, title, message,  intent, result);
                 else
-                    new AppNotification().showNotification(mContext, title, message, actionName, intent, null);
+                    new AppNotification().showNotification(mContext, title, message,  intent, null);
 
             } catch (Exception e) {
                 ExceptionTracker.track(e);

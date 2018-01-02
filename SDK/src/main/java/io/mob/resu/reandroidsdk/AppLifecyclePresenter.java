@@ -6,8 +6,8 @@ import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.EditText;
 
 import org.json.JSONArray;
@@ -22,17 +22,16 @@ import java.util.Map;
 import io.mob.resu.reandroidsdk.error.ExceptionTracker;
 import io.mob.resu.reandroidsdk.error.Log;
 
+import static io.mob.resu.reandroidsdk.Util.getAppCrashData;
 import static io.mob.resu.reandroidsdk.Util.getCurrentUTC;
 import static io.mob.resu.reandroidsdk.Util.getTime;
 
 
-/**
- * Created by Interakt on 8/29/17.
- */
+
 
 class AppLifecyclePresenter implements IAppLifecycleListener {
 
-    static FragmentLifecycleCallbacks fragmentLifecycleCallbacks;
+    private static FragmentLifecycleCallbacks fragmentLifecycleCallbacks;
     private static AppLifecyclePresenter trackerHelper;
 
     private ArrayList<JSONObject> events;
@@ -52,7 +51,7 @@ class AppLifecyclePresenter implements IAppLifecycleListener {
      * @return
      * @throws Exception
      */
-    private static ArrayList<MScreenTracker> getScreenTrackers() throws Exception {
+    private static ArrayList<MScreenTracker> getScreenTrackers() {
         try {
             ArrayList<MScreenTracker> mScreenTrackers = new ArrayList<>();
             ArrayList<MRecord> mRecords = new ArrayList<>();
@@ -70,11 +69,6 @@ class AppLifecyclePresenter implements IAppLifecycleListener {
             mRecords2.add(new MRecord("", "value", "amount"));
             mRecords2.add(new MRecord("", "action", "tv_personal_loan", "Personal Loan"));
 
-            ArrayList<MRecord> mRecords3 = new ArrayList<>();
-            mRecords3.add(new MRecord("", "value", "ed_name"));
-            mRecords3.add(new MRecord("", "value", "et_phone"));
-            mRecords3.add(new MRecord("", "value", "et_email"));
-            mRecords3.add(new MRecord("", "action", "btnbuynow", "Submit"));
 
 
             MScreenTracker screenTracker = new MScreenTracker(mRecords, "SignUpActivity", "");
@@ -103,7 +97,7 @@ class AppLifecyclePresenter implements IAppLifecycleListener {
     void Init(Activity activity) {
         try {
 
-            if (!Util.itHasFragment(activity)) {
+            if (Util.itHasFragment(activity)) {
 
                 AppWidgets.DialogHandler(true);
 
@@ -132,20 +126,22 @@ class AppLifecyclePresenter implements IAppLifecycleListener {
             if (context.getIntent().getExtras() != null && context.getIntent().getExtras().containsKey(context.getString(R.string.resulticksApiParamNavigationScreen))) {
                 Bundle bundle = context.getIntent().getExtras();
                 // Show Notification
+                if (!TextUtils.isEmpty(bundle.getString(context.getString(R.string.resulticksApiParamCategory)))) {
 
-                if (bundle.getString(context.getString(R.string.resulticksApiParamCategory)).equalsIgnoreCase(context.getString(R.string.resulticksNotificationTypeRating)) || bundle.getString(context.getString(R.string.resulticksApiParamCategory)).equalsIgnoreCase(context.getString(R.string.resulticksNotificationTypeQuickSurvey)) || bundle.getString(context.getString(R.string.resulticksApiParamCategory)).equalsIgnoreCase(context.getString(R.string.resulticksNotificationTypeSplash))) {
-                    if (bundle.getString(context.getString(R.string.resulticksApiParamCategory)).equalsIgnoreCase(context.getString(R.string.resulticksNotificationTypeRating))) {
-                        new AppWidgets().showRatingDialog(context, bundle.getString(context.getString(R.string.resulticksApiParamTitle)), bundle.getString(context.getString(R.string.resulticksApiParamBody)), context.getIntent());
-                    } else if (bundle.getString(context.getString(R.string.resulticksApiParamCategory)).equalsIgnoreCase(context.getString(R.string.resulticksNotificationTypeSplash))) {
-                        new AppWidgets().showBannerDialog(context, bundle.getString(context.getString(R.string.resulticksApiParamTitle)), bundle.getString(context.getString(R.string.resulticksApiParamBody)), context.getIntent(), bundle.getString(context.getString(R.string.resulticksApiParamUrl)));
-                    } else if (bundle.getString(context.getString(R.string.resulticksApiParamCategory)).equalsIgnoreCase(context.getString(R.string.resulticksNotificationTypeQuickSurvey))) {
-                        new AppWidgets().showServeyDialog(context, bundle.getString(context.getString(R.string.resulticksApiParamTitle)), bundle.getString(context.getString(R.string.resulticksApiParamBody)), context.getIntent(), bundle.getString(context.getString(R.string.resulticksApiParamUrl)));
+                    if (bundle.getString(context.getString(R.string.resulticksApiParamCategory)).equalsIgnoreCase(context.getString(R.string.resulticksNotificationTypeRating)) || bundle.getString(context.getString(R.string.resulticksApiParamCategory)).equalsIgnoreCase(context.getString(R.string.resulticksNotificationTypeQuickSurvey)) || bundle.getString(context.getString(R.string.resulticksApiParamCategory)).equalsIgnoreCase(context.getString(R.string.resulticksNotificationTypeSplash))) {
+                        if (bundle.getString(context.getString(R.string.resulticksApiParamCategory)).equalsIgnoreCase(context.getString(R.string.resulticksNotificationTypeRating))) {
+                            new AppWidgets().showRatingDialog(context, bundle.getString(context.getString(R.string.resulticksApiParamTitle)), bundle.getString(context.getString(R.string.resulticksApiParamBody)), context.getIntent());
+                        } else if (bundle.getString(context.getString(R.string.resulticksApiParamCategory)).equalsIgnoreCase(context.getString(R.string.resulticksNotificationTypeSplash))) {
+                            new AppWidgets().showBannerDialog(context, bundle.getString(context.getString(R.string.resulticksApiParamTitle)), bundle.getString(context.getString(R.string.resulticksApiParamBody)), context.getIntent(), bundle.getString(context.getString(R.string.resulticksApiParamUrl)));
+                        } else if (bundle.getString(context.getString(R.string.resulticksApiParamCategory)).equalsIgnoreCase(context.getString(R.string.resulticksNotificationTypeQuickSurvey))) {
+                            new AppWidgets().showServeDialog(context, bundle.getString(context.getString(R.string.resulticksApiParamTitle)), bundle.getString(context.getString(R.string.resulticksApiParamBody)), context.getIntent(), bundle.getString(context.getString(R.string.resulticksApiParamUrl)));
+                        }
                     }
-                }
-                SharedPref.getInstance().setSharedValue(context, context.getString(R.string.resulticksSharedCampaignId), bundle.getString(context.getString(R.string.resulticksApiParamId)));
-                campaignTracker(context, bundle.getString(context.getString(R.string.resulticksApiParamId)));
+                    SharedPref.getInstance().setSharedValue(context, context.getString(R.string.resulticksSharedCampaignId), bundle.getString(context.getString(R.string.resulticksApiParamId)));
+                    campaignTracker(context, bundle.getString(context.getString(R.string.resulticksApiParamId)));
 
-                AppNotification.cancel(context, bundle.getInt(context.getString(R.string.resulticksAppNotificationId)));
+                    AppNotification.cancel(context, bundle.getInt(context.getString(R.string.resulticksAppNotificationId)));
+                }
 
             }
         } catch (Exception e) {
@@ -157,6 +153,7 @@ class AppLifecyclePresenter implements IAppLifecycleListener {
 
     /**
      * Smart link app launch Listener
+     *
      * @param context
      */
     private void isDeepLinkingLaunch(Activity context) {
@@ -190,6 +187,7 @@ class AppLifecyclePresenter implements IAppLifecycleListener {
 
     /**
      * Add fragment lifecycle register callbacks
+     *
      * @param mActivity
      */
     private void registerFragmentLifeCycle(Activity mActivity) {
@@ -198,7 +196,8 @@ class AppLifecyclePresenter implements IAppLifecycleListener {
             if (fragmentLifecycleCallbacks == null) {
                 if (mActivity instanceof AppCompatActivity) {
                     FragmentManager manager = ((AppCompatActivity) mActivity).getSupportFragmentManager();
-                    manager.registerFragmentLifecycleCallbacks(new FragmentLifecycleCallbacks(), true);
+                    fragmentLifecycleCallbacks = new FragmentLifecycleCallbacks();
+                    manager.registerFragmentLifecycleCallbacks(fragmentLifecycleCallbacks, true);
                 }
             }
         } catch (Exception e) {
@@ -208,6 +207,7 @@ class AppLifecyclePresenter implements IAppLifecycleListener {
 
     /**
      * Each Screen Field capture list wise Adding field capture listener
+     *
      * @param activity
      * @param screenName
      */
@@ -234,7 +234,7 @@ class AppLifecyclePresenter implements IAppLifecycleListener {
 
     }
 
-    /*************************/
+
     /*private void printTree(View view, int indent) {
         try {
 
@@ -257,16 +257,17 @@ class AppLifecyclePresenter implements IAppLifecycleListener {
 
     /**
      * Screen wise provide field capture list
+     *
      * @param ScreenName
      * @return
      * @throws Exception
      */
-    private MScreenTracker GetScreenTracker(String ScreenName) throws Exception {
+    private MScreenTracker GetScreenTracker(String ScreenName){
         try {
             ReAndroidSDK.mScreenTrackers = getScreenTrackers();
 
             for (MScreenTracker screenTracker : ReAndroidSDK.mScreenTrackers) {
-                if (screenTracker.getScreen().contains(ScreenName) || screenTracker.getSubscreen().contains(ScreenName))
+                if (screenTracker.getScreen().contains(ScreenName) || screenTracker.getSubScreen().contains(ScreenName))
                     return screenTracker;
             }
         } catch (Exception e) {
@@ -284,7 +285,7 @@ class AppLifecyclePresenter implements IAppLifecycleListener {
 
         try {
             if (EditTextMAP == null)
-                EditTextMAP = new HashMap<String, String>();
+                EditTextMAP = new HashMap<>();
             if (host instanceof EditText)
                 EditTextMAP.put(host.getResources().getResourceName(host.getId()), ((EditText) host).getText().toString());
             else
@@ -309,7 +310,7 @@ class AppLifecyclePresenter implements IAppLifecycleListener {
      * @param eventName
      * @throws Exception
      */
-    void userEventTracking(Context context, JSONObject data, String eventName) throws Exception {
+    void userEventTracking(Context context, JSONObject data, String eventName) {
 
         try {
             if (events == null)
@@ -359,7 +360,7 @@ class AppLifecyclePresenter implements IAppLifecycleListener {
      * @param id
      * @throws JSONException
      */
-    private void campaignTracker(Context context, String id) throws JSONException {
+    private void campaignTracker(Context context, String id)  {
         DataNetworkHandler.getInstance().campaignHandler(context, id, "2", false, null, null);
     }
 
@@ -391,24 +392,6 @@ class AppLifecyclePresenter implements IAppLifecycleListener {
             ExceptionTracker.track(e);
         }
 
-    }
-
-    /**
-     * Get App Crash Reasons
-     *
-     * @param mActivity
-     * @param appCrashValue
-     * @param screenObject
-     * @throws JSONException
-     */
-    private void getAppCrashData(Context mActivity, String appCrashValue, JSONObject screenObject) throws JSONException {
-        // App Crash
-        if (appCrashValue != null) {
-            JSONObject appCrash = new JSONObject();
-            appCrash.put(mActivity.getString(R.string.resulticksApiParamCrashText), appCrashValue);
-            appCrash.put(mActivity.getString(R.string.resulticksApiParamTimeStamp), getCurrentUTC());
-            screenObject.put(mActivity.getString(R.string.resulticksApiParamAppCrash), appCrash);
-        }
     }
 
     /**
@@ -458,7 +441,7 @@ class AppLifecyclePresenter implements IAppLifecycleListener {
      */
     @Override
     public void screenSessionUpdate(Activity mActivity, String screenName) {
-        if (!Util.itHasFragment(mActivity)) {
+        if (Util.itHasFragment(mActivity)) {
             DataNetworkHandler.getInstance().onMakeTrackingRequest(mActivity);
             setIdWiseTracking(mActivity, screenName);
         }

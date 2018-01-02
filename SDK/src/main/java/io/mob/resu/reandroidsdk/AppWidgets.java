@@ -3,7 +3,6 @@ package io.mob.resu.reandroidsdk;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
@@ -16,30 +15,23 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RatingBar;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import org.json.JSONObject;
 
-import java.util.ArrayList;
-
 import io.mob.resu.reandroidsdk.error.ExceptionTracker;
 import io.mob.resu.reandroidsdk.error.Log;
 
-/**
- * Created by P Buvaneswaran on 10-08-2017.
- */
 
 class AppWidgets {
 
-    static String screenName;
-    static String viewId;
-    static boolean flag = false;
-    static ArrayList<JSONObject> registerEvent = new ArrayList<>();
-    static Dialog dialog;
-    RatingBar ratingBar;
-    WebView banner;
+    // static String screenName;
+    //static String viewId;
+    //static ArrayList<JSONObject> registerEvent = new ArrayList<>();
+    private static boolean flag = false;
+    private static Dialog dialog;
+    private RatingBar ratingBar;
+    private WebView banner;
 
 
     private IResponseListener IResponseListener = new IResponseListener() {
@@ -75,11 +67,11 @@ class AppWidgets {
         }
     };
 
-    /**
+    /*
      * Snake event filed tracking
      * @param views
      */
-    static void showEventDialog(final View views) {
+    /*static void showEventDialog(final View views) {
 
         try {
             screenName = views.getContext().getClass().getSimpleName();
@@ -89,15 +81,15 @@ class AppWidgets {
             ExceptionTracker.track(e);
         }
 
-    }
-    /**
+    }*/
+    /*
      * Snake event filed tracking
      *
      */
-    static void showDialog() {
+    /*static void showDialog(View view) {
         final Activity context;
         try {
-            context = ActivityLifecycleCallbacks.mActivity;
+           // context = ActivityLifecycleCallbacks.mActivity;
             context.runOnUiThread(new Runnable() {
 
                 public void run() {
@@ -175,10 +167,11 @@ class AppWidgets {
         }
 
 
-    }
+    }*/
 
     /**
      * screen navigation time keep showing dialog handler
+     *
      * @param isShowing
      */
     static void DialogHandler(boolean isShowing) {
@@ -193,7 +186,7 @@ class AppWidgets {
             } else {
                 if (flag) {
                     flag = false;
-                    showDialog();
+                    // showDialog();
                 }
             }
         } catch (Exception e) {
@@ -204,6 +197,7 @@ class AppWidgets {
 
     /**
      * Push notification Rating Campaign
+     *
      * @param context
      * @param dialogTitle
      * @param dialogMessage
@@ -219,8 +213,8 @@ class AppWidgets {
                     dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
                     dialog.setCancelable(false);
                     dialog.setContentView(R.layout.dialog_rating);
-                    TextView title = dialog.findViewById(R.id.tv_title);
-                    TextView description = dialog.findViewById(R.id.tv_description);
+                    //TextView title = dialog.findViewById(R.id.tv_title);
+                    // TextView description = dialog.findViewById(R.id.tv_description);
                     ratingBar = dialog.findViewById(R.id.rating_bar);
                     Button dialogButton = dialog.findViewById(R.id.btn_submit);
 
@@ -249,6 +243,7 @@ class AppWidgets {
 
     /**
      * Rating wise share option
+     *
      * @param dialogTitle
      * @param dialogMessage
      * @param context
@@ -256,7 +251,7 @@ class AppWidgets {
     private void shareIntent(String dialogTitle, String dialogMessage, Activity context) {
 
         try {
-            Intent sharingIntent = null;
+            Intent sharingIntent;
             sharingIntent = new Intent(Intent.ACTION_SEND);
             sharingIntent.setType("text/plain");
             sharingIntent.putExtra(Intent.EXTRA_SUBJECT, dialogTitle);
@@ -269,12 +264,13 @@ class AppWidgets {
 
     /**
      * low rating Comments
+     *
      * @param context
      * @param dialogTitle
      * @param dialogMessage
      * @param intent
      */
-    void showFeedBackDialog(final Activity context, String dialogTitle, String dialogMessage, final Intent intent) {
+    private void showFeedBackDialog(final Activity context, String dialogTitle, String dialogMessage, final Intent intent) {
 
 
         try {
@@ -317,6 +313,7 @@ class AppWidgets {
 
     /**
      * Promotion Banner Campaign
+     *
      * @param context
      * @param dialogTitle
      * @param dialogMessage
@@ -334,7 +331,7 @@ class AppWidgets {
                     dialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
                     dialog.setCancelable(false);
                     dialog.setContentView(R.layout.dialog_banner);
-                    RelativeLayout root = dialog.findViewById(R.id.action_bar_root);
+                    // RelativeLayout root = dialog.findViewById(R.id.action_bar_root);
                     banner = dialog.findViewById(R.id.img_banner);
                     banner.setWebViewClient(new MyWebViewClient());
                     banner.loadUrl(Url);
@@ -364,13 +361,14 @@ class AppWidgets {
 
     /**
      * Serve Campaign
+     *
      * @param context
      * @param dialogTitle
      * @param dialogMessage
      * @param intent
      * @param Url
      */
-    void showServeyDialog(final Activity context, String dialogTitle, String dialogMessage, final Intent intent, final String Url) {
+    void showServeDialog(final Activity context, String dialogTitle, String dialogMessage, final Intent intent, final String Url) {
 
 
         try {
@@ -381,11 +379,11 @@ class AppWidgets {
                     dialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
                     dialog.setCancelable(false);
                     dialog.setContentView(R.layout.dialog_banner);
-                    RelativeLayout root = (RelativeLayout) dialog.findViewById(R.id.action_bar_root);
-                    banner = (WebView) dialog.findViewById(R.id.img_banner);
+                    // RelativeLayout root = dialog.findViewById(R.id.action_bar_root);
+                    banner = dialog.findViewById(R.id.img_banner);
                     banner.setWebViewClient(new MyWebViewClient());
                     banner.loadUrl(Url);
-                    ImageView close = (ImageView) dialog.findViewById(R.id.iv_close);
+                    ImageView close = dialog.findViewById(R.id.iv_close);
 
 
                     close.setOnClickListener(new View.OnClickListener() {
@@ -412,6 +410,7 @@ class AppWidgets {
 
     /**
      * Server Update
+     *
      * @param id
      * @param comments
      */
@@ -446,18 +445,10 @@ class AppWidgets {
             return true;
         }
 
-        @Override
-        public void onPageStarted(WebView view, String url, Bitmap favicon) {
-            super.onPageStarted(view, url, favicon);
-            //view.loadUrl("javascript:window.HTMLOUT.processHTML('<head>'+document.getElementsByTagName('html')[0].innerHTML+'</head>');");
-            if (url.equals("https://visionbank.resulticks.net/thankyoupl.html")) {
-
-            }
-        }
 
         @Override
         public void onPageFinished(WebView webView, String url) {
-            // webView.loadUrl("javascript:window.HTMLOUT.processHTML('<head>'+document.getElementsByTagName('html')[0].innerHTML+'</head>');");
+
             webView.loadUrl("javascript:(function() { " +
                     "document.getElementsByClassName('main-wrapper')[0].style.display='none'; " + "})()");
 

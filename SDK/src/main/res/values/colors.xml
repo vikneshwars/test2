@@ -1,35 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#2856ac</color>
-    <color name="colorPrimaryDark">#2856ac</color>
-    <color name="colorAccent">#428bca</color>
-    <color name="colorWhite">#FFFFFF</color>
-    <color name="colorBackground">#0F365F</color>
-    <color name="bg_login">#26ae90</color>
-    <color name="bg_register">#2e3237</color>
-    <color name="bg_main">#428bca</color>
-    <color name="white">#ffffff</color>
-    <color name="input_login">#222222</color>
-    <color name="input_login_hint">#999999</color>
-    <color name="input_register">#888888</color>
-    <color name="input_register_bg">#3b4148</color>
-    <color name="input_register_hint">#5e6266</color>
-    <color name="btn_login">#26ae90</color>
-    <color name="btn_login_bg">#eceef1</color>
-    <color name="lbl_name">#333333</color>
-    <color name="btn_logut_bg">#ff6861</color>
-    <color name="PrimaryColor">#1959a3</color>
-    <color name="PrimaryDarkColor">#1976D2</color>
-    <color name="Darkblue">#0d3c70</color>
+
     <color name="background">#5B7ADF</color>
-    <color name="textcolor">#5B7ADF</color>
-    <color name="buttonbackground">#1d4bf0</color>
-    <color name="blue">#007FFF</color>
-    <color name="backgroundcolor">#000080</color>
-    <color name="trans">#00000000</color>
-    <color name="colorGray">#D3D3D3</color>
-    <color name="colorBlack">#FF000000</color>
-    <color name="whitegrey">#FFF2F2F2</color>
-    <color name="notificationBackground">#252436</color>
+    <color name="backgroundColor">#000080</color>
 
 </resources>

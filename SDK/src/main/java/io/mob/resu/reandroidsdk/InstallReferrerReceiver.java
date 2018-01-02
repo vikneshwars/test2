@@ -7,23 +7,17 @@ import android.content.Intent;
 import org.json.JSONObject;
 
 import java.net.URLDecoder;
-import java.util.HashMap;
 
 import io.mob.resu.reandroidsdk.error.Log;
 
-/**
- * Created by P Buvaneswaran on 07-08-2017.
- */
 
 public class InstallReferrerReceiver extends BroadcastReceiver {
 
-    Context context;
-    JSONObject referrerObject = new JSONObject();
+    private JSONObject referrerObject = new JSONObject();
 
 
     @Override
     public void onReceive(Context context, Intent intent) {
-        this.context = context;
 
         Log.e("InstallReferrerReceiver", "" + intent.getStringExtra("referrer"));
         String rawReferrerString = intent.getStringExtra("referrer");
@@ -32,7 +26,7 @@ public class InstallReferrerReceiver extends BroadcastReceiver {
                 referrerObject.put(context.getString(R.string.resulticksApiParamIsNewUser), true);
                 referrerObject.put(context.getString(R.string.resulticksDeepLinkParamIsViaDeepLinkingLauncher), true);
                 rawReferrerString = URLDecoder.decode(rawReferrerString, "UTF-8");
-                HashMap<String, String> referrerMap = new HashMap<>();
+                //HashMap<String, String> referrerMap = new HashMap<>();
                 String[] referralParams = rawReferrerString.split("&");
                 for (String referrerParam : referralParams) {
                     String[] keyValue = referrerParam.split("=");
