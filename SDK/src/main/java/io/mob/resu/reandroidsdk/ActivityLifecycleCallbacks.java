@@ -14,17 +14,14 @@ import static io.mob.resu.reandroidsdk.Util.deepLinkDataReset;
 
 class ActivityLifecycleCallbacks implements Application.ActivityLifecycleCallbacks {
 
-    public  Activity mActivity;
-
     private final String TAG = this.getClass().getSimpleName();
+    public Activity mActivity;
     private String newActivityName;
     //ShakeDetector mShakeDetector;
     private Calendar oldCalendar = Calendar.getInstance();
     private Calendar sCalendar = Calendar.getInstance();
     //private SensorManager mSensorManager;
     //private Sensor mAccelerometer;
-
-
 
 
     /**
@@ -108,7 +105,7 @@ class ActivityLifecycleCallbacks implements Application.ActivityLifecycleCallbac
     public void onActivityStopped(final Activity activity) {
         try {
             if (Util.itHasFragment(activity))
-                AppLifecyclePresenter.getInstance().screenByUserActivity(activity, oldCalendar, Calendar.getInstance(),    activity.getClass().getSimpleName(), null, null);
+                AppLifecyclePresenter.getInstance().screenByUserActivity(activity, oldCalendar, Calendar.getInstance(), activity.getClass().getSimpleName(), null, null);
         } catch (Exception e) {
             ExceptionTracker.track(e);
         }
