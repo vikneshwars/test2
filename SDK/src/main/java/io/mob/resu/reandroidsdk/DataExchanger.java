@@ -47,10 +47,10 @@ class DataExchanger extends AsyncTask<String, String, String> {
             if (modelResponseData != null) {
                 switch (modelResponseData.getResponseCode()) {
                     case 200:
-                        listener.onSuccess(modelResponseData.getResponse(), requestCode);
+                        listener.showDialog(modelResponseData.getResponse(), requestCode);
                         break;
                     case 201:
-                        listener.showDialog(modelResponseData.getResponse(), requestCode);
+                        listener.onSuccess(modelResponseData.getResponse(), requestCode);
                         break;
                     case 400:
                         if (modelResponseData.getResponse() != null) {

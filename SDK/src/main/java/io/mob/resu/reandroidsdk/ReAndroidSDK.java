@@ -45,6 +45,7 @@ public class ReAndroidSDK {
                         break;
                     case AppConstants.SDK_API_KEY:
                         jsonObject = new JSONObject(response);
+                        android.util.Log.e("deviceId",jsonObject.optString(appContext.getString(R.string.resulticksApiParamsDeviceId)));
                         SharedPref.getInstance().setSharedValue(appContext, appContext.getString(R.string.resulticksSharedDatabaseDeviceId), jsonObject.optString(appContext.getString(R.string.resulticksApiParamsDeviceId)));
                         break;
 
