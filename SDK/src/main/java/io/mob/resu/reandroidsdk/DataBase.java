@@ -42,9 +42,8 @@ class DataBase {
         DBHelper = new DatabaseHelper(ctx);
     }
 
-    private DataBase open() throws SQLException {
+    private void open() throws SQLException {
         db = DBHelper.getWritableDatabase();
-        return this;
     }
 
     /**
@@ -316,7 +315,7 @@ class DataBase {
     }
 
     private static class DatabaseHelper extends SQLiteOpenHelper {
-        DatabaseHelper(Context context) {
+          DatabaseHelper(Context context) {
             super(context, DATABASE_NAME, null, DATABASE_VERSION);
         }
 

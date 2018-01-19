@@ -181,7 +181,6 @@ class DataNetworkHandler implements IResponseListener {
                     } catch (Exception e) {
                         ExceptionTracker.track(e);
                     }
-
                     break;
 
                 case AppConstants.SDK_SCREEN_TACKING:

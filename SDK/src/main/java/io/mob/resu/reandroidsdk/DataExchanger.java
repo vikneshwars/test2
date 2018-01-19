@@ -53,9 +53,9 @@ class DataExchanger extends AsyncTask<String, String, String> {
                         listener.showDialog(modelResponseData.getResponse(), requestCode);
                         break;
                     case 400:
-                        //if (response.errorBody() != null) {
-                        listener.showErrorDialog("", requestCode);
-                        //}
+                        if (modelResponseData.getResponse() != null) {
+                            listener.showErrorDialog(modelResponseData.getResponse(), requestCode);
+                        }
                         break;
                     case 401:
                         listener.logOut(requestCode);
@@ -110,9 +110,15 @@ class DataExchanger extends AsyncTask<String, String, String> {
         System.out.println("\nSending 'POST' request to URL : " + url);
         System.out.println("Post parameters : " + values);
         System.out.println("Response Code : " + responseCode);
+        System.out.println("Response Code : " + responseCode);
 
+        BufferedReader in;
 
-        BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
+        if (200 <= con.getResponseCode() && con.getResponseCode() <= 299) {
+            in = new BufferedReader(new InputStreamReader(con.getInputStream()));
+        } else {
+            in = new BufferedReader(new InputStreamReader(con.getErrorStream()));
+        }
         String inputLine;
         StringBuffer response = new StringBuffer();
 

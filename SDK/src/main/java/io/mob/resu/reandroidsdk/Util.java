@@ -36,7 +36,7 @@ import java.util.TimeZone;
 import io.mob.resu.reandroidsdk.error.ExceptionTracker;
 
 
-class Util {
+public class Util {
     Context appContext;
     Util Util;
 
@@ -109,7 +109,7 @@ class Util {
         task.execute();
     }
 
-    static String getCurrentUTC() {
+   public static String getCurrentUTC() {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ");
         simpleDateFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
         return simpleDateFormat.format(Calendar.getInstance().getTime());

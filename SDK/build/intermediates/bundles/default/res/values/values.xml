@@ -18,6 +18,7 @@
     <string name="resulticksApiParamCrashText">crashText</string>
     <string name="resulticksApiParamData">data</string>
     <string name="resulticksApiParamEndTime">endTime</string>
+    <string name="resulticksApiParamErrorLog">errorLog</string>
     <string name="resulticksApiParamEventName">eventName</string>
     <string name="resulticksApiParamEvents">events</string>
     <string name="resulticksApiParamId">id</string>

@@ -11,18 +11,13 @@ import io.mob.resu.reandroidsdk.error.Log;
 
 import static io.mob.resu.reandroidsdk.Util.deepLinkDataReset;
 
-
 class ActivityLifecycleCallbacks implements Application.ActivityLifecycleCallbacks {
 
     private final String TAG = this.getClass().getSimpleName();
-    public Activity mActivity;
+    Activity mActivity;
     private String newActivityName;
-    //ShakeDetector mShakeDetector;
     private Calendar oldCalendar = Calendar.getInstance();
     private Calendar sCalendar = Calendar.getInstance();
-    //private SensorManager mSensorManager;
-    //private Sensor mAccelerometer;
-
 
     /**
      * Activity onCreate
@@ -35,7 +30,6 @@ class ActivityLifecycleCallbacks implements Application.ActivityLifecycleCallbac
     public void onActivityCreated(final Activity activity, Bundle bundle) {
         mActivity = activity;
         AppLifecyclePresenter.getInstance().Init(activity);
-
     }
 
 
@@ -47,13 +41,11 @@ class ActivityLifecycleCallbacks implements Application.ActivityLifecycleCallbac
     @Override
     public void onActivityStarted(final Activity activity) {
         try {
-            //snakeEvent(activity);
             mActivity = activity;
             newActivityName = activity.getClass().getSimpleName();
             oldCalendar = sCalendar;
             sCalendar = Calendar.getInstance();
-            AppLifecyclePresenter.getInstance().screenSessionUpdate(activity, newActivityName);
-
+            AppLifecyclePresenter.getInstance().onSessionStart(activity, activity.getClass().getSimpleName(),false);
         } catch (Exception e) {
             ExceptionTracker.track(e);
         }
@@ -61,21 +53,11 @@ class ActivityLifecycleCallbacks implements Application.ActivityLifecycleCallbac
 
     /**
      * Activity onResume
-     *
      * @param activity
      */
     @Override
     public void onActivityResumed(Activity activity) {
-       /* try {
-            if (mSensorManager != null) {
-                mSensorManager.registerListener(mShakeDetector,
-                        mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER),
-                        SensorManager.SENSOR_DELAY_UI);
-            }
-        } catch (Exception e) {
-            ExceptionTracker.track(e);
-        }
-*/
+
     }
 
     /**
@@ -86,13 +68,6 @@ class ActivityLifecycleCallbacks implements Application.ActivityLifecycleCallbac
 
     @Override
     public void onActivityPaused(Activity activity) {
-        /*try {
-            if (mSensorManager != null) {
-                mSensorManager.unregisterListener(mShakeDetector);
-            }
-        } catch (Exception e) {
-            ExceptionTracker.track(e);
-        }*/
     }
 
     /**
@@ -105,7 +80,7 @@ class ActivityLifecycleCallbacks implements Application.ActivityLifecycleCallbac
     public void onActivityStopped(final Activity activity) {
         try {
             if (Util.itHasFragment(activity))
-                AppLifecyclePresenter.getInstance().screenByUserActivity(activity, oldCalendar, Calendar.getInstance(), activity.getClass().getSimpleName(), null, null);
+                AppLifecyclePresenter.getInstance().onSessionStop(activity, oldCalendar, Calendar.getInstance(), activity.getClass().getSimpleName(), null, null);
         } catch (Exception e) {
             ExceptionTracker.track(e);
         }
@@ -113,9 +88,7 @@ class ActivityLifecycleCallbacks implements Application.ActivityLifecycleCallbac
 
 
     @Override
-    public void onActivitySaveInstanceState(Activity activity, Bundle bundle) {
-
-    }
+    public void onActivitySaveInstanceState(Activity activity, Bundle bundle) { }
 
     @Override
     public void onActivityDestroyed(Activity activity) {
@@ -133,7 +106,6 @@ class ActivityLifecycleCallbacks implements Application.ActivityLifecycleCallbac
 
     }
 
-
     /**
      * App Crash Data Handler
      *
@@ -141,43 +113,7 @@ class ActivityLifecycleCallbacks implements Application.ActivityLifecycleCallbac
      */
     public void appCrashHandle(String appCrash) {
         deepLinkDataReset(mActivity);
-        AppLifecyclePresenter.getInstance().screenByUserActivity(mActivity, oldCalendar, Calendar.getInstance(), mActivity.getClass().getSimpleName(), null, appCrash);
+        AppLifecyclePresenter.getInstance().onSessionStop(mActivity, oldCalendar, Calendar.getInstance(), mActivity.getClass().getSimpleName(), null, appCrash);
     }
-
-   /* private void snakeEvent(final Context context) throws Exception {
-        // ShakeDetector initialization
-        mShakeDetector = new ShakeDetector();
-        mSensorManager = (SensorManager) context.getSystemService(Context.SENSOR_SERVICE);
-        mAccelerometer = mSensorManager
-                .getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
-
-        mShakeDetector.setOnShakeListener(new ShakeDetector.OnShakeListener() {
-
-            @Override
-            public void onShake(int count) {
-
-
-                // if (BuildConfig.DEBUG) {
-                // do something for a debug build
-
-                if (count > 1) {
-                    if (EventTrackingListener.isDebugMode) {
-                        EventTrackingListener.isDebugMode = false;
-                        Toast.makeText(context, "Device Debug Mode Disabled " + count, Toast.LENGTH_SHORT).show();
-
-                    } else {
-                        Toast.makeText(context, "Device Debug Mode Enabled " + count, Toast.LENGTH_SHORT).show();
-                        EventTrackingListener.isDebugMode = true;
-                    }
-
-                    ShakeDetector.mShakeCount = 0;
-                } else if (count < 4) {
-                    Toast.makeText(context, "" + count, Toast.LENGTH_SHORT).show();
-                }
-            }
-            //}
-        });
-    }
-*/
 
 }

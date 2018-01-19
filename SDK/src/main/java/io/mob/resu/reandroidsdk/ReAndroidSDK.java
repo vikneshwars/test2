@@ -5,6 +5,7 @@ import android.accounts.AccountManager;
 import android.app.Application;
 import android.content.Context;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Patterns;
 import android.widget.Toast;
 
@@ -18,8 +19,6 @@ import java.util.regex.Pattern;
 
 import io.mob.resu.reandroidsdk.error.ExceptionTracker;
 import io.mob.resu.reandroidsdk.error.Log;
-
-
 
 
 public class ReAndroidSDK {
@@ -137,8 +136,10 @@ public class ReAndroidSDK {
      */
     public void InitDeepLink(IDeepLinkInterface IDeepLinkInterface) {
         try {
-            IDeepLinkInterface.onDeepLinkData(SharedPref.getInstance().getStringValue(appContext, appContext.getString(R.string.resulticksSharedReferral)));
-            IDeepLinkInterface.onInstallDataReceived(SharedPref.getInstance().getStringValue(appContext, appContext.getString(R.string.resulticksSharedReferral)));
+            if (!TextUtils.isEmpty(SharedPref.getInstance().getStringValue(appContext, appContext.getString(R.string.resulticksSharedReferral)))) {
+                IDeepLinkInterface.onDeepLinkData(SharedPref.getInstance().getStringValue(appContext, appContext.getString(R.string.resulticksSharedReferral)));
+                IDeepLinkInterface.onInstallDataReceived(SharedPref.getInstance().getStringValue(appContext, appContext.getString(R.string.resulticksSharedReferral)));
+            }
         } catch (Exception e) {
             ExceptionTracker.track(e);
         }
@@ -199,6 +200,7 @@ public class ReAndroidSDK {
 
     /**
      * User Moving Location update
+     *
      * @param latitude
      * @param longitude
      */
@@ -216,19 +218,9 @@ public class ReAndroidSDK {
 
     }
 
-    public void addNotification(MData data) {
-        try {
-            JSONObject e = new JSONObject(data.getValues());
-            e.put("timeStamp", Util.getCurrentUTC());
-            (new DataBase(appContext)).insertData(e.toString(), DataBase.Table.NOTIFICATION_TABLE);
-        } catch (Exception var3) {
-            Util.catchMessage(var3);
-        }
-
-    }
-
     /**
      * Notification wise Delete
+     *
      * @param data
      */
     public void deleteNotification(MData data) {
@@ -237,6 +229,7 @@ public class ReAndroidSDK {
 
     /**
      * Campaign & User Notification
+     *
      * @return
      */
     public ArrayList<MData> getNotifications() {
@@ -251,8 +244,20 @@ public class ReAndroidSDK {
 
     }
 
+    public void addNotification(MData data) {
+        try {
+            JSONObject e = new JSONObject(data.getValues());
+            e.put("timeStamp", Util.getCurrentUTC());
+            (new DataBase(appContext)).insertData(e.toString(), DataBase.Table.NOTIFICATION_TABLE);
+        } catch (Exception var3) {
+            Util.catchMessage(var3);
+        }
+
+    }
+
     /**
-     *  Event type: 1
+     * Event type: 1
+     *
      * @param eventName
      */
     public void onTrackEvent(String eventName) {
@@ -261,6 +266,7 @@ public class ReAndroidSDK {
 
     /**
      * Event type: 2
+     *
      * @param data
      * @param eventName
      */
@@ -274,6 +280,7 @@ public class ReAndroidSDK {
 
     /**
      * SDK App User register
+     *
      * @param modelRegisterUser
      */
     private void apiCallRegister(MRegisterUser modelRegisterUser) {
@@ -329,8 +336,6 @@ public class ReAndroidSDK {
             userDetail.put("deviceModel", mDeviceData.getDeviceModel());
             userDetail.put("appVersionName", mDeviceData.getAppVersionName());
             userDetail.put("appVersionCode", mDeviceData.getAppVersionCode());
-
-
             new DataExchanger("apiKeyValidation", userDetail.toString(), IResponseListener, AppConstants.SDK_API_KEY).execute();
         } catch (Exception e) {
             e.printStackTrace();
@@ -340,6 +345,7 @@ public class ReAndroidSDK {
 
     /**
      * Activity Add LifecycleListener
+     *
      * @param context
      */
     private void registerActivityCallBacks(Context context) {
@@ -386,6 +392,7 @@ public class ReAndroidSDK {
 
     /**
      * App Exit Listener
+     *
      * @param sw
      */
     private void killProcessAndExit(String sw) {

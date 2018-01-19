@@ -27,7 +27,7 @@ import io.mob.resu.reandroidsdk.error.Log;
  * class to create notifications in a backward-compatible way.
  */
 
- class AppNotification {
+public class AppNotification {
 
     /**
      * The unique identifier for this type of notification.

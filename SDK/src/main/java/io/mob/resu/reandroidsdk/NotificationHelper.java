@@ -77,6 +77,7 @@ class NotificationHelper {
                 String category = map.getString("category");
                 String url = map.getString("url");
                 addNotification(body, title);
+                assert category != null;
                 if (category.equalsIgnoreCase("Splash")) {
                     bannerNotification(getIntent(map), title, body, category, url);
                 } else if (category.equalsIgnoreCase("Rating"))

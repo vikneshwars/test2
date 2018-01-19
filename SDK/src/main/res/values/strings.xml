@@ -47,6 +47,7 @@
     <string name="resulticksApiParamStartTime">startTime</string>
     <string name="resulticksApiParamEndTime">endTime</string>
     <string name="resulticksApiParamSubScreenName">subScreenName</string>
+    <string name="resulticksApiParamErrorLog">errorLog</string>
     <string name="resulticksApiParamScreenName">screenName</string>
     <string name="resulticksApiParamEvents">events</string>
     <string name="resulticksApiParamCrashText">crashText</string>

@@ -1,5 +1,6 @@
 package io.mob.resu.reandroidsdk;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -23,7 +24,7 @@ class FragmentLifecycleCallbacks extends FragmentManager.FragmentLifecycleCallba
     @Override
     public void onFragmentViewCreated(FragmentManager fm, Fragment f, View v, Bundle savedInstanceState) {
         super.onFragmentViewCreated(fm, f, v, savedInstanceState);
-        AppWidgets.DialogHandler(true);
+       // AppWidgets.DialogHandler(true);
     }
 
     @Override
@@ -33,8 +34,8 @@ class FragmentLifecycleCallbacks extends FragmentManager.FragmentLifecycleCallba
            String newScreenName = f.getClass().getSimpleName();
             oldCalendar = sCalendar;
             sCalendar = Calendar.getInstance();
-            AppWidgets.DialogHandler(false);
-            AppLifecyclePresenter.getInstance().screenSessionUpdate(f.getActivity(), newScreenName);
+           // AppWidgets.DialogHandler(false);
+            AppLifecyclePresenter.getInstance().onSessionStart(f.getActivity(), newScreenName,true);
         } catch (Exception e) {
             ExceptionTracker.track(e);
         }
@@ -44,7 +45,8 @@ class FragmentLifecycleCallbacks extends FragmentManager.FragmentLifecycleCallba
     @Override
     public void onFragmentStopped(FragmentManager fm, Fragment f) {
         super.onFragmentStopped(fm, f);
-        AppLifecyclePresenter.getInstance().screenByUserActivity(f.getActivity(), oldCalendar, Calendar.getInstance(), f.getActivity().getClass().getSimpleName(), f.getClass().getSimpleName(), null);
+        AppLifecyclePresenter.getInstance().onSessionStop(f.getActivity(), oldCalendar, Calendar.getInstance(), f.getActivity().getClass().getSimpleName(), f.getClass().getSimpleName(), null);
+
     }
 
 
