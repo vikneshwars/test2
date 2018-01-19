@@ -105,7 +105,7 @@ class NotificationHelper {
                 String body = map.get("body");
                 String category = map.get("category");
                 String url = map.get("url");
-
+                addNotification( body,  title);
                 if (category.equalsIgnoreCase("Splash")) {
                     bannerNotification(getIntent(map), title, body, category, url);
                 } else if (category.equalsIgnoreCase("Rating"))
@@ -126,7 +126,6 @@ class NotificationHelper {
     }
 
     private void addNotification(String message, String title) {
-
         JSONObject jsonObject = new JSONObject();
         try {
             jsonObject.put("timeStamp", Util.getCurrentUTC());

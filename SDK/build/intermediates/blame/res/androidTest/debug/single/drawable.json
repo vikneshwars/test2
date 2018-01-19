@@ -4,12 +4,12 @@
         "source": "/Users/Buvaneswaran/.android/build-cache/569423d9c30e8e6fb8f5bb8ea451364fca2d3430/output/res/drawable/common_google_signin_btn_text_dark.xml"
     },
     {
-        "merged": "/Users/Buvaneswaran/Documents/GitHub/VisionBank/SDK/build/intermediates/res/merged/androidTest/debug/drawable/abc_item_background_holo_light.xml",
-        "source": "/Users/Buvaneswaran/.android/build-cache/18bc748e7111b9f82a549c3a033a2b2a9f0f63d0/output/res/drawable/abc_item_background_holo_light.xml"
-    },
-    {
         "merged": "/Users/Buvaneswaran/Documents/GitHub/VisionBank/SDK/build/intermediates/res/merged/androidTest/debug/drawable/abc_textfield_search_material.xml",
         "source": "/Users/Buvaneswaran/.android/build-cache/18bc748e7111b9f82a549c3a033a2b2a9f0f63d0/output/res/drawable/abc_textfield_search_material.xml"
+    },
+    {
+        "merged": "/Users/Buvaneswaran/Documents/GitHub/VisionBank/SDK/build/intermediates/res/merged/androidTest/debug/drawable/abc_item_background_holo_light.xml",
+        "source": "/Users/Buvaneswaran/.android/build-cache/18bc748e7111b9f82a549c3a033a2b2a9f0f63d0/output/res/drawable/abc_item_background_holo_light.xml"
     },
     {
         "merged": "/Users/Buvaneswaran/Documents/GitHub/VisionBank/SDK/build/intermediates/res/merged/androidTest/debug/drawable/common_plus_signin_btn_icon_dark.xml",

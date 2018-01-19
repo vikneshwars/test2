@@ -199,6 +199,7 @@ public class AppNotification {
         String actionName;
 
         try {
+
             NOTIFICATION_ID = intent.getExtras().getInt(context.getString(R.string.resulticksAppNotificationId));
             int icon;
             icon = R.drawable.ic_touch_app;
