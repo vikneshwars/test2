@@ -11,12 +11,12 @@ public final class R {
         public static int adSize = 0x7f010021;
         public static int adSizes = 0x7f010022;
         public static int adUnitId = 0x7f010023;
-        public static int buttonSize = 0x7f0100cb;
+        public static int buttonSize = 0x7f0100c9;
         public static int circleCrop = 0x7f0100b1;
-        public static int colorScheme = 0x7f0100cc;
+        public static int colorScheme = 0x7f0100ca;
         public static int imageAspectRatio = 0x7f0100b0;
         public static int imageAspectRatioAdjust = 0x7f0100af;
-        public static int scopeUris = 0x7f0100cd;
+        public static int scopeUris = 0x7f0100cb;
     }
     public static final class color {
         public static int common_google_signin_btn_text_dark = 0x7f090062;
@@ -128,8 +128,8 @@ public final class R {
         public static int create_calendar_message = 0x7f050037;
         public static int create_calendar_title = 0x7f050038;
         public static int decline = 0x7f050039;
-        public static int store_picture_message = 0x7f050066;
-        public static int store_picture_title = 0x7f050067;
+        public static int store_picture_message = 0x7f050067;
+        public static int store_picture_title = 0x7f050068;
     }
     public static final class style {
         public static int Theme_IAPTheme = 0x7f070110;
@@ -143,7 +143,7 @@ public final class R {
         public static int LoadingImageView_circleCrop = 2;
         public static int LoadingImageView_imageAspectRatio = 1;
         public static int LoadingImageView_imageAspectRatioAdjust = 0;
-        public static int[] SignInButton = { 0x7f0100cb, 0x7f0100cc, 0x7f0100cd };
+        public static int[] SignInButton = { 0x7f0100c9, 0x7f0100ca, 0x7f0100cb };
         public static int SignInButton_buttonSize = 0;
         public static int SignInButton_colorScheme = 1;
         public static int SignInButton_scopeUris = 2;

@@ -3,6 +3,7 @@
 
     <!--Shared Preference Keys-->
 
+    <string name="resulticksSharedDynamicBaseUrl">dynamicBaseUrl</string>
     <string name="resulticksSharedUserId">sharedUserId</string>
     <string name="resulticksSharedDatabaseDeviceId">sharedDatabaseDeviceId</string>
     <string name="resulticksSharedReferral">QueryParameter</string>
@@ -19,7 +20,7 @@
 
     <!--SDK API KEY -->
 
-    <string name="resulticksManifestApiKey">interakt.resulticks</string>
+    <string name="resulticksManifestApiKey">resulticks.key</string>
 
     <!--APP Notification ID  -->
 

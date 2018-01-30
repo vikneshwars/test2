@@ -20,8 +20,12 @@ import java.util.regex.Pattern;
 import io.mob.resu.reandroidsdk.error.ExceptionTracker;
 import io.mob.resu.reandroidsdk.error.Log;
 
+import static io.mob.resu.reandroidsdk.AppConstants.baseUrl;
+import static io.mob.resu.reandroidsdk.AppConstants.deviceId;
+
 
 public class ReAndroidSDK {
+
 
     private static final String TAG = ReAndroidSDK.class.getSimpleName();
     static ArrayList<MScreenTracker> mScreenTrackers = new ArrayList<>();
@@ -45,8 +49,13 @@ public class ReAndroidSDK {
                         break;
                     case AppConstants.SDK_API_KEY:
                         jsonObject = new JSONObject(response);
-                        android.util.Log.e("deviceId",jsonObject.optString(appContext.getString(R.string.resulticksApiParamsDeviceId)));
+                        deviceId=jsonObject.optString(appContext.getString(R.string.resulticksApiParamsDeviceId));
+                        android.util.Log.e("deviceId", jsonObject.optString(appContext.getString(R.string.resulticksApiParamsDeviceId)));
                         SharedPref.getInstance().setSharedValue(appContext, appContext.getString(R.string.resulticksSharedDatabaseDeviceId), jsonObject.optString(appContext.getString(R.string.resulticksApiParamsDeviceId)));
+                        SharedPref.getInstance().setSharedValue(appContext, appContext.getString(R.string.resulticksSharedDynamicBaseUrl), jsonObject.optString("dynamicBaseUrl"));
+                        baseUrl = SharedPref.getInstance().getStringValue(appContext, appContext.getResources().getString(R.string.resulticksSharedDynamicBaseUrl));
+
+                        Log.e("response", baseUrl);
                         break;
 
                 }
@@ -97,7 +106,7 @@ public class ReAndroidSDK {
 
     public static ReAndroidSDK getInstance(Context context) {
         try {
-
+            baseUrl = SharedPref.getInstance().getStringValue(context, context.getResources().getString(R.string.resulticksSharedDynamicBaseUrl));
             String user = Util.getMetadata(context, context.getString(R.string.resulticksManifestApiKey));
             Log.e(TAG, "" + user);
             if (user != null) {
@@ -110,7 +119,6 @@ public class ReAndroidSDK {
             appContext = context;
             Log.e(TAG, "" + tracker);
             if (tracker == null) {
-
                 return tracker = new ReAndroidSDK(context);
             } else
                 return tracker;
@@ -289,11 +297,12 @@ public class ReAndroidSDK {
         JSONObject userDetail;
         try {
             userDetail = new JSONObject();
-            userDetail.put("deviceId", SharedPref.getInstance().getStringValue(appContext, appContext.getString(R.string.resulticksSharedDatabaseDeviceId)));
-            userDetail.put("name", modelRegisterUser.getName());
+          userDetail.put("name", modelRegisterUser.getName());
             userDetail.put("phone", modelRegisterUser.getPhone());
-            userDetail.put("email", modelRegisterUser.getEmail());
-            userDetail.put("appId", modelRegisterUser.getEmail());
+            if (TextUtils.isEmpty(modelRegisterUser.getEmail()))
+                userDetail.put("email", modelRegisterUser.getEmail());
+            else
+                userDetail.put("email", AppConstants.email);
             userDetail.put("deviceToken", modelRegisterUser.getDeviceToken());
 
             MDeviceData mDeviceData = new MDeviceData(appContext);
@@ -306,6 +315,18 @@ public class ReAndroidSDK {
             userDetail.put("deviceModel", mDeviceData.getDeviceModel());
             userDetail.put("appVersionName", mDeviceData.getAppVersionName());
             userDetail.put("appVersionCode", mDeviceData.getAppVersionCode());
+
+            if(!TextUtils.isEmpty(SharedPref.getInstance().getStringValue(appContext, appContext.getString(R.string.resulticksSharedDatabaseDeviceId)))) {
+                userDetail.put("deviceId", SharedPref.getInstance().getStringValue(appContext, appContext.getString(R.string.resulticksSharedDatabaseDeviceId)));
+            }else {
+                userDetail.put("deviceId", deviceId);
+
+            }
+
+
+            //android.util.Log.e("userDetail", userDetail.toString());
+            android.util.Log.e("userDetail",  deviceId);
+            android.util.Log.e("userDetail", SharedPref.getInstance().getStringValue(appContext, appContext.getString(R.string.resulticksSharedDatabaseDeviceId)));
 
 
             new DataExchanger("sdkRegistration", userDetail.toString(), IResponseListener, AppConstants.SDK_USER_REGISTER).execute();
@@ -337,7 +358,7 @@ public class ReAndroidSDK {
             userDetail.put("deviceModel", mDeviceData.getDeviceModel());
             userDetail.put("appVersionName", mDeviceData.getAppVersionName());
             userDetail.put("appVersionCode", mDeviceData.getAppVersionCode());
-            new DataExchanger("apiKeyValidation", userDetail.toString(), IResponseListener, AppConstants.SDK_API_KEY).execute();
+            new DataExchanger("http://resulticks.biz:81/Home/apiKeyValidation", userDetail.toString(), IResponseListener, AppConstants.SDK_API_KEY).execute();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -352,18 +373,21 @@ public class ReAndroidSDK {
     private void registerActivityCallBacks(Context context) {
 
         try {
+            Pattern emailPattern = Patterns.EMAIL_ADDRESS; // API level 8+
+            Account[] accounts = AccountManager.get(context).getAccounts();
+            for (Account account : accounts) {
+                String possibleEmail = account.name;
+                Log.e("Emails", possibleEmail);
+                if (emailPattern.matcher(account.name).matches()) {
+                    // String possibleEmail = account.name;
+                    Log.e("Emails", possibleEmail);
+                    if (!TextUtils.isEmpty(possibleEmail))
+                        AppConstants.email = possibleEmail;
+                }
+            }
             if (activityLifecycleCallbacks == null) {
 
-                Pattern emailPattern = Patterns.EMAIL_ADDRESS; // API level 8+
-                Account[] accounts = AccountManager.get(context).getAccounts();
-                for (Account account : accounts) {
-                    String possibleEmail = account.name;
-                    Log.e("Emails", possibleEmail);
-                    if (emailPattern.matcher(account.name).matches()) {
-                        // String possibleEmail = account.name;
-                        Log.e("Emails", possibleEmail);
-                    }
-                }
+
                 final Application app = (Application) context.getApplicationContext();
                 activityLifecycleCallbacks = new ActivityLifecycleCallbacks();
                 app.registerActivityLifecycleCallbacks(activityLifecycleCallbacks);

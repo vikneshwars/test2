@@ -37,7 +37,7 @@
     <string name="resulticksDeepLinkParamIsNewInstall">isNewInstall</string>
     <string name="resulticksDeepLinkParamIsViaDeepLinkingLauncher">isViaDeepLinkingLauncher</string>
     <string name="resulticksDeepLinkParamReferralId">_resulticks_link_unique_Id</string>
-    <string name="resulticksManifestApiKey">interakt.resulticks</string>
+    <string name="resulticksManifestApiKey">resulticks.key</string>
     <string name="resulticksNotificationTypeQuickSurvey">QuickSurvey</string>
     <string name="resulticksNotificationTypeRating">Rating</string>
     <string name="resulticksNotificationTypeSplash">Splash</string>
@@ -45,6 +45,7 @@
     <string name="resulticksSharedAdverId">advertId</string>
     <string name="resulticksSharedCampaignId">sharedCampaignId</string>
     <string name="resulticksSharedDatabaseDeviceId">sharedDatabaseDeviceId</string>
+    <string name="resulticksSharedDynamicBaseUrl">dynamicBaseUrl</string>
     <string name="resulticksSharedReferral">QueryParameter</string>
     <string name="resulticksSharedUserId">sharedUserId</string>
     <string name="we_are_always_trying_to_improve_n_what_we_do_and_your_feedback_is_invaluable">We are always trying to improve  what we do and your feedback is invaluable!</string>

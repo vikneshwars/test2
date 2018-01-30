@@ -11,12 +11,12 @@ public final class R {
         public static final int adSize = 0x7f010021;
         public static final int adSizes = 0x7f010022;
         public static final int adUnitId = 0x7f010023;
-        public static final int buttonSize = 0x7f0100cb;
+        public static final int buttonSize = 0x7f0100c9;
         public static final int circleCrop = 0x7f0100b1;
-        public static final int colorScheme = 0x7f0100cc;
+        public static final int colorScheme = 0x7f0100ca;
         public static final int imageAspectRatio = 0x7f0100b0;
         public static final int imageAspectRatioAdjust = 0x7f0100af;
-        public static final int scopeUris = 0x7f0100cd;
+        public static final int scopeUris = 0x7f0100cb;
     }
     public static final class color {
         public static final int common_google_signin_btn_text_dark = 0x7f090062;
@@ -128,8 +128,8 @@ public final class R {
         public static final int create_calendar_message = 0x7f050037;
         public static final int create_calendar_title = 0x7f050038;
         public static final int decline = 0x7f050039;
-        public static final int store_picture_message = 0x7f050066;
-        public static final int store_picture_title = 0x7f050067;
+        public static final int store_picture_message = 0x7f050067;
+        public static final int store_picture_title = 0x7f050068;
     }
     public static final class style {
         public static final int Theme_IAPTheme = 0x7f070110;
@@ -143,7 +143,7 @@ public final class R {
         public static final int LoadingImageView_circleCrop = 2;
         public static final int LoadingImageView_imageAspectRatio = 1;
         public static final int LoadingImageView_imageAspectRatioAdjust = 0;
-        public static final int[] SignInButton = { 0x7f0100cb, 0x7f0100cc, 0x7f0100cd };
+        public static final int[] SignInButton = { 0x7f0100c9, 0x7f0100ca, 0x7f0100cb };
         public static final int SignInButton_buttonSize = 0;
         public static final int SignInButton_colorScheme = 1;
         public static final int SignInButton_scopeUris = 2;

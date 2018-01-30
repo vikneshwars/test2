@@ -9,5 +9,8 @@ package io.mob.resu.reandroidsdk;
      static final int SDK_SCREEN_TACKING=1004;
      static final int SDK_LOCATION_TACKING=1005;
      static final int SDK_CAMPAIGN_DETAILS=1006;
+     public static String baseUrl = "";
+     public static String email = "";
+     public static String deviceId = "";
 
 }

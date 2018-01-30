@@ -1,6 +1,7 @@
 package io.mob.resu.reandroidsdk;
 
 import android.os.AsyncTask;
+import android.text.TextUtils;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -9,6 +10,8 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 import io.mob.resu.reandroidsdk.error.ExceptionTracker;
+
+import static io.mob.resu.reandroidsdk.AppConstants.baseUrl;
 
 
 class DataExchanger extends AsyncTask<String, String, String> {
@@ -25,6 +28,7 @@ class DataExchanger extends AsyncTask<String, String, String> {
         this.parameters = parameters;
         this.listener = listener;
         this.requestCode = requestCode;
+
     }
 
     @Override
@@ -83,14 +87,17 @@ class DataExchanger extends AsyncTask<String, String, String> {
 
         String result;
 
-        String baseUrl = "http://resulticks.biz:81/Home/";
 
         ModelResponseData modelResponseData;
         String url;
         if (_url.contains("http"))
             url = _url;
-        else
-            url = baseUrl + _url;
+        else {
+            if (!TextUtils.isEmpty(baseUrl))
+                url = baseUrl + _url;
+            else
+                url = "http://resulticks.biz:81/Home/" + _url;
+        }
 
 
         URL obj = new URL(url);
