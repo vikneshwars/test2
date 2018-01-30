@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="/Users/Buvaneswaran/.android/build-cache/e427e0cd35ee742c0aa556495f68eb30f35e9d64/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.0"
+        sha1="da27a32db6af8954ee8061537c7d476fcb1df46f">
+        <dex dex="/Users/Buvaneswaran/Documents/GitHub/REAndroidSDK/app/build/intermediates/pre-dexed/debug/classes_c5dea8cebdd56c908ede5400cc33827f5dd7dc44.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/Buvaneswaran/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/25.3.1/support-annotations-25.3.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.0"
+        sha1="bf8841d29fa39e077730e7a91222c2ce269fa7c9">
+        <dex dex="/Users/Buvaneswaran/Documents/GitHub/REAndroidSDK/app/build/intermediates/pre-dexed/debug/support-annotations-25.3.1_52976b18d8a4c3187e60fc4d08da41f150bb7a62.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/Buvaneswaran/.android/build-cache/7bf3b15c6dc7b9debfe3ddf90f22ac23d781ee3b/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.0"
+        sha1="052f5f840f21174a3ecf6544130194e2652cbb73">
+        <dex dex="/Users/Buvaneswaran/Documents/GitHub/REAndroidSDK/app/build/intermediates/pre-dexed/debug/classes_29c554f3199f4825808db73183f26f57c2252523.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/Buvaneswaran/.android/build-cache/afb058988f91842216cd07fba94d83aa54f8cd36/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.0"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="/Users/Buvaneswaran/Documents/GitHub/REAndroidSDK/app/build/intermediates/pre-dexed/debug/classes_f2cd9a55a54729a486ac547e4575a9a2044dcd13.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/Buvaneswaran/.android/build-cache/d15098cb915870c233b97711013f5e7bf02933d0/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.0"
+        sha1="4a26a1154d053ab11aaf4c3967c42a4d66390991">
+        <dex dex="/Users/Buvaneswaran/Documents/GitHub/REAndroidSDK/app/build/intermediates/pre-dexed/debug/classes_bb20e66c01098d3420eef06e1fe67fc8fa344412.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/Buvaneswaran/.android/build-cache/173dd366b830ca057689dad69dc3faf37b36f571/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.0"
+        sha1="150252b33b00274cc868578ade018fda0d43a3eb">
+        <dex dex="/Users/Buvaneswaran/Documents/GitHub/REAndroidSDK/app/build/intermediates/pre-dexed/debug/classes_607598ef816c12417770712c798db4354469c283.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/Buvaneswaran/.android/build-cache/be76083e7f2a3aeb667060131973efbe4498ea8a/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.0"
+        sha1="efb8cb62d47d157c29d1521daac7eefd4cb881ee">
+        <dex dex="/Users/Buvaneswaran/Documents/GitHub/REAndroidSDK/app/build/intermediates/pre-dexed/debug/classes_73f8c8eefbb3cc5a9fce36c12bbc4414842a90cf.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/Buvaneswaran/.android/build-cache/e5d5903d57868fd3f6ab5566befdc068189c2933/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.0"
+        sha1="45f697922e6f072daa12f8a2995dc77ab03c11da">
+        <dex dex="/Users/Buvaneswaran/Documents/GitHub/REAndroidSDK/app/build/intermediates/pre-dexed/debug/classes_32bfac7d38b7a8cfe39ecce1e33c517ddc4b5438.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/Buvaneswaran/Documents/GitHub/REAndroidSDK/SDK/build/intermediates/bundles/default/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.0"
+        sha1="9c2e705bf3dbc95a5ed7d3c617909783d2b07a6e">
+        <dex dex="/Users/Buvaneswaran/Documents/GitHub/REAndroidSDK/app/build/intermediates/pre-dexed/debug/classes_1cf822797a074b4fd2874a3049811ffe0ad347c0.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/Buvaneswaran/.android/build-cache/7cdecc9c277bd170f6eaf0de30ac7f6abb9b60e4/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.0"
+        sha1="47635644d0d5c103c1dd8360549eb9ba3225c7d3">
+        <dex dex="/Users/Buvaneswaran/Documents/GitHub/REAndroidSDK/app/build/intermediates/pre-dexed/debug/classes_4871648c6169bfd24207a73aab4ef7355198c401.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/Buvaneswaran/.android/build-cache/dffb6bd353469bd3860aa248053f3a0054039d39/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.0"
+        sha1="6ef31f1555bb4cc513ec8d52711365a8b89f3600">
+        <dex dex="/Users/Buvaneswaran/Documents/GitHub/REAndroidSDK/app/build/intermediates/pre-dexed/debug/classes_18d1f5f0cc0615d7482d31f2d251624432eac37f.jar" />
+    </item>
+
+</items>

@@ -1,6 +1,6 @@
 [
     {
-        "outputFile": "/Users/Buvaneswaran/Documents/GitHub/VisionBank/SDK/build/intermediates/incremental/mergeDebugResources/merged.dir/values/values.xml",
+        "outputFile": "/Users/Buvaneswaran/Documents/GitHub/REAndroidSDK/SDK/build/intermediates/incremental/mergeDebugResources/merged.dir/values/values.xml",
         "map": [
             {
                 "to": {
@@ -296,7 +296,7 @@
                     "endOffset": 1104
                 },
                 "from": {
-                    "file": "/Users/Buvaneswaran/Documents/GitHub/VisionBank/SDK/src/main/res/values/colors.xml",
+                    "file": "/Users/Buvaneswaran/Documents/GitHub/REAndroidSDK/SDK/src/main/res/values/colors.xml",
                     "position": {
                         "startLine": 3,
                         "startColumn": 4,
@@ -315,7 +315,7 @@
                     "endOffset": 1154
                 },
                 "from": {
-                    "file": "/Users/Buvaneswaran/Documents/GitHub/VisionBank/SDK/src/main/res/values/colors.xml",
+                    "file": "/Users/Buvaneswaran/Documents/GitHub/REAndroidSDK/SDK/src/main/res/values/colors.xml",
                     "position": {
                         "startLine": 4,
                         "startColumn": 4,
@@ -4419,7 +4419,7 @@
                     "endOffset": 36968
                 },
                 "from": {
-                    "file": "/Users/Buvaneswaran/Documents/GitHub/VisionBank/SDK/src/main/res/values/strings.xml",
+                    "file": "/Users/Buvaneswaran/Documents/GitHub/REAndroidSDK/SDK/src/main/res/values/strings.xml",
                     "position": {
                         "startLine": 1,
                         "startColumn": 4,
@@ -4875,7 +4875,7 @@
                     "endOffset": 39985
                 },
                 "from": {
-                    "file": "/Users/Buvaneswaran/Documents/GitHub/VisionBank/SDK/src/main/res/values/strings.xml",
+                    "file": "/Users/Buvaneswaran/Documents/GitHub/REAndroidSDK/SDK/src/main/res/values/strings.xml",
                     "position": {
                         "startLine": 58,
                         "startColumn": 4,
@@ -4894,7 +4894,7 @@
                     "endOffset": 40058
                 },
                 "from": {
-                    "file": "/Users/Buvaneswaran/Documents/GitHub/VisionBank/SDK/src/main/res/values/strings.xml",
+                    "file": "/Users/Buvaneswaran/Documents/GitHub/REAndroidSDK/SDK/src/main/res/values/strings.xml",
                     "position": {
                         "startLine": 63,
                         "startColumn": 4,
@@ -4913,7 +4913,7 @@
                     "endOffset": 40113
                 },
                 "from": {
-                    "file": "/Users/Buvaneswaran/Documents/GitHub/VisionBank/SDK/src/main/res/values/strings.xml",
+                    "file": "/Users/Buvaneswaran/Documents/GitHub/REAndroidSDK/SDK/src/main/res/values/strings.xml",
                     "position": {
                         "startLine": 61,
                         "startColumn": 4,
@@ -4932,7 +4932,7 @@
                     "endOffset": 40176
                 },
                 "from": {
-                    "file": "/Users/Buvaneswaran/Documents/GitHub/VisionBank/SDK/src/main/res/values/strings.xml",
+                    "file": "/Users/Buvaneswaran/Documents/GitHub/REAndroidSDK/SDK/src/main/res/values/strings.xml",
                     "position": {
                         "startLine": 60,
                         "startColumn": 4,
@@ -4951,7 +4951,7 @@
                     "endOffset": 40249
                 },
                 "from": {
-                    "file": "/Users/Buvaneswaran/Documents/GitHub/VisionBank/SDK/src/main/res/values/strings.xml",
+                    "file": "/Users/Buvaneswaran/Documents/GitHub/REAndroidSDK/SDK/src/main/res/values/strings.xml",
                     "position": {
                         "startLine": 62,
                         "startColumn": 4,
@@ -4970,7 +4970,7 @@
                     "endOffset": 40350
                 },
                 "from": {
-                    "file": "/Users/Buvaneswaran/Documents/GitHub/VisionBank/SDK/src/main/res/values/strings.xml",
+                    "file": "/Users/Buvaneswaran/Documents/GitHub/REAndroidSDK/SDK/src/main/res/values/strings.xml",
                     "position": {
                         "startLine": 65,
                         "startColumn": 4,
@@ -4989,7 +4989,7 @@
                     "endOffset": 40393
                 },
                 "from": {
-                    "file": "/Users/Buvaneswaran/Documents/GitHub/VisionBank/SDK/src/main/res/values/strings.xml",
+                    "file": "/Users/Buvaneswaran/Documents/GitHub/REAndroidSDK/SDK/src/main/res/values/strings.xml",
                     "position": {
                         "startLine": 59,
                         "startColumn": 4,
@@ -5008,7 +5008,7 @@
                     "endOffset": 40440
                 },
                 "from": {
-                    "file": "/Users/Buvaneswaran/Documents/GitHub/VisionBank/SDK/src/main/res/values/strings.xml",
+                    "file": "/Users/Buvaneswaran/Documents/GitHub/REAndroidSDK/SDK/src/main/res/values/strings.xml",
                     "position": {
                         "startLine": 64,
                         "startColumn": 4,
@@ -5027,7 +5027,7 @@
                     "endOffset": 40504
                 },
                 "from": {
-                    "file": "/Users/Buvaneswaran/Documents/GitHub/VisionBank/SDK/src/main/res/values/strings.xml",
+                    "file": "/Users/Buvaneswaran/Documents/GitHub/REAndroidSDK/SDK/src/main/res/values/strings.xml",
                     "position": {
                         "startLine": 55,
                         "startColumn": 4,
@@ -5046,7 +5046,7 @@
                     "endOffset": 40560
                 },
                 "from": {
-                    "file": "/Users/Buvaneswaran/Documents/GitHub/VisionBank/SDK/src/main/res/values/strings.xml",
+                    "file": "/Users/Buvaneswaran/Documents/GitHub/REAndroidSDK/SDK/src/main/res/values/strings.xml",
                     "position": {
                         "startLine": 41,
                         "startColumn": 4,
@@ -5065,7 +5065,7 @@
                     "endOffset": 40624
                 },
                 "from": {
-                    "file": "/Users/Buvaneswaran/Documents/GitHub/VisionBank/SDK/src/main/res/values/strings.xml",
+                    "file": "/Users/Buvaneswaran/Documents/GitHub/REAndroidSDK/SDK/src/main/res/values/strings.xml",
                     "position": {
                         "startLine": 37,
                         "startColumn": 4,
@@ -5084,7 +5084,7 @@
                     "endOffset": 40688
                 },
                 "from": {
-                    "file": "/Users/Buvaneswaran/Documents/GitHub/VisionBank/SDK/src/main/res/values/strings.xml",
+                    "file": "/Users/Buvaneswaran/Documents/GitHub/REAndroidSDK/SDK/src/main/res/values/strings.xml",
                     "position": {
                         "startLine": 46,
                         "startColumn": 4,
@@ -5103,7 +5103,7 @@
                     "endOffset": 40754
                 },
                 "from": {
-                    "file": "/Users/Buvaneswaran/Documents/GitHub/VisionBank/SDK/src/main/res/values/strings.xml",
+                    "file": "/Users/Buvaneswaran/Documents/GitHub/REAndroidSDK/SDK/src/main/res/values/strings.xml",
                     "position": {
                         "startLine": 53,
                         "startColumn": 4,
@@ -5122,7 +5122,7 @@
                     "endOffset": 40810
                 },
                 "from": {
-                    "file": "/Users/Buvaneswaran/Documents/GitHub/VisionBank/SDK/src/main/res/values/strings.xml",
+                    "file": "/Users/Buvaneswaran/Documents/GitHub/REAndroidSDK/SDK/src/main/res/values/strings.xml",
                     "position": {
                         "startLine": 57,
                         "startColumn": 4,
@@ -5141,7 +5141,7 @@
                     "endOffset": 40872
                 },
                 "from": {
-                    "file": "/Users/Buvaneswaran/Documents/GitHub/VisionBank/SDK/src/main/res/values/strings.xml",
+                    "file": "/Users/Buvaneswaran/Documents/GitHub/REAndroidSDK/SDK/src/main/res/values/strings.xml",
                     "position": {
                         "startLine": 48,
                         "startColumn": 4,
@@ -5160,7 +5160,7 @@
                     "endOffset": 40936
                 },
                 "from": {
-                    "file": "/Users/Buvaneswaran/Documents/GitHub/VisionBank/SDK/src/main/res/values/strings.xml",
+                    "file": "/Users/Buvaneswaran/Documents/GitHub/REAndroidSDK/SDK/src/main/res/values/strings.xml",
                     "position": {
                         "startLine": 50,
                         "startColumn": 4,
@@ -5179,7 +5179,7 @@
                     "endOffset": 41002
                 },
                 "from": {
-                    "file": "/Users/Buvaneswaran/Documents/GitHub/VisionBank/SDK/src/main/res/values/strings.xml",
+                    "file": "/Users/Buvaneswaran/Documents/GitHub/REAndroidSDK/SDK/src/main/res/values/strings.xml",
                     "position": {
                         "startLine": 56,
                         "startColumn": 4,
@@ -5198,7 +5198,7 @@
                     "endOffset": 41062
                 },
                 "from": {
-                    "file": "/Users/Buvaneswaran/Documents/GitHub/VisionBank/SDK/src/main/res/values/strings.xml",
+                    "file": "/Users/Buvaneswaran/Documents/GitHub/REAndroidSDK/SDK/src/main/res/values/strings.xml",
                     "position": {
                         "startLine": 52,
                         "startColumn": 4,
@@ -5217,7 +5217,7 @@
                     "endOffset": 41114
                 },
                 "from": {
-                    "file": "/Users/Buvaneswaran/Documents/GitHub/VisionBank/SDK/src/main/res/values/strings.xml",
+                    "file": "/Users/Buvaneswaran/Documents/GitHub/REAndroidSDK/SDK/src/main/res/values/strings.xml",
                     "position": {
                         "startLine": 36,
                         "startColumn": 4,
@@ -5236,7 +5236,7 @@
                     "endOffset": 41180
                 },
                 "from": {
-                    "file": "/Users/Buvaneswaran/Documents/GitHub/VisionBank/SDK/src/main/res/values/strings.xml",
+                    "file": "/Users/Buvaneswaran/Documents/GitHub/REAndroidSDK/SDK/src/main/res/values/strings.xml",
                     "position": {
                         "startLine": 43,
                         "startColumn": 4,
@@ -5255,7 +5255,7 @@
                     "endOffset": 41260
                 },
                 "from": {
-                    "file": "/Users/Buvaneswaran/Documents/GitHub/VisionBank/SDK/src/main/res/values/strings.xml",
+                    "file": "/Users/Buvaneswaran/Documents/GitHub/REAndroidSDK/SDK/src/main/res/values/strings.xml",
                     "position": {
                         "startLine": 39,
                         "startColumn": 4,
@@ -5274,7 +5274,7 @@
                     "endOffset": 41320
                 },
                 "from": {
-                    "file": "/Users/Buvaneswaran/Documents/GitHub/VisionBank/SDK/src/main/res/values/strings.xml",
+                    "file": "/Users/Buvaneswaran/Documents/GitHub/REAndroidSDK/SDK/src/main/res/values/strings.xml",
                     "position": {
                         "startLine": 45,
                         "startColumn": 4,
@@ -5293,7 +5293,7 @@
                     "endOffset": 41388
                 },
                 "from": {
-                    "file": "/Users/Buvaneswaran/Documents/GitHub/VisionBank/SDK/src/main/res/values/strings.xml",
+                    "file": "/Users/Buvaneswaran/Documents/GitHub/REAndroidSDK/SDK/src/main/res/values/strings.xml",
                     "position": {
                         "startLine": 51,
                         "startColumn": 4,
@@ -5312,7 +5312,7 @@
                     "endOffset": 41454
                 },
                 "from": {
-                    "file": "/Users/Buvaneswaran/Documents/GitHub/VisionBank/SDK/src/main/res/values/strings.xml",
+                    "file": "/Users/Buvaneswaran/Documents/GitHub/REAndroidSDK/SDK/src/main/res/values/strings.xml",
                     "position": {
                         "startLine": 47,
                         "startColumn": 4,
@@ -5331,7 +5331,7 @@
                     "endOffset": 41514
                 },
                 "from": {
-                    "file": "/Users/Buvaneswaran/Documents/GitHub/VisionBank/SDK/src/main/res/values/strings.xml",
+                    "file": "/Users/Buvaneswaran/Documents/GitHub/REAndroidSDK/SDK/src/main/res/values/strings.xml",
                     "position": {
                         "startLine": 44,
                         "startColumn": 4,
@@ -5350,7 +5350,7 @@
                     "endOffset": 41588
                 },
                 "from": {
-                    "file": "/Users/Buvaneswaran/Documents/GitHub/VisionBank/SDK/src/main/res/values/strings.xml",
+                    "file": "/Users/Buvaneswaran/Documents/GitHub/REAndroidSDK/SDK/src/main/res/values/strings.xml",
                     "position": {
                         "startLine": 49,
                         "startColumn": 4,
@@ -5369,7 +5369,7 @@
                     "endOffset": 41654
                 },
                 "from": {
-                    "file": "/Users/Buvaneswaran/Documents/GitHub/VisionBank/SDK/src/main/res/values/strings.xml",
+                    "file": "/Users/Buvaneswaran/Documents/GitHub/REAndroidSDK/SDK/src/main/res/values/strings.xml",
                     "position": {
                         "startLine": 54,
                         "startColumn": 4,
@@ -5388,7 +5388,7 @@
                     "endOffset": 41712
                 },
                 "from": {
-                    "file": "/Users/Buvaneswaran/Documents/GitHub/VisionBank/SDK/src/main/res/values/strings.xml",
+                    "file": "/Users/Buvaneswaran/Documents/GitHub/REAndroidSDK/SDK/src/main/res/values/strings.xml",
                     "position": {
                         "startLine": 40,
                         "startColumn": 4,
@@ -5407,7 +5407,7 @@
                     "endOffset": 41766
                 },
                 "from": {
-                    "file": "/Users/Buvaneswaran/Documents/GitHub/VisionBank/SDK/src/main/res/values/strings.xml",
+                    "file": "/Users/Buvaneswaran/Documents/GitHub/REAndroidSDK/SDK/src/main/res/values/strings.xml",
                     "position": {
                         "startLine": 42,
                         "startColumn": 4,
@@ -5426,7 +5426,7 @@
                     "endOffset": 41831
                 },
                 "from": {
-                    "file": "/Users/Buvaneswaran/Documents/GitHub/VisionBank/SDK/src/main/res/values/strings.xml",
+                    "file": "/Users/Buvaneswaran/Documents/GitHub/REAndroidSDK/SDK/src/main/res/values/strings.xml",
                     "position": {
                         "startLine": 38,
                         "startColumn": 4,
@@ -5445,7 +5445,7 @@
                     "endOffset": 41902
                 },
                 "from": {
-                    "file": "/Users/Buvaneswaran/Documents/GitHub/VisionBank/SDK/src/main/res/values/strings.xml",
+                    "file": "/Users/Buvaneswaran/Documents/GitHub/REAndroidSDK/SDK/src/main/res/values/strings.xml",
                     "position": {
                         "startLine": 26,
                         "startColumn": 4,
@@ -5464,7 +5464,7 @@
                     "endOffset": 41979
                 },
                 "from": {
-                    "file": "/Users/Buvaneswaran/Documents/GitHub/VisionBank/SDK/src/main/res/values/strings.xml",
+                    "file": "/Users/Buvaneswaran/Documents/GitHub/REAndroidSDK/SDK/src/main/res/values/strings.xml",
                     "position": {
                         "startLine": 30,
                         "startColumn": 4,
@@ -5483,7 +5483,7 @@
                     "endOffset": 42080
                 },
                 "from": {
-                    "file": "/Users/Buvaneswaran/Documents/GitHub/VisionBank/SDK/src/main/res/values/strings.xml",
+                    "file": "/Users/Buvaneswaran/Documents/GitHub/REAndroidSDK/SDK/src/main/res/values/strings.xml",
                     "position": {
                         "startLine": 31,
                         "startColumn": 4,
@@ -5502,7 +5502,7 @@
                     "endOffset": 42169
                 },
                 "from": {
-                    "file": "/Users/Buvaneswaran/Documents/GitHub/VisionBank/SDK/src/main/res/values/strings.xml",
+                    "file": "/Users/Buvaneswaran/Documents/GitHub/REAndroidSDK/SDK/src/main/res/values/strings.xml",
                     "position": {
                         "startLine": 32,
                         "startColumn": 4,
@@ -5521,7 +5521,7 @@
                     "endOffset": 42237
                 },
                 "from": {
-                    "file": "/Users/Buvaneswaran/Documents/GitHub/VisionBank/SDK/src/main/res/values/strings.xml",
+                    "file": "/Users/Buvaneswaran/Documents/GitHub/REAndroidSDK/SDK/src/main/res/values/strings.xml",
                     "position": {
                         "startLine": 22,
                         "startColumn": 4,
@@ -5540,7 +5540,7 @@
                     "endOffset": 42315
                 },
                 "from": {
-                    "file": "/Users/Buvaneswaran/Documents/GitHub/VisionBank/SDK/src/main/res/values/strings.xml",
+                    "file": "/Users/Buvaneswaran/Documents/GitHub/REAndroidSDK/SDK/src/main/res/values/strings.xml",
                     "position": {
                         "startLine": 16,
                         "startColumn": 4,
@@ -5559,7 +5559,7 @@
                     "endOffset": 42383
                 },
                 "from": {
-                    "file": "/Users/Buvaneswaran/Documents/GitHub/VisionBank/SDK/src/main/res/values/strings.xml",
+                    "file": "/Users/Buvaneswaran/Documents/GitHub/REAndroidSDK/SDK/src/main/res/values/strings.xml",
                     "position": {
                         "startLine": 15,
                         "startColumn": 4,
@@ -5578,7 +5578,7 @@
                     "endOffset": 42451
                 },
                 "from": {
-                    "file": "/Users/Buvaneswaran/Documents/GitHub/VisionBank/SDK/src/main/res/values/strings.xml",
+                    "file": "/Users/Buvaneswaran/Documents/GitHub/REAndroidSDK/SDK/src/main/res/values/strings.xml",
                     "position": {
                         "startLine": 17,
                         "startColumn": 4,
@@ -5597,7 +5597,7 @@
                     "endOffset": 42515
                 },
                 "from": {
-                    "file": "/Users/Buvaneswaran/Documents/GitHub/VisionBank/SDK/src/main/res/values/strings.xml",
+                    "file": "/Users/Buvaneswaran/Documents/GitHub/REAndroidSDK/SDK/src/main/res/values/strings.xml",
                     "position": {
                         "startLine": 9,
                         "startColumn": 4,
@@ -5616,7 +5616,7 @@
                     "endOffset": 42576
                 },
                 "from": {
-                    "file": "/Users/Buvaneswaran/Documents/GitHub/VisionBank/SDK/src/main/res/values/strings.xml",
+                    "file": "/Users/Buvaneswaran/Documents/GitHub/REAndroidSDK/SDK/src/main/res/values/strings.xml",
                     "position": {
                         "startLine": 10,
                         "startColumn": 4,
@@ -5635,7 +5635,7 @@
                     "endOffset": 42648
                 },
                 "from": {
-                    "file": "/Users/Buvaneswaran/Documents/GitHub/VisionBank/SDK/src/main/res/values/strings.xml",
+                    "file": "/Users/Buvaneswaran/Documents/GitHub/REAndroidSDK/SDK/src/main/res/values/strings.xml",
                     "position": {
                         "startLine": 18,
                         "startColumn": 4,
@@ -5654,7 +5654,7 @@
                     "endOffset": 42732
                 },
                 "from": {
-                    "file": "/Users/Buvaneswaran/Documents/GitHub/VisionBank/SDK/src/main/res/values/strings.xml",
+                    "file": "/Users/Buvaneswaran/Documents/GitHub/REAndroidSDK/SDK/src/main/res/values/strings.xml",
                     "position": {
                         "startLine": 7,
                         "startColumn": 4,
@@ -5673,7 +5673,7 @@
                     "endOffset": 42806
                 },
                 "from": {
-                    "file": "/Users/Buvaneswaran/Documents/GitHub/VisionBank/SDK/src/main/res/values/strings.xml",
+                    "file": "/Users/Buvaneswaran/Documents/GitHub/REAndroidSDK/SDK/src/main/res/values/strings.xml",
                     "position": {
                         "startLine": 5,
                         "startColumn": 4,
@@ -5692,7 +5692,7 @@
                     "endOffset": 42874
                 },
                 "from": {
-                    "file": "/Users/Buvaneswaran/Documents/GitHub/VisionBank/SDK/src/main/res/values/strings.xml",
+                    "file": "/Users/Buvaneswaran/Documents/GitHub/REAndroidSDK/SDK/src/main/res/values/strings.xml",
                     "position": {
                         "startLine": 8,
                         "startColumn": 4,
@@ -5711,7 +5711,7 @@
                     "endOffset": 42938
                 },
                 "from": {
-                    "file": "/Users/Buvaneswaran/Documents/GitHub/VisionBank/SDK/src/main/res/values/strings.xml",
+                    "file": "/Users/Buvaneswaran/Documents/GitHub/REAndroidSDK/SDK/src/main/res/values/strings.xml",
                     "position": {
                         "startLine": 6,
                         "startColumn": 4,
@@ -5806,7 +5806,7 @@
                     "endOffset": 43399
                 },
                 "from": {
-                    "file": "/Users/Buvaneswaran/Documents/GitHub/VisionBank/SDK/src/main/res/values/strings.xml",
+                    "file": "/Users/Buvaneswaran/Documents/GitHub/REAndroidSDK/SDK/src/main/res/values/strings.xml",
                     "position": {
                         "startLine": 66,
                         "startColumn": 4,

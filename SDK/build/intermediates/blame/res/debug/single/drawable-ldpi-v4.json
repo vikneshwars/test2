@@ -1,14 +1,14 @@
 [
     {
-        "merged": "/Users/Buvaneswaran/Documents/GitHub/VisionBank/SDK/build/intermediates/res/merged/debug/drawable-ldpi-v4/ic_close.png",
-        "source": "/Users/Buvaneswaran/Documents/GitHub/VisionBank/SDK/build/generated/res/pngs/debug/drawable-ldpi/ic_close.png"
+        "merged": "/Users/Buvaneswaran/Documents/GitHub/REAndroidSDK/SDK/build/intermediates/res/merged/debug/drawable-ldpi-v4/ic_close.png",
+        "source": "/Users/Buvaneswaran/Documents/GitHub/REAndroidSDK/SDK/build/generated/res/pngs/debug/drawable-ldpi/ic_close.png"
     },
     {
-        "merged": "/Users/Buvaneswaran/Documents/GitHub/VisionBank/SDK/build/intermediates/res/merged/debug/drawable-ldpi-v4/ic_touch_app.png",
-        "source": "/Users/Buvaneswaran/Documents/GitHub/VisionBank/SDK/build/generated/res/pngs/debug/drawable-ldpi/ic_touch_app.png"
+        "merged": "/Users/Buvaneswaran/Documents/GitHub/REAndroidSDK/SDK/build/intermediates/res/merged/debug/drawable-ldpi-v4/ic_touch_app.png",
+        "source": "/Users/Buvaneswaran/Documents/GitHub/REAndroidSDK/SDK/build/generated/res/pngs/debug/drawable-ldpi/ic_touch_app.png"
     },
     {
-        "merged": "/Users/Buvaneswaran/Documents/GitHub/VisionBank/SDK/build/intermediates/res/merged/debug/drawable-ldpi-v4/common_ic_googleplayservices.png",
+        "merged": "/Users/Buvaneswaran/Documents/GitHub/REAndroidSDK/SDK/build/intermediates/res/merged/debug/drawable-ldpi-v4/common_ic_googleplayservices.png",
         "source": "/Users/Buvaneswaran/.android/build-cache/569423d9c30e8e6fb8f5bb8ea451364fca2d3430/output/res/drawable-ldpi-v4/common_ic_googleplayservices.png"
     }
 ]

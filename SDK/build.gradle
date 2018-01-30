@@ -31,7 +31,6 @@ dependencies {
     })
 
     compile "com.android.support:appcompat-v7:$rootProject.supportVersion"
-
     compile 'com.google.android.gms:play-services-ads:9.4.0'
 
     testCompile 'junit:junit:4.12'
